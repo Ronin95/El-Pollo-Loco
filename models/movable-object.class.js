@@ -48,13 +48,15 @@ class MovableObject {
         this.currentImage++;
     }
 
-    moveRight() {
+    jump() {
+        this.speedY = 30;
+    }
 
+    moveRight() {
+        this.x += this.speed;
     }
 
     moveLeft() {
-        setInterval(() => {
-            this.x -= this.speed;
-        }, 1000/60)
+        this.x -= this.speed;
     }   
 }
