@@ -1,11 +1,4 @@
-class MovableObject {
-    x = 120;
-    y = 250;
-    img;
-    height = 220;
-    width = 100;
-    availableMoves = {};
-    currentImage = 0;
+class MovableObject extends DrawableObject {
     speed = 0.15;
     otherDirection = false;
     speedY = 0;
@@ -24,37 +17,6 @@ class MovableObject {
 
     isAboveGround() {
         return this.y < 180;
-    }
-
-    loadImage(path) {
-        this.img = new Image();
-        this.img.src = path;
-    }
-
-    /**
-     * 
-     * @param {Array} arr - ['img/img1.png', 'img/img2.png', ...]
-     */
-    loadImages(arr) {
-        arr.forEach( (path) => {
-            let img = new Image();
-            img.src = path;
-            this.availableMoves[path] = img;
-        })
-    }
-
-    draw(ctx) {
-        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-    }
-
-    drawFrame(ctx) {
-        if (this instanceof Character || this instanceof Chicken) {
-            ctx.beginPath();
-            ctx.lineWidth = '5';
-            ctx.strokeStyle = 'blue';
-            ctx.rect(this.x, this.y, this.width, this.height);
-            ctx.stroke();
-        }
     }
 
     isColliding (mo) {
@@ -86,7 +48,7 @@ class MovableObject {
     playAnimation(images) {
         let i = this.currentImage % images.length;
         let path = images[i];
-        this.img = this.availableMoves[path];
+        this.img = this.imageCache[path];
         this.currentImage++;
     }
 
