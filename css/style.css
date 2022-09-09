@@ -14,10 +14,24 @@ body {
 
 canvas {
     background-color: black;
+    display: block;
 }
 
 h1 {
     font-size: 64px;
     word-spacing: 10px;
     letter-spacing: 5px;
+}
+
+/* Smartphones */
+@media only screen and (max-width: 720px) {
+    canvas {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-height: 480px) {
+    canvas {
+        height: 100vh;
+    }
 }
