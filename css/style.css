@@ -1,9 +1,23 @@
+@font-face {
+    font-family: 'zabars';
+    src: url('../fonts/zabars.ttf') format('truetype');
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url('../img/5_background/desert-background.png');
+    background-position: center;
+    font-family: 'zabars', Arial, Helvetica, sans-serif;
 }
 
 canvas {
     background-color: black;
+}
+
+h1 {
+    font-size: 64px;
+    word-spacing: 10px;
+    letter-spacing: 5px;
 }
