@@ -66,5 +66,9 @@ class MovableObject extends DrawableObject {
 
     moveLeft() {
         this.x -= this.speed;
-    }   
+    }
+    
+    isNotMoving() {
+        
+    }
 }

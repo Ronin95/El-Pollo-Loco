@@ -35,3 +35,22 @@ h1 {
         height: 100vh;
     }
 }
+
+.settings {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    letter-spacing: 3px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;  
+}
+
+.checkbox input[type="checkbox"], input[type="radio"] {
+    min-width: 1.33rem;
+    min-height: 1.33rem;
+    accent-color: #EA5F00;
+}

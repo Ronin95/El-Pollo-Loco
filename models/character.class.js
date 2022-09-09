@@ -37,8 +37,23 @@ class Character extends MovableObject {
         'img/2_character_pepe/4_hurt/H-42.png',
         'img/2_character_pepe/4_hurt/H-43.png'
     ];
+    IMAGES_SLEEPING = [
+        'img/2_character_pepe/1_idle/long_idle/I-11.png',
+        'img/2_character_pepe/1_idle/long_idle/I-12.png',
+        'img/2_character_pepe/1_idle/long_idle/I-13.png',
+        'img/2_character_pepe/1_idle/long_idle/I-14.png',
+        'img/2_character_pepe/1_idle/long_idle/I-15.png',
+        'img/2_character_pepe/1_idle/long_idle/I-16.png',
+        'img/2_character_pepe/1_idle/long_idle/I-17.png',
+        'img/2_character_pepe/1_idle/long_idle/I-18.png',
+        'img/2_character_pepe/1_idle/long_idle/I-19.png',
+        'img/2_character_pepe/1_idle/long_idle/I-20.png'
+    ];
     world;
     walking_sound = new Audio('./audio/walking.mp3');
+    pain_sound = new Audio('./audio/ouch.mp3');
+    gameOver_sound = new Audio('./audio/game_over.mp3');
+    jump_sound = new Audio('./audio/jump.mp3');
 
     constructor() {
         super().loadImage('img/2_character_pepe/2_walk/W-21.png');
@@ -46,6 +61,7 @@ class Character extends MovableObject {
         this.loadImages(this.IMAGES_JUMPING);
         this.loadImages(this.IMAGES_DEAD);
         this.loadImages(this.IMAGES_HURT);
+        this.loadImages(this.IMAGES_SLEEPING);
         this.applyGravity();
         this.animate();
     }
@@ -66,7 +82,7 @@ class Character extends MovableObject {
             }
 
             if (this.world.keyboard.SPACE && !this.isAboveGround()) {
-                this.jump();
+                this.jump(); // pepe jumps
             }
 
             this.world.camera_x = -this.x + 100;
@@ -89,6 +105,11 @@ class Character extends MovableObject {
     }
     
     jump() {
-        this.speedY = 30;
+        this.speedY = 30; // how high pepe jumps
+        this.jump_sound.play(); // with this line you can hear how pepe sounds when he jumps
+    }
+
+    standingStill() {
+
     }
 }
