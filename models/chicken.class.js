@@ -19,7 +19,7 @@ class Chicken extends MovableObject {
 
     animate() {
         setInterval(() => {
-            this.chicken_walking_audio.play();
+            this.chicken_walking_audio.play(); // chicken sound
             setInterval(() => {
                 this.moveLeft();
             }, 1000 / 60);
