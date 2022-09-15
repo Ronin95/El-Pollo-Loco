@@ -4,6 +4,8 @@ class Character extends MovableObject {
     y = 80;
     x = 40;
     speed = 10;
+    inactivePepe = 0;
+    lastPepeAction = 0;
     IMAGES_WALKING = [
         'img/2_character_pepe/2_walk/W-21.png',
         'img/2_character_pepe/2_walk/W-22.png',
@@ -63,10 +65,53 @@ class Character extends MovableObject {
         this.loadImages(this.IMAGES_HURT);
         this.loadImages(this.IMAGES_SLEEPING);
         this.applyGravity();
-        this.animate();
+        this.displayBehaviour();
+        this.pepeStandingStill();
     }
 
-    animate() {
+    displayBehaviour() {
+        this.pepeMovement();
+        this.pepeAnimations();
+        this.inactivity();
+    }
+    
+    /**
+     * A function that is called when pepe is not moving for 4 seconds.
+     * 
+     * @method
+     * @name standingStill
+     * @kind method
+     * @memberof Character
+     * @returns {void}
+     */
+    inactivity() {
+        setTimeout(() => {
+            setInterval(() => {
+                this.inactivePepe = new Date().getTime() - this.lastAction;
+                if(this.inactivePepe > 6000) {
+                    this.playAnimation(this.IMAGES_SLEEPING);
+                }
+            }, 100);
+        }, 4000);
+    }
+
+    pepeAnimations() {
+        setInterval(() => {
+            if (this.isDead()) {
+                this.playAnimation(this.IMAGES_DEAD);
+            } else if (this.isHurt()) {
+                this.playAnimation(this.IMAGES_HURT);
+            } else if (this.isAboveGround()) {
+                this.playAnimation(this.IMAGES_JUMPING);
+            } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT && !this.isAboveGround()) {
+                this.playAnimation(this.IMAGES_WALKING);
+            } else {
+                this.playAnimation(this.IMAGES_SLEEPING)
+            }
+        }, 100);
+    }
+
+    pepeMovement() {
         setInterval(() => {
             this.walking_sound.pause();
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
@@ -87,29 +132,13 @@ class Character extends MovableObject {
 
             this.world.camera_x = -this.x + 100;
         }, 1000/60)
+    }
 
-
+    pepeStandingStill() {
         setInterval(() => {
-            if (this.isDead()) {
-                this.playAnimation(this.IMAGES_DEAD);
-            } else if (this.isHurt()) {
-                this.playAnimation(this.IMAGES_HURT);
-            } else if (this.isAboveGround()) {
-                this.playAnimation(this.IMAGES_JUMPING);
-            } else {
-                if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-                    this.playAnimation(this.IMAGES_WALKING);
-                }
-            } 
-        }, 50);
-    }
-    
-    jump() {
-        this.speedY = 30; // how high pepe jumps
-        this.jump_sound.play(); // with this line you can hear how pepe sounds when he jumps
-    }
-
-    standingStill() {
-
+            if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.SPACE || this.world.keyboard.B || this.isAboveGround() || this.isHurt() || this.isDead()) {
+                this.lastAction = new Date().getTime();
+             }
+        }, 100);
     }
 }
