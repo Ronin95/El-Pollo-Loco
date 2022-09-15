@@ -5,7 +5,7 @@ class Coin {
     x = 300;
 
     constructor() {
-        super().loadImage('img/8_coin/coin_1.png');
+        loadImage('img/8_coin/coin_1.png');
         this.x = Math.random() * 2700 + 500;
         this.y = Math.random() * 300 + 50;
     }
