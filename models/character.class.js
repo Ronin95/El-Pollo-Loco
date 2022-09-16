@@ -136,7 +136,7 @@ class Character extends MovableObject {
 
     pepeStandingStill() {
         setInterval(() => {
-            if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.SPACE || this.world.keyboard.B || this.isAboveGround() || this.isHurt() || this.isDead()) {
+            if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.SPACE || this.world.keyboard.B || this.world.keyboard.S || this.isAboveGround() || this.isHurt() || this.isDead()) {
                 this.lastAction = new Date().getTime();
              }
         }, 100);
