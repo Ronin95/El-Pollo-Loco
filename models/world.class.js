@@ -11,6 +11,16 @@ class World {
     bottleBar = new BottleBar();
     throwableObjects = [];
     
+    /* All sounds */
+    chickens_1_sound = new Audio('audio/audio_chicken_1.mp3');
+    chickens_2_sound = new Audio('audio/audio_chicken_2.mp3');
+    throw_weapon_sound = new Audio('audio/audio_throw.mp3');
+    broken_bottle_sound = new Audio('audio/breakbottle.mp3');
+    game_over_sound = new Audio('audio/game_over.mp3');
+    jump_pepe_sound = new Audio('audio/jump.mp3');
+    hurt_pepe_sound = new Audio('audio/ouch.mp3');
+    dead_pepe_sound = new Audio('audio/Pepe_dies.mp3');
+    pepe_walking_sound = new Audio('audio/walking.mp3');
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
