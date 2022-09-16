@@ -2,7 +2,7 @@ class Endboss extends MovableObject {
     height = 400;
     width = 250;
     y = 70;
-    energy = 100;
+    endbossEnergy = 100;
 
     ENDBOSS_WALKING = [
         'img/4_enemie_boss_chicken/1_walk/G1.png',
@@ -47,14 +47,62 @@ class Endboss extends MovableObject {
 
     constructor() {
         super().loadImage(this.ENDBOSS_STANDING_STILL[0]);
+        this.loadImages(this.ENDBOSS_WALKING);
         this.loadImages(this.ENDBOSS_STANDING_STILL);
+        this.loadImages(this.ENDBOSS_ATTACK);
+        this.loadImages(this.ENDBOSS_HURT);
+        this.loadImages(this.ENDBOSS_DEAD);
         this.x = 2500; // How far away the final boss is
         this.animate();
+        
     }
 
     animate() {
         setInterval(() => {
             this.playAnimation(this.ENDBOSS_STANDING_STILL);
         }, 500);
+    }
+
+    checkEndbossEnergy() {
+        setInterval(() => {
+            if(this.endbossEnergy <= 0) {
+                this.playAnimation(this.ENDBOSS_DEAD);
+            } else if(this.endbossEnergy > 0 && this.endbossEnergy <= 50) {
+                this.playAnimation(this.ENDBOSS_ATTACK);
+            } else {
+                this.playAnimation(this.ENDBOSS_WALKING);
+            };
+        }, 400);
+    }
+
+    endbossMove() {
+        setInterval(() => {
+            if(this.endbossEnergy < 70) {
+                this.x -= 20;
+                this.y -= 20;
+                this.y += 20;
+                this.x += 14;
+            }
+            if(this.x < 2000) {
+                this.x += 40
+            }
+        }, 100);
+    }
+
+    endbossAngry() {
+        if(this.endbossEnergy < 70) {
+            setInterval(() => {
+                this.playAnimation(this.ENDBOSS_ATTACK);
+            }, 300);
+        }
+    }
+
+    endbossDead() {
+        setInterval(() => {
+            if(this.endbossEnergy <= 0) {
+                this.endbossEnergy = 0;
+                    this.playAnimation(this.ENDBOSS_DEAD);
+            }
+        }, 1000 / 60);
     }
 }
