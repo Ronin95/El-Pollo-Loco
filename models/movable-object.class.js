@@ -6,6 +6,17 @@ class MovableObject extends DrawableObject {
     energy = 100;
     lastHit = 0;
 
+    /**
+     * A method that is called every 25th of a second. 
+     * It checks if the object is above the ground or if it is falling. 
+     * If it is, it will move the object down.
+     * 
+     * @method
+     * @name applyGravity
+     * @kind method
+     * @memberof MovableObject
+     * @returns {void}
+     */
     applyGravity() {
         setInterval(() => {
             if (this.isAboveGround() || this.speedY > 0) {
@@ -15,6 +26,16 @@ class MovableObject extends DrawableObject {
         }, 1000/25);
     }
 
+    /**
+     * Checking if the object is above the ground or if it is falling.
+     * Checks Pepe coordinates
+     * 
+     * @method
+     * @name isAboveGround
+     * @kind method
+     * @memberof MovableObject
+     * @returns {boolean}
+     */
     isAboveGround() {
         if (this instanceof ThrowableObject) { // ThrowableObjects should always fall
             return true;
@@ -23,13 +44,16 @@ class MovableObject extends DrawableObject {
         }
     }
 
-    isColliding (mo) {
-        return  this.x + this.width > mo.x &&
-                this.y + this.height > mo.y &&
-                this.x < mo.x &&
-                this.y < mo.y + mo.height;
-    }
-
+    /**
+     * A method that is called when the object (Pepe) is hit. 
+     * It decreases the energy of the object (Pepe) by 5.
+     * 
+     * @method
+     * @name hit
+     * @kind method
+     * @memberof MovableObject
+     * @returns {void}
+     */
     hit() {
         this.energy -= 5;
         if (this.energy < 0) {
@@ -39,16 +63,45 @@ class MovableObject extends DrawableObject {
         }
     }
 
+    /**
+     * Checking if the object (Pepe) is hurt.
+     * 
+     * @method
+     * @name isHurt
+     * @kind method
+     * @memberof MovableObject
+     * @returns {boolean}
+     */
     isHurt() {
         let timepassed = new Date().getTime() - this.lastHit; // Diff in ms
         timepassed = timepassed / 1000; // Diff in sec
         return timepassed < 0.3;
     }
 
+    /**
+     * Checking if the object (Pepe) is dead.
+     * 
+     * @method
+     * @name isDead
+     * @kind method
+     * @memberof MovableObject
+     * @returns {boolean}
+     */
     isDead() {
         return this.energy == 0;
     }
 
+    /**
+     * The different animations of Pepe are loaded depending on the
+     * experiences he is encountering - hurt - dead - hit etc
+     * 
+     * @method
+     * @name playAnimation
+     * @kind method
+     * @memberof MovableObject
+     * @param {any} images
+     * @returns {void}
+     */
     playAnimation(images) {
         let i = this.currentImage % images.length;
         let path = images[i];
@@ -56,15 +109,42 @@ class MovableObject extends DrawableObject {
         this.currentImage++;
     }
 
+    /**
+     * A method that is called when Pepe jumps.
+     * 
+     * @method
+     * @name jump
+     * @kind method
+     * @memberof MovableObject
+     * @returns {void}
+     */
     jump() {
         this.speedY = 30; // how high pepe jumps
         this.jump_sound.play(); // with this line you can hear how pepe sounds when he jumps
     }
 
+    /**
+     * Moving Pepe to the right.
+     * 
+     * @method
+     * @name moveRight
+     * @kind method
+     * @memberof MovableObject
+     * @returns {void}
+     */
     moveRight() {
         this.x += this.speed;
     }
 
+    /**
+     * Moving Pepe to the left.
+     * 
+     * @method
+     * @name moveLeft
+     * @kind method
+     * @memberof MovableObject
+     * @returns {void}
+     */
     moveLeft() {
         this.x -= this.speed;
     }
