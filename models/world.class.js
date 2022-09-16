@@ -5,10 +5,12 @@ class World {
     canvas;
     keyboard;
     camera_x = 0;
+    runPepe = true;
     healthBar = new HealthBar();
     coinBar = new CoinBar();
     bottleBar = new BottleBar();
     throwableObjects = [];
+    
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
