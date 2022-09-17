@@ -85,7 +85,7 @@ class World {
     checkCollisions() {
         // check collisions
         this.level.enemies.forEach((enemy) => {
-            if (this.character.isColliding(enemy)) {
+            if (this.character.collidingPepe(enemy)) {
                 this.character.hit();
                 this.healthBar.setHealth(this.character.energy);
             }

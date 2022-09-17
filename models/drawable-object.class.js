@@ -75,13 +75,33 @@ class DrawableObject {
         }
     }
 
-    isColliding (mo) {
+    /**
+     * Checking if the character is colliding with the object.
+     * 
+     * @method
+     * @name isColliding
+     * @kind method
+     * @memberof DrawableObject
+     * @param {any} mo
+     * @returns {boolean}
+     */
+    collidingPepe (mo) {
         return  this.x + this.width > mo.x &&
                 this.y + this.height > mo.y &&
                 this.x < mo.x &&
                 this.y < mo.y + mo.height - 30;
     }
 
+    /**
+     * Checking if the character is colliding with the object (chicken) head.
+     * 
+     * @method
+     * @name collidingHead
+     * @kind method
+     * @memberof DrawableObject
+     * @param {any} mo
+     * @returns {boolean}
+     */
     collidingHead(mo) {
         return this.y + this.height > mo.y - this.offsetForHead.top &&
         this.x + this.width > mo.x + this.offsetForHead.left &&
@@ -93,5 +113,53 @@ class DrawableObject {
         bottom: 0,
         left: 20,
         right: 0
+    }
+
+    /**
+     * Checking if the character is colliding with the bottle.
+     * 
+     * @method
+     * @name collidingBottle
+     * @kind method
+     * @memberof DrawableObject
+     * @param {any} mo
+     * @returns {boolean}
+     */
+    collidingBottle(mo) {
+        return this.x + this.width > mo.x + this.offsetForBottle.left &&
+            this.y + this.height > mo.y &&
+            this.x < mo.x &&
+            this.y < mo.y + mo.height - 50;
+    }
+
+    offsetForBottle = {
+        top: 50,
+        bottom: 50,
+        left: 50,
+        right: 50
+    }
+
+    /**
+     * Checking if the character is colliding with the coin.
+     * 
+     * @method
+     * @name collidingCoin
+     * @kind method
+     * @memberof DrawableObject
+     * @param {any} mo
+     * @returns {boolean}
+     */
+    collidingCoin(mo) {
+        return this.x + this.width > mo.x + this.offsetForCoin.left &&
+            this.y + this.height > mo.y + this.offsetForCoin.bottom &&
+            this.x < mo.x &&
+            this.y < mo.y + mo.height - 50;
+    }
+
+    offsetForCoin = {
+        top: 50,
+        bottom: 50,
+        left: 50,
+        right: 50
     }
 }
