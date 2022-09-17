@@ -31,15 +31,48 @@ class World {
         this.run();
     }
 
-    setWorld() {
-        this.character.world = this;
+    /**
+     * Creating a random number of clouds, coins, bottles and chickens.
+     * 
+     * @method
+     * @name createRandomWorld
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
+    createRandomWorld() {
+        randomNum = Math.floor(Math.random()*20)+5; // Random number between 5 and 19
+
+        // Random number of clouds
+        for (cloud = 0; cloud <= randomNum; cloud++) {
+            this.level.clouds.push(new Cloud())
+        }
+        // Random number of coins
+        for (coin = 0; coin <= randomNum; coin++) {
+            this.level.coins.push(new Coin())
+        }
+        // Random number of bottles
+        for (bottle = 0; bottle <= randomNum; bottle++) {
+            this.level.bottles.push(new Bottle())
+        }
+        // Random number of chickens
+        for (chicken = 0; chicken <= randomNum; chicken++) {
+            this.level.chicken.push(new Chicken())
+        }
+
     }
 
-    run() {
-        setInterval(() => {
-            this.checkCollisions();
-            this.checkThrowObjects();
-        }, 200);
+    /**
+     * Setting the world for the character.
+     * 
+     * @method
+     * @name setWorld
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
+    setWorld() {
+        this.character.world = this;
     }
 
     checkThrowObjects() {
@@ -121,4 +154,29 @@ class World {
         mo.x = mo.x * -1;
         this.ctx.restore();
     }
+
+    /**
+     * A method that plays chicken sounds.
+     * 
+     * @method
+     * @name chickenSounds
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
+    chickenSounds() {
+        setInterval(() => {
+          if (this.run == true) {
+            this.chickens_1_sound.volume = 0.05;
+            this.chickens_1_sound.play();
+          }
+        }, 10000);
+    
+        setInterval(() => {
+          if (this.run == true) {
+            this.chickens_2_sound.volume = 0.05;
+            this.chickens_2_sound.play();
+          }
+        }, 14000);
+      }
 }
