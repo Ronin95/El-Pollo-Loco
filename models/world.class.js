@@ -83,13 +83,30 @@ class World {
     }
 
     checkCollisions() {
-        // check collisions
-        this.level.enemies.forEach((enemy) => {
-            if (this.character.collidingPepe(enemy)) {
+        setInterval(() => {
+            this.level.enemies.forEach((enemy, indexEnemy) => {
+              if (
+                this.character.collidingPepe(enemy) &&
+                this.character.y + this.character.height < 420
+              ) {
+                this.level.enemies[indexEnemy].energy -= 1;
+              }
+            });
+          }, 1000 / 60);
+      
+          setInterval(() => {
+            this.level.enemies.forEach((enemy, indexEnemy) => {
+              if (
+                this.character.collidingPepe(enemy) &&
+                this.level.enemies[indexEnemy].energy > 0 &&
+                this.run == true
+              ) {
                 this.character.hit();
+                this.hurt_pepe_sound.play();
                 this.healthBar.setHealth(this.character.energy);
-            }
-        });
+              }
+            });
+          }, 200);
     }
     
     

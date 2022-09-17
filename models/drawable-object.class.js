@@ -79,7 +79,7 @@ class DrawableObject {
      * Checking if the character is colliding with the object.
      * 
      * @method
-     * @name isColliding
+     * @name collidingPepe
      * @kind method
      * @memberof DrawableObject
      * @param {any} mo
