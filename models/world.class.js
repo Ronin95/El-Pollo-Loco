@@ -14,8 +14,11 @@ class World {
     /* All sounds */
     chickens_1_sound = new Audio('audio/audio_chicken_1.mp3');
     chickens_2_sound = new Audio('audio/audio_chicken_2.mp3');
-    throw_weapon_sound = new Audio('audio/audio_throw.mp3');
+    throw_bottle_sound = new Audio('audio/audio_throw_bottle.mp3');
     broken_bottle_sound = new Audio('audio/breakbottle.mp3');
+    use_shuriken_sound = new Audio('audio/shuriken_sound.mp3');
+    throw_shuriken_sound = new Audio('audio/shuriken_throw_sound.mp3');
+    collect_coin_sound = new Audio('audio/coin.mp3');
     game_over_sound = new Audio('audio/game_over.mp3');
     jump_pepe_sound = new Audio('audio/jump.mp3');
     hurt_pepe_sound = new Audio('audio/ouch.mp3');
@@ -76,10 +79,26 @@ class World {
     }
 
     checkThrowObjects() {
-        if (this.keyboard.B) {
+        if (this.keyboard.B && this.level.bottlesAmount.length > 0) {
             let bottle = new ThrowableObject(this.character.x+100, this.character.y+100);
             this.throwableObjects.push(bottle);
         }
+        this.throwableObjects.push(bottle);
+        this.level.bottlesAmount.splice(0,1);
+        this.healthBar.setHealth(this.level.bottlesAmount.length);
+        setInterval(() => {
+          this.level.enemies.forEach((enemy, indexEnemy) => {
+            if (bottle.collidingPepe(enemy)) {
+              this.level.enemies[indexEnemy].energy -= 2;
+            }
+            if (shuriken.collidingPepe(enemy)) {
+              this.level.enemies[indexEnemy].energy -= 5;
+            }
+            if (this.level.enemies[indexEnemy].energy <= 0) {
+              this.level.enemies[indexEnemy].energy = 0;
+            }
+          })
+        });
     }
 
     checkCollisions() {
@@ -108,6 +127,15 @@ class World {
             });
           }, 200);
     }
+
+    changeBottlesAxis() {
+      const otherBottle = (bottles, s) =>
+        bottles.filter((i, j) => j % s === s - 1);
+  
+      otherBottle(this.level.bottles, 2).forEach((element) => {
+        element.img.src = "img/6_salsa_bottle/2_salsa_bottle_on_ground.png";
+      });
+    }
     
     
     draw() {
@@ -130,6 +158,16 @@ class World {
         requestAnimationFrame(function() {
             self.draw();
         });
+    }
+
+    checkCollectCoin() {
+      this.level.coins.forEach((coin, indexCoins) => {
+        if (this.character.collidingCoin(coin) && this.run == true) {
+          this.collect_coin_sound.play();
+          this.level.coins.splice(indexCoins, 1);
+          this.coinBar.setCoins(this.level.coins.length);
+        }
+      });
     }
 
     moveStatusbarsWithCamera() {

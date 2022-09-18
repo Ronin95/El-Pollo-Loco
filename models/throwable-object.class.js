@@ -1,5 +1,5 @@
 class ThrowableObject extends MovableObject {
-    throw_sound = new Audio('./audio/audio_throw.mp3');
+    throw_sound = new Audio('./audio/audio_throw_bottle.mp3');
     broken_bottle_sound = new Audio('./audio/breakbottle.mp3');
 
     BOTTLE_ROTATION = [
