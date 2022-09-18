@@ -19,6 +19,7 @@ class World {
     use_shuriken_sound = new Audio('audio/shuriken_sound.mp3');
     throw_shuriken_sound = new Audio('audio/shuriken_throw_sound.mp3');
     collect_coin_sound = new Audio('audio/coin.mp3');
+    collect_bottle_sound = new Audio('audio/collect_bottle.mp3');
     game_over_sound = new Audio('audio/game_over.mp3');
     jump_pepe_sound = new Audio('audio/jump.mp3');
     hurt_pepe_sound = new Audio('audio/ouch.mp3');
@@ -29,9 +30,14 @@ class World {
         this.ctx = canvas.getContext('2d');
         this.canvas = canvas;
         this.keyboard = keyboard;
+        this.createRandomWorld();
         this.draw();
         this.setWorld();
-        this.run();
+        this.collisionOfObjects();
+        this.checkCollisions();
+        this.changeBottlesAxis();
+        
+
     }
 
     /**
@@ -78,11 +84,24 @@ class World {
         this.character.world = this;
     }
 
+    /**
+     * Checking if the character is throwing a bottle or shuriken.
+     * 
+     * @method
+     * @name checkThrowObjects
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
     checkThrowObjects() {
         if (this.keyboard.B && this.level.bottlesAmount.length > 0) {
             let bottle = new ThrowableObject(this.character.x+100, this.character.y+100);
             this.throwableObjects.push(bottle);
         }
+        // if (this.keyboard.S && this.level.coinsAmount.length > 5) {
+        //   let shuriken = new ThrowableObject(this.character.x+100, this.character.y+100);
+        //   this.throwableObjects.push(shuriken);
+        // }
         this.throwableObjects.push(bottle);
         this.level.bottlesAmount.splice(0,1);
         this.healthBar.setHealth(this.level.bottlesAmount.length);
@@ -91,9 +110,9 @@ class World {
             if (bottle.collidingPepe(enemy)) {
               this.level.enemies[indexEnemy].energy -= 2;
             }
-            if (shuriken.collidingPepe(enemy)) {
-              this.level.enemies[indexEnemy].energy -= 5;
-            }
+            // if (shuriken.collidingPepe(enemy)) {
+            //   this.level.enemies[indexEnemy].energy -= 5;
+            // }
             if (this.level.enemies[indexEnemy].energy <= 0) {
               this.level.enemies[indexEnemy].energy = 0;
             }
@@ -101,6 +120,16 @@ class World {
         });
     }
 
+    /**
+     * Checking if the character is colliding with an enemy 
+     * and if it is, it will remove energy from the enemy.
+     * 
+     * @method
+     * @name checkCollisions
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
     checkCollisions() {
         setInterval(() => {
             this.level.enemies.forEach((enemy, indexEnemy) => {
@@ -128,6 +157,26 @@ class World {
           }, 200);
     }
 
+    collisionOfObjects() {
+      setInterval(() => {
+        this.checkThrowObjects();
+      }, 500);
+  
+      setInterval(() => {
+        this.checkCollectCoin();
+        this.checkCollectBottle();
+      }, 100);
+    }
+
+    /**
+     * Changing the axis of the bottles.
+     * 
+     * @method
+     * @name changeBottlesAxis
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
     changeBottlesAxis() {
       const otherBottle = (bottles, s) =>
         bottles.filter((i, j) => j % s === s - 1);
@@ -138,17 +187,28 @@ class World {
     }
     
     
+    /**
+     * Drawing the world.
+     * 
+     * @method
+     * @name draw
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
     draw() {
+      if (this.run == true) {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         this.ctx.translate(this.camera_x, 0);
-        this.addObjectsToMap(this.level.backgroundObjects);
-
+        
+        this.addBackgroundObjects(); // All the clouds and backgroundobjects
         this.moveStatusbarsWithCamera(); // All the statusbars are moved with the camera perspective
 
         this.addToMap(this.character);
-        this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.enemies);
+        this.addObjectsToMap(this.level.coins);
+        this.addObjectsToMap(this.level.bottles);
         this.addObjectsToMap(this.throwableObjects);
 
         this.ctx.translate(-this.camera_x, 0);
@@ -158,8 +218,37 @@ class World {
         requestAnimationFrame(function() {
             self.draw();
         });
+      } else if (this.run == false) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        return;
+      }
     }
 
+    /**
+     * Adding the clouds and background objects to the map.
+     * 
+     * @method
+     * @name addBackgroundObjects
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
+    addBackgroundObjects() {
+      this.addObjectsToMap(this.level.backgroundObjects);
+      this.addObjectsToMap(this.level.clouds);
+    }
+
+    /**
+     * Checking if the character is colliding with a 
+     * coin and if it is, it will remove the coin from
+     *  the array and add it to the coinsAmount array.
+     * 
+     * @method
+     * @name checkCollectCoin
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
     checkCollectCoin() {
       this.level.coins.forEach((coin, indexCoins) => {
         if (this.character.collidingCoin(coin) && this.run == true) {
@@ -170,6 +259,37 @@ class World {
       });
     }
 
+    /**
+     * Checking if the character is colliding with a bottle 
+     * and if it is, it will remove the bottle from the array 
+     * and add it to the bottlesAmount array.
+     * 
+     * @method
+     * @name checkCollectBottle
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
+    checkCollectBottle() {
+      this.level.bottles.forEach((bottle, indexBottles) => {
+        if (this.character.collidingBottle(bottle) && this.run == true) {
+          this.collect_bottle_sound.play();
+          this.level.bottlesAmount.push(bottle);
+          this.level.bottles.splice(indexBottles, 1);
+          this.healthBar.setHealth(this.level.bottlesAmount.length);
+        }
+      });
+    }
+
+    /**
+     * Moving the statusbars with the camera perspective.
+     * 
+     * @method
+     * @name moveStatusbarsWithCamera
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
     moveStatusbarsWithCamera() {
         this.ctx.translate(-this.camera_x, 0);
         // Space for fixed objects
@@ -179,12 +299,32 @@ class World {
         this.ctx.translate(this.camera_x, 0); 
     }
     
+    /**
+     * Adding objects to the map.
+     * 
+     * @method
+     * @name addObjectsToMap
+     * @kind method
+     * @memberof World
+     * @param {any} objects
+     * @returns {void}
+     */
     addObjectsToMap(objects) {
         objects.forEach(o => {
             this.addToMap(o);
         });
     }
     
+    /**
+     * Adding the object to the map.
+     * 
+     * @method
+     * @name addToMap
+     * @kind method
+     * @memberof World
+     * @param {any} mo
+     * @returns {void}
+     */
     addToMap(mo) {
         if (mo.otherDirection) {
             this.flipImage(mo);
@@ -198,6 +338,16 @@ class World {
         }
     }
 
+    /**
+     * Flipping the image.
+     * 
+     * @method
+     * @name flipImage
+     * @kind method
+     * @memberof World
+     * @param {any} mo
+     * @returns {void}
+     */
     flipImage(mo) {
         this.ctx.save();
         this.ctx.translate(mo.width, 0);
@@ -205,6 +355,16 @@ class World {
         mo.x = mo.x * -1;
     }
 
+    /**
+     * Flipping the image back.
+     * 
+     * @method
+     * @name flipImageBack
+     * @kind method
+     * @memberof World
+     * @param {any} mo
+     * @returns {void}
+     */
     flipImageBack(mo) {
         mo.x = mo.x * -1;
         this.ctx.restore();
