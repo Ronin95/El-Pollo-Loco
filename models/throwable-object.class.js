@@ -16,6 +16,10 @@ class ThrowableObject extends MovableObject {
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/5_bottle_splash.png',
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png'
     ];
+    SHURIKEN_ROTATION = [
+      'img/10_otherTools/shuriken-1.png',
+      'img/10_otherTools/shuriken-2.png'
+    ];
 
     constructor(x, y) {
         super().loadImage('img/6_salsa_bottle/salsa_bottle.png');

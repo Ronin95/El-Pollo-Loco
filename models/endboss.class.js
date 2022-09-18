@@ -57,12 +57,31 @@ class Endboss extends MovableObject {
         
     }
 
+    /**
+     * Playing the animation of the endboss standing still.
+     * 
+     * @method
+     * @name animate
+     * @kind method
+     * @memberof Endboss
+     * @returns {void}
+     */
     animate() {
         setInterval(() => {
             this.playAnimation(this.ENDBOSS_STANDING_STILL);
         }, 500);
     }
 
+    /**
+     * Checking the endbossEnergy and if it is less than or 
+     * equal to 0, it will play the animation of the endboss dying.
+     * 
+     * @method
+     * @name checkEndbossEnergy
+     * @kind method
+     * @memberof Endboss
+     * @returns {void}
+     */
     checkEndbossEnergy() {
         setInterval(() => {
             if(this.endbossEnergy <= 0) {
@@ -75,6 +94,15 @@ class Endboss extends MovableObject {
         }, 400);
     }
 
+    /**
+     * Moving the endboss.
+     * 
+     * @method
+     * @name endbossMove
+     * @kind method
+     * @memberof Endboss
+     * @returns {void}
+     */
     endbossMove() {
         setInterval(() => {
             if(this.endbossEnergy < 70) {
@@ -89,6 +117,16 @@ class Endboss extends MovableObject {
         }, 100);
     }
 
+    /**
+     * Checking if the endbossEnergy is less than 70. 
+     * If it is, it will play the animation of the endboss attacking.
+     * 
+     * @method
+     * @name endbossAngry
+     * @kind method
+     * @memberof Endboss
+     * @returns {void}
+     */
     endbossAngry() {
         if(this.endbossEnergy < 70) {
             setInterval(() => {
@@ -97,6 +135,17 @@ class Endboss extends MovableObject {
         }
     }
 
+    /**
+     * Checking if the endbossEnergy is less than or equal to 0. 
+     * If it is, it will set the endbossEnergy to 0 and play 
+     * the animation of the endboss dying.
+     * 
+     * @method
+     * @name endbossDead
+     * @kind method
+     * @memberof Endboss
+     * @returns {void}
+     */
     endbossDead() {
         setInterval(() => {
             if(this.endbossEnergy <= 0) {
