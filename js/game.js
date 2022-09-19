@@ -14,6 +14,46 @@ function init() {
 
 }
 
+moveRight = () => {
+    keyboard.RIGHT = true;
+};
+
+moveRightStop = () => {
+    keyboard.RIGHT = false;
+};
+
+moveLeft = () => {
+    keyboard.LEFT = true;
+};
+  
+moveLeftStop = () => {
+    keyboard.LEFT = false;
+};
+
+throwBottle = () => {
+    keyboard.B = true;
+};
+
+throwBottleStop = () => {
+    keyboard.B = false;
+};
+
+throwShuriken = () => {
+    keyboard.S = true;
+};
+
+throwShurikenStop = () => {
+    keyboard.S = false;
+}
+
+jump = () => {
+    keyboard.SPACE = true;
+};
+
+jumpStop = () => {
+    keyboard.SPACE = false;
+};
+
 function removeKeyBoard() {
     window.addEventListener('keydown', (e) => {
         if (e.keyCode == 39) {
