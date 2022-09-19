@@ -29,6 +29,42 @@
 <body onload="init()">
     <h1>El Pollo Loco</h1>
 
+    <section class="menuBar">
+        <img
+          id="moreButton"
+          class="more icon button"
+          src="icons/more.svg"
+          onclick="showMenu()"
+        />
+        <img
+          id="playButton"
+          class="play icon button"
+          src="icons/play.svg"
+          onclick="init()"
+        />
+        <img
+          id="helpButton"
+          class="help icon button"
+          style="display: none"
+          src="icons/help.svg"
+          onclick="enableHelp()"
+        />
+        <img
+          id="mobileButton"
+          class="mobile icon button"
+          style="display: none"
+          src="icons/mobile.svg"
+          onclick="enableMobileMode()"
+        />
+        <img
+          id="fullscreenIcon"
+          class="fullscreen icon button"
+          style="display: none"
+          src="icons/fullscreen.svg"
+          onclick="fullscreenMode()"
+        />
+    </section>
+
     <canvas
         id="canvas"
         width="720" 

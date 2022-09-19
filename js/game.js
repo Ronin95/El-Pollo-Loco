@@ -1,11 +1,43 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
+let images = [];
+let fullscreen = false;
+let alive = true;
+let openMenu = false;
+let openHelp = false;
+let mobileMode = false;
 
 function init() {
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
 
+}
+
+function removeKeyBoard() {
+    window.addEventListener('keydown', (e) => {
+        if (e.keyCode == 39) {
+            keyboard.RIGHT = true;
+        }
+        if (e.keyCode == 37) {
+            keyboard.LEFT = true;
+        }
+        if (e.keyCode == 38) {
+            keyboard.UP = true;
+        }
+        if (e.keyCode == 40) {
+            keyboard.DOWN = true;
+        }
+        if (e.keyCode == 32) {
+            keyboard.SPACE = true;
+        }
+        if (e.keyCode == 66) {
+            keyboard.B = true;
+        }
+        if (e.keyCode == 83) {
+            keyboard.S = true;
+        }
+    })
 }
 
 window.addEventListener('keydown', (e) => {
