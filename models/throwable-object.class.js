@@ -1,7 +1,4 @@
 class ThrowableObject extends MovableObject {
-    throw_sound = new Audio('./audio/audio_throw_bottle.mp3');
-    broken_bottle_sound = new Audio('./audio/breakbottle.mp3');
-
     BOTTLE_ROTATION = [
         'img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png',
         'img/6_salsa_bottle/bottle_rotation/2_bottle_rotation.png',
@@ -21,8 +18,14 @@ class ThrowableObject extends MovableObject {
       'img/10_otherTools/shuriken-2.png'
     ];
 
+    bottlesAmount = level1.bottlesAmount.length;
+    broken_bottle_sound = new Audio('./audio/breakbottle.mp3');
+
     constructor(x, y) {
         super().loadImage('img/6_salsa_bottle/salsa_bottle.png');
+        this.loadImages(this.BOTTLE_ROTATION);
+        this.loadImages(this.BOTTLE_SPLASH);
+        this.loadImages(this.SHURIKEN_ROTATION);
         this.x = x;
         this.y = y;
         this.height = 80;
@@ -32,13 +35,19 @@ class ThrowableObject extends MovableObject {
     }
 
     throw() {
-        this.throw_sound.play();
-        this.speedY = 30;
-        this.applyGravity();
-
+      if (this.bottlesInInventory < 0) {
+        this.bottlesInInventory = 0;
+      }
+      if (this.bottlesInInventory > 0) {
         setInterval(() => {
-            this.x += 10;
-        },25);
+          this.playAnimation(this.flipBottle);
+        }, 50);
+        this.speedY = 30;
+        this.applyGravitiy();
+        setInterval(() => {
+          this.x += 8;
+        }, 1000 / 60);
+      }
     }
 
     checkThrow() {
