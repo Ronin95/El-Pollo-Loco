@@ -49,22 +49,22 @@ class World {
      * @returns {void}
      */
     createRandomWorld() {
-        randomNum = Math.floor(Math.random()*20)+5; // Random number between 5 and 19
+        let randomNum = Math.floor(Math.random()*20)+5; // Random number between 5 and 19
 
         // Random number of clouds
-        for (cloud = 0; cloud <= randomNum; cloud++) {
+        for (let cloud = 0; cloud <= randomNum; cloud++) {
             this.level.clouds.push(new Cloud())
         }
         // Random number of coins
-        for (coin = 0; coin <= randomNum; coin++) {
+        for (let coin = 0; coin <= randomNum; coin++) {
             this.level.coins.push(new Coin())
         }
         // Random number of bottles
-        for (bottle = 0; bottle <= randomNum; bottle++) {
+        for (let bottle = 0; bottle <= randomNum; bottle++) {
             this.level.bottles.push(new Bottle())
         }
         // Random number of chickens
-        for (chicken = 0; chicken <= randomNum; chicken++) {
+        for (let chicken = 0; chicken <= randomNum; chicken++) {
             this.level.chicken.push(new Chicken())
         }
 
