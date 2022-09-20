@@ -35,12 +35,12 @@ class ThrowableObject extends MovableObject {
     }
 
     throw() {
-      if (this.bottlesInInventory < 0) {
-        this.bottlesInInventory = 0;
+      if (this.bottlesAmount < 0) {
+        this.bottlesAmount = 0;
       }
-      if (this.bottlesInInventory > 0) {
+      if (this.bottlesAmount > 0) {
         setInterval(() => {
-          this.playAnimation(this.flipBottle);
+          this.playAnimation(this.BOTTLE_ROTATION);
         }, 50);
         this.speedY = 30;
         this.applyGravitiy();
