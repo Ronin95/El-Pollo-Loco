@@ -12,57 +12,180 @@ body {
     font-family: 'zabars', Arial, Helvetica, sans-serif;
 }
 
+
 canvas {
-    background-color: black;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 125%;
     display: block;
-}
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  }
+  
 
-h1 {
-    font-size: 64px;
-    word-spacing: 10px;
+  .settings-and-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 700px;
+  }
+
+  .settings {
+    display: flex;
+    align-items: center;
     letter-spacing: 5px;
-}
+    gap: 50px;
+  }
 
-.menuBar {
-    position: absolute;
-    top: 0px;
-    right: 0px;
+  h1 {
+    letter-spacing: 10px;
+    font-size: 46px;
+  }
+
+  .icon {
+    margin: 6px;
+    z-index: 3;
+    height: 40px;
+  }
+  
+  .menuBar {
     width: 40px;
     height: 240px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-}
-
-/* Smartphones */
-@media only screen and (max-width: 720px) {
-    canvas {
-        width: 100%;
-    }
-}
-
-@media only screen and (max-height: 480px) {
-    canvas {
-        height: 100vh;
-    }
-}
-
-.settings {
+  }
+  
+  .mobileIcon {
+    position: absolute;
+    z-index: 3;
+    height: 50px;
+  }
+  
+  .mobileIcon:hover {
+    transform: scale(1.1);
+    border-radius: 50%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  }
+  
+  .more,
+  .play,
+  .help {
+    height: 32px;
+  }
+  
+  .mobile {
+    height: 28px;
+  }
+  
+  .fullscreen {
+    height: 38px;
+  }
+  
+  .mobileLeft {
+    bottom: 4px;
+    left: 10px;
+  }
+  
+  .mobileRight {
+    bottom: 4px;
+    left: 100px;
+  }
+  
+  .mobileJump {
+    bottom: 10px;
+    right: 80px;
+    height: 40px;
+  }
+  
+  .mobileThrow {
+    bottom: 10px;
+    right: 10px;
+    height: 40px;
+  }
+  
+  .button {
+    cursor: pointer;
+  }
+  
+  .linksContainer {
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .iconLinks {
+    font-size: 1rem;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .userWon {
+    position: absolute;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 100px;
-    letter-spacing: 3px;
-}
-
-.checkbox {
-    display: flex;
-    align-items: center;
-    gap: 10px;  
-}
-
-.checkbox input[type="checkbox"], input[type="radio"] {
-    min-width: 1.33rem;
-    min-height: 1.33rem;
-    accent-color: #EA5F00;
-}
+    top: 10%;
+    width: 34rem;
+    height: 8rem;
+    font-size: 6rem;
+    font-weight: bold;
+    color: rgb(247, 203, 11);
+  }
+  
+  .lostImg {
+    position: absolute;
+    z-index: 2;
+    height: 480px;
+    width: 720px;
+    border-radius: 20px;
+  }
+  
+  @media (max-width: 720px) {
+    .youWon {
+      font-size: 2rem;
+      width: 12rem;
+      height: 4rem;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .button {
+      height: 24px !important;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .button {
+      height: 18px !important;
+    }
+  
+    .mobileJump {
+      right: 50px;
+    }
+  
+    .mobileLeft,
+    .mobileRight {
+      height: 30px;
+    }
+  
+    .mobileRight {
+      left: 50px;
+    }
+  }
+  
+  @media only screen and (max-width: 720px) {
+    canvas {
+      width: 100%;
+    }
+  }
+  
+  @media only screen and (max-height: 480px) {
+    canvas {
+      height: 100vh;
+    }
+  }
+  

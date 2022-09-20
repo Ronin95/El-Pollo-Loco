@@ -49,7 +49,7 @@ enableEndscreenWon = () => {
         "background-image: url('img/9_intro_outro_screens/start/startscreen_2.png')";
     }
   
-    document.getElementById("youWon").style = "";
+    document.getElementById("userWon").style = "";
     document.getElementById("playButton").src = "img/icons/replay.svg";
     document.getElementById("playButton").setAttribute("onclick", "enableReplay()");
     document.getElementById("playButton").style = "";
