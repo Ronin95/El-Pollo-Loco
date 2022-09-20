@@ -6,6 +6,7 @@ class Character extends MovableObject {
     speed = 10;
     inactivePepe = 0;
     lastPepeAction = 0;
+
     IMAGES_WALKING = [
         'img/2_character_pepe/2_walk/W-21.png',
         'img/2_character_pepe/2_walk/W-22.png',
@@ -53,9 +54,8 @@ class Character extends MovableObject {
     ];
     world;
     walking_sound = new Audio('./audio/walking.mp3');
-    pain_sound = new Audio('./audio/ouch.mp3');
-    gameOver_sound = new Audio('./audio/game_over.mp3');
-    jump_sound = new Audio('./audio/jump.mp3');
+    // pain_sound = new Audio('./audio/ouch.mp3');
+    // jump_sound = new Audio('./audio/jump.mp3');
 
     constructor() {
         super().loadImage('img/2_character_pepe/2_walk/W-21.png');
@@ -69,6 +69,15 @@ class Character extends MovableObject {
         this.pepeStandingStill();
     }
 
+    /**
+     * Calling the functions `pepeMovement()` and `pepeAnimations()` and `inactivity()`
+     * 
+     * @method
+     * @name displayBehaviour
+     * @kind method
+     * @memberof Character
+     * @returns {void}
+     */
     displayBehaviour() {
         this.pepeMovement();
         this.pepeAnimations();
@@ -95,6 +104,16 @@ class Character extends MovableObject {
         }, 4000);
     }
 
+    /**
+     * Checking if pepe is dead, hurt, above the ground, moving or
+     *  sleeping. If so, it plays the corresponding animation.
+     * 
+     * @method
+     * @name pepeAnimations
+     * @kind method
+     * @memberof Character
+     * @returns {void}
+     */
     pepeAnimations() {
         setInterval(() => {
             if (this.isDead()) {
@@ -111,6 +130,20 @@ class Character extends MovableObject {
         }, 100);
     }
 
+    /**
+     * A function that is called every 60th of a second. It checks if the
+     *  right arrow key is pressed and if pepe is not at the end of the level. 
+     * If so, it moves pepe to the right. It also checks if the left arrow key is pressed 
+     * and if pepe is not at the beginning of the level. If so, it moves pepe to the left.
+     *  It also checks if the space bar is pressed and if pepe is not above the 
+     * ground. If so, it makes pepe jump.
+     * 
+     * @method
+     * @name pepeMovement
+     * @kind method
+     * @memberof Character
+     * @returns {void}
+     */
     pepeMovement() {
         setInterval(() => {
             this.walking_sound.pause();
@@ -134,6 +167,15 @@ class Character extends MovableObject {
         }, 1000/60)
     }
 
+    /**
+     * A function that is called when pepe is not moving for 4 seconds.
+     * 
+     * @method
+     * @name pepeStandingStill
+     * @kind method
+     * @memberof Character
+     * @returns {void}
+     */
     pepeStandingStill() {
         setInterval(() => {
             if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.SPACE || this.world.keyboard.B || this.world.keyboard.S || this.isAboveGround() || this.isHurt() || this.isDead()) {
