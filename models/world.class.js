@@ -259,6 +259,15 @@ class World {
       });
     }
 
+    /**
+     * It checks if the character is dead or if the enemy is dead.
+     * 
+     * @method
+     * @name checkGameStatus
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
     checkGameStatus() {
       setInterval(() => {
         if (this.character.energy <= 0) {
