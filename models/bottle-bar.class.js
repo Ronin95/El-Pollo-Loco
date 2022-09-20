@@ -26,18 +26,20 @@ class BottleBar extends DrawableObject {
     }
 
     resolveImageIndex() {
-        if (this.bottles == 100) {
-            return 5;
-        } else if (this.bottles > 80) {
-            return 4;
-        } else if (this.bottles > 60) {
-            return 3;
-        } else if (this.bottles > 40) {
-            return 2;
-        } else if (this.bottles > 20) {
-            return 1;
-        } else {
+        if(this.bottles <= 0) {
             return 0;
-        }
+    }   else if(this.bottles > 0 && this.bottles <= 2) {
+            return 1;
+    }   else if(this.bottles > 2 && this.bottles <= 4) {
+            return 2;
+    }   else if(this.bottles > 4 && this.bottles <= 6) {
+            return 3;
+    }   else if(this.bottles > 6 && this.bottles <= 7) {
+            return 4;
+    }   else if(this.bottles > 7) {
+            return 5;
+    }   else {
+            return 0;
+    }
     }
 }
