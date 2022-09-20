@@ -29,62 +29,94 @@
 <body onload="init()">
     <h1>El Pollo Loco</h1>
 
-    <span id="userWon" class="userWon" style="display: none"> YOU WON! </span>
-
-    <canvas
-        id="canvas"
-        width="720" 
-        height="480">
-    </canvas>
-
-    <div class="settings-and-buttons">
-      <div class="settings">
-        <div>
-            <h3>Arrow Left/Right = Walk</h3>
-            <h3>Space = Jump</h3>
-            <h3>B = Throw Bottle</h3>
-        </div>
-        <div class="checkbox">
-            <input  id="chkSound" type="checkbox" data-settings="sound" checked>
-            <label for="chkSound">Sounds and Music enabled</label>            
-        </div>
+    <section id="canvasContainer" class="canvasContainer">
+      <img
+        ontouchstart="moveLeft()"
+        ontouchend="moveLeftStop()"
+        onContextMenu="return false;"
+        id="mobileLeft"
+        class="mobileIcon mobileLeft"
+        src="img/icons/left.svg"
+        style="display: none"
+      />
+      <img
+        ontouchstart="moveRight()"
+        ontouchend="moveRightStop()"
+        onContextMenu="return false;"
+        id="mobileRight"
+        class="mobileIcon mobileRight"
+        src="img/icons/right.svg"
+        style="display: none"
+      />
+      <img
+        ontouchstart="throwBottle()"
+        ontouchend="throwBottleStop()"
+        onContextMenu="return false;"
+        id="mobileThrow"
+        class="mobileIcon mobileThrow"
+        src="img/icons/throw.svg"
+        style="display: none"
+      />
+      <img
+        ontouchstart="jump()"
+        ontouchend="jumpStop()"
+        id="mobileJump"
+        onContextMenu="return false;"
+        class="mobileIcon mobileJump"
+        src="img/icons/jump.svg"
+        style="display: none"
+      />
+      <span id="youWon" class="userWon" style="display: none"> YOU WON! </span>
+      <canvas id="canvas" width="720" height="480" style="border-radius: 20px">
+      </canvas>
+    </section>
+    <div class="playInfo">
+      <div>
+        <h3>Run - Arrow Left/Right</h3>
+        <h3>Jump - Space</h3>
+        <h3>B - Throw Bottle</h3>
       </div>
-      <section class="menuBar">
-        <img
-          id="moreButton"
-          class="more icon button"
-          src="img/icons/more.svg"
-          onclick="showMenu()"
-        />
-        <img
-          id="playButton"
-          class="play icon button"
-          src="img/icons/play.svg"
-          onclick="init()"
-        />
-        <img
-          id="helpButton"
-          class="help icon button"
-          style="display: none"
-          src="img/icons/help.svg"
-          onclick="enableHelp()"
-        />
-        <img
-          id="mobileButton"
-          class="mobile icon button"
-          style="display: none"
-          src="img/icons/mobile.svg"
-          onclick="enableMobileMode()"
-        />
-        <img
-          id="fullscreenIcon"
-          class="fullscreen icon button"
-          style="display: none"
-          src="img/icons/fullscreen.svg"
-          onclick="fullscreenMode()"
-        />
-      </section>
+      <div class="control checkbox">
+          <input  id="chkSound" type="checkbox" data-settings="sound" checked>
+          <label for="chkSound">Sound enabled</label>            
+      </div>
+      <div>
+        <section class="menuBar">
+          <img
+            id="moreButton"
+            class="more icon button"
+            src="img/icons/more.svg"
+            onclick="showMenu()"
+          />
+          <img
+            id="playButton"
+            class="play icon button"
+            src="img/icons/play.svg"
+            onclick="init()"
+          />
+          <img
+            id="helpButton"
+            class="help icon button"
+            style="display: none"
+            src="img/icons/help.svg"
+            onclick="enableHelp()"
+          />
+          <img
+            id="mobileButton"
+            class="mobile icon button"
+            style="display: none"
+            src="img/icons/mobile.svg"
+            onclick="enableMobileMode()"
+          />
+          <img
+            id="fullscreenIcon"
+            class="fullscreen icon button"
+            style="display: none"
+            src="img/icons/fullscreen.svg"
+            onclick="fullscreenMode()"
+          />
+        </section>
+      </div>
     </div>
-    
 </body>
 </html>

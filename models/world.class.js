@@ -259,6 +259,20 @@ class World {
       });
     }
 
+    checkGameStatus() {
+      setInterval(() => {
+        if (this.character.energy <= 0) {
+          removeKeyboard();
+          enableEndscreenLost();
+          this.run = false;
+        } else if (this.level.enemies[0].energy <= 0) {
+          removeKeyboard();
+          enableEndscreenWon();
+          this.run = false;
+        }
+      }, 500);
+    }
+
     /**
      * Checking if the character is colliding with a bottle 
      * and if it is, it will remove the bottle from the array 

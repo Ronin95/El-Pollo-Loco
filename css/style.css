@@ -44,6 +44,12 @@ canvas {
     font-size: 46px;
   }
 
+  .canvasContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
   .icon {
     margin: 6px;
     z-index: 3;
@@ -58,6 +64,26 @@ canvas {
     justify-content: flex-start;
     align-items: center;
   }
+
+  .playInfo {
+    letter-spacing: 5px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;    
+}
+
+.checkbox input[type="checkbox"], input[type="radio"] {
+    min-width: 1.33rem;
+    min-height: 1.33rem;
+    accent-color: var(--txt-color);
+}
   
   .mobileIcon {
     position: absolute;
