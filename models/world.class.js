@@ -11,13 +11,12 @@ class World {
     bottleBar = new BottleBar();
     throwableObjects = [];
     
-    /* All sounds */
+    /* Sounds */
     chickens_1_sound = new Audio('audio/audio_chicken_1.mp3');
     chickens_2_sound = new Audio('audio/audio_chicken_2.mp3');
     throw_bottle_sound = new Audio('audio/audio_throw_bottle.mp3');
     broken_bottle_sound = new Audio('audio/breakbottle.mp3');
     use_shuriken_sound = new Audio('audio/shuriken_sound.mp3');
-    throw_shuriken_sound = new Audio('audio/shuriken_throw_sound.mp3');
     collect_coin_sound = new Audio('audio/coin.mp3');
     collect_bottle_sound = new Audio('audio/collect_bottle.mp3');
     game_over_sound = new Audio('audio/game_over.mp3');

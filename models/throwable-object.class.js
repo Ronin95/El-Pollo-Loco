@@ -20,6 +20,7 @@ class ThrowableObject extends MovableObject {
 
     bottlesAmount = level1.bottlesAmount.length;
     broken_bottle_sound = new Audio('./audio/breakbottle.mp3');
+    throw_shuriken_sound = new Audio('audio/shuriken_throw_sound.mp3');
 
     constructor(x, y) {
         super().loadImage('img/6_salsa_bottle/salsa_bottle.png');
@@ -32,6 +33,7 @@ class ThrowableObject extends MovableObject {
         this.width = 70;
         this.throw();
         this.checkThrow();
+        // Add the shuriken throw here later on
     }
 
     throw() {
