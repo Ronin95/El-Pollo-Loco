@@ -120,7 +120,6 @@ class MovableObject extends DrawableObject {
      */
     jump() {
         this.speedY = 30; // how high pepe jumps
-        this.jump_sound.play(); // with this line you can hear how pepe sounds when he jumps
     }
 
     /**
