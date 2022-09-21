@@ -14,7 +14,6 @@ let mobileMode = false;
  */
 init = () => {
     document.getElementById("playButton").style = "display: none";
-    document.getElementById("helpButton").style = "display: none;";
     document.getElementById("mobileButton").style = "display: none;";
     document.getElementById("fullscreenIcon").style = "display: none;";
     canvas = document.getElementById("canvas");
@@ -83,12 +82,10 @@ enableEndscreenWon = () => {
 showMenu = () => {
     if (!openMenu) {
       document.getElementById("playButton").style = "";
-      document.getElementById("helpButton").style = "";
       document.getElementById("mobileButton").style = "";
       document.getElementById("fullscreenIcon").style = "";
       openMenu = true;
     } else {
-      document.getElementById("helpButton").style = "display: none;";
       document.getElementById("mobileButton").style = "display: none;";
       document.getElementById("fullscreenIcon").style = "display: none;";
       openMenu = false;
