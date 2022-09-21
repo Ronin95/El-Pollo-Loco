@@ -21,7 +21,12 @@ canvas {
     border-radius: 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
       rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  }
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
   
 
   .settings-and-buttons {
@@ -171,7 +176,42 @@ canvas {
   }
   
   @media (max-width: 720px) {
-    .youWon {
+    .userWon {
+      font-size: 2rem;
+      width: 12rem;
+      height: 4rem;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .button {
+      height: 24px !important;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .button {
+      height: 18px !important;
+    }
+  
+    .mobileJump {
+      right: 50px;
+    }
+  
+    .mobileLeft,
+    .mobileRight {
+      height: 30px;
+    }
+  
+    .mobileRight {
+      left: 50px;
+    }
+  }
+  
+
+
+  @media (max-width: 720px) {
+    .userWon {
       font-size: 2rem;
       width: 12rem;
       height: 4rem;
