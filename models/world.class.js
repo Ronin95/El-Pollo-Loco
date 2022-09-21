@@ -94,29 +94,21 @@ class World {
      */
     checkThrowObjects() {
         if (this.keyboard.B && this.level.bottlesAmount.length > 0) {
-            let bottle = new ThrowableObject(this.character.x+100, this.character.y+100);
+            let bottle = new ThrowableObject(this.character.x+50, this.character.y+80);
             this.throwableObjects.push(bottle);
+            this.level.bottlesAmount.splice(0,1);
+            this.healthBar.setHealth(this.level.bottlesAmount.length);
+            setInterval(() => {
+              this.level.enemies.forEach((enemy, indexEnemy) => {
+                if (bottle.collidingPepe(enemy)) {
+                  this.level.enemies[indexEnemy].energy -= 2;
+                }
+                if (this.level.enemies[indexEnemy].energy <= 0) {
+                  this.level.enemies[indexEnemy].energy = 0;
+                }
+              });
+            }, 1000 / 60);
         }
-        // if (this.keyboard.S && this.level.coinsAmount.length > 5) {
-        //   let shuriken = new ThrowableObject(this.character.x+100, this.character.y+100);
-        //   this.throwableObjects.push(shuriken);
-        // }
-        this.throwableObjects.push(bottle);
-        this.level.bottlesAmount.splice(0,1);
-        this.healthBar.setHealth(this.level.bottlesAmount.length);
-        setInterval(() => {
-          this.level.enemies.forEach((enemy, indexEnemy) => {
-            if (bottle.collidingPepe(enemy)) {
-              this.level.enemies[indexEnemy].energy -= 2;
-            }
-            // if (shuriken.collidingPepe(enemy)) {
-            //   this.level.enemies[indexEnemy].energy -= 5;
-            // }
-            if (this.level.enemies[indexEnemy].energy <= 0) {
-              this.level.enemies[indexEnemy].energy = 0;
-            }
-          })
-        });
     }
 
     /**
