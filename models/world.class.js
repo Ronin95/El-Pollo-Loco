@@ -65,7 +65,7 @@ class World {
         }
         // Random number of chickens
         for (let chicken = 0; chicken <= randomNum; chicken++) {
-            this.level.chicken.push(new Chicken())
+            this.level.enemies.push(new Chicken())
         }
 
     }
