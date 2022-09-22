@@ -8,6 +8,12 @@ let openMenu = false;
 let openHelp = false;
 let mobileMode = false;
 
+
+loadCanvasStartScreen = () => {
+    document.getElementById('canvas').style = 
+        "background-image: ulr('img/9_intro_outro_screens/start/startscreen_1.png')";
+};
+
 /**
  * A function that is called when the page is loaded.
  * 
