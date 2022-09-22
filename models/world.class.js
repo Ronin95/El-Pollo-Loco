@@ -30,8 +30,8 @@ class World {
         this.canvas = canvas;
         this.keyboard = keyboard;
         this.createRandomWorld();
-        this.setWorld();
         this.draw();
+        this.setWorld();
         this.collisionOfObjects();
         this.checkCollisions();
         this.changeBottlesAxis();
