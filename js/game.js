@@ -52,10 +52,10 @@ enableReplay = () => {
 enableEndscreenLost = () => {
     if (fullscreen == true) {
       document.getElementById("canvas").style =
-        "width: 100%; height: 100vh; border-radius: 0px; background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
+        "background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
     } else {
       document.getElementById("canvas").style =
-        "background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
+        "background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
     }
     enableReplayButton();
     alive = false;
@@ -68,7 +68,7 @@ enableEndscreenLost = () => {
 enableEndscreenWon = () => {
     if (fullscreen) {
       document.getElementById("canvas").style =
-        "width: 100%; height: 100vh; border-radius: 0px; background-image: url('img/9_intro_outro_screens/start/startscreen_2.png')";
+        "background-image: url('img/9_intro_outro_screens/start/startscreen_2.png')";
     } else {
       document.getElementById("canvas").style =
         "background-image: url('img/9_intro_outro_screens/start/startscreen_2.png')";
