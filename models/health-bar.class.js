@@ -26,18 +26,20 @@ class HealthBar extends DrawableObject {
     }
 
     resolveImageIndex() {
-        if (this.health == 100) {
-            return 5;
-        } else if (this.health > 80) {
-            return 4;
-        } else if (this.health > 60) {
-            return 3;
-        } else if (this.health > 40) {
-            return 2;
-        } else if (this.health > 20) {
-            return 1;
-        } else {
+        if(this.health <= 0) {
             return 0;
-        }
+    }   else if(this.health > 0 && this.health <= 2) {
+            return 1;
+    }   else if(this.health > 2 && this.health <= 4) {
+            return 2;
+    }   else if(this.health > 4 && this.health <= 6) {
+            return 3;
+    }   else if(this.health > 6 && this.health <= 7) {
+            return 4;
+    }   else if(this.health > 7) {
+            return 5;
+    }   else {
+            return 0;
     }
+}
 }

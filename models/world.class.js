@@ -138,7 +138,7 @@ class World {
               if (
                 this.character.collidingPepe(enemy) &&
                 this.level.enemies[indexEnemy].energy > 0 &&
-                this.run == true
+                this.runPepe == true
               ) {
                 this.character.hit();
                 this.hurt_pepe_sound.play();
@@ -188,7 +188,7 @@ class World {
      * @returns {void}
      */
     draw() {
-      if (this.run == true) {
+      if (this.runPepe == true) {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         this.ctx.translate(this.camera_x, 0);
@@ -205,11 +205,11 @@ class World {
         this.ctx.translate(-this.camera_x, 0);
 
         // Draw is being called constantly
-        let self = this;
+        self = this;
         requestAnimationFrame(function() {
             self.draw();
         });
-      } else if (this.run == false) {
+      } else if (this.runPepe == false) {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         return;
       }
@@ -242,7 +242,7 @@ class World {
      */
     checkCollectCoin() {
       this.level.coins.forEach((coin, indexCoins) => {
-        if (this.character.collidingCoin(coin) && this.run == true) {
+        if (this.character.collidingCoin(coin) && this.runPepe == true) {
           this.collect_coin_sound.play();
           this.level.coins.splice(indexCoins, 1);
           this.coinBar.setCoins(this.level.coins.length);
@@ -264,11 +264,11 @@ class World {
         if (this.character.energy <= 0) {
           removeKeyboard();
           enableEndscreenLost();
-          this.run = false;
+          this.runPepe = false;
         } else if (this.level.enemies[0].energy <= 0) {
           removeKeyboard();
           enableEndscreenWon();
-          this.run = false;
+          this.runPepe = false;
         }
       }, 500);
     }
@@ -286,7 +286,7 @@ class World {
      */
     checkCollectBottle() {
       this.level.bottles.forEach((bottle, indexBottles) => {
-        if (this.character.collidingBottle(bottle) && this.run == true) {
+        if (this.character.collidingBottle(bottle) && this.runPepe == true) {
           this.collect_bottle_sound.play();
           this.level.bottlesAmount.push(bottle);
           this.level.bottles.splice(indexBottles, 1);
@@ -395,14 +395,14 @@ class World {
      */
     chickenSounds() {
         setInterval(() => {
-          if (this.run == true) {
+          if (this.runPepe == true) {
             this.chickens_1_sound.volume = 0.05;
             this.chickens_1_sound.play();
           }
         }, 10000);
     
         setInterval(() => {
-          if (this.run == true) {
+          if (this.runPepe == true) {
             this.chickens_2_sound.volume = 0.05;
             this.chickens_2_sound.play();
           }

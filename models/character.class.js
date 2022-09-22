@@ -159,6 +159,12 @@ class Character extends MovableObject {
                 this.walking_sound.play();
             }
 
+            if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
+                this.walking_sound.play();
+            } else {
+                this.walking_sound.pause();
+            }
+
             if (this.world.keyboard.SPACE && !this.isAboveGround()) {
                 this.jump(); // pepe jumps
             }
