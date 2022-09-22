@@ -11,7 +11,7 @@ let mobileMode = false;
 
 loadCanvasStartScreen = () => {
     document.getElementById('canvas').style = 
-        "background-image: ulr('img/9_intro_outro_screens/start/startscreen_1.png')";
+        "background-image: url('img/9_intro_outro_screens/start/startscreen_1.png')";
 };
 
 /**
