@@ -6,11 +6,20 @@ class Cloud extends MovableObject {
 
     constructor() {
         super().loadImage('img/5_background/layers/4_clouds/1.png');
-        this.x = Math.random()*2000; // Number between 200 and 700
+        this.x = Math.random()*7000; // Number between 200 and 700
         this.y = Math.random()*80;
         this.animate();        
     }
 
+    /**
+     * A method that is called when the object is created.
+     * 
+     * @method
+     * @name animate
+     * @kind method
+     * @memberof Cloud
+     * @returns {void}
+     */
     animate() {
         this.moveLeft();
     }
