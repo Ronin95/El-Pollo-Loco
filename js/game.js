@@ -52,10 +52,10 @@ enableReplay = () => {
 enableEndscreenLost = () => {
     if (fullscreen == true) {
       document.getElementById("canvas").style =
-        "background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
+        "width: 100%; height: 100vh; border-radius: 0px; background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
     } else {
       document.getElementById("canvas").style =
-        "background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
+        "background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
     }
     enableReplayButton();
     alive = false;
@@ -171,7 +171,7 @@ fullscreenAlive = () => {
 fullscreenNotAlive = () => {
     document.getElementById("canvasContainer").style = "";
     document.getElementById("canvas").style =
-        "background-position: center; background-image: url('img/9_intro_outro_screens/start/startscreen_2.png')";
+        "background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over!.png')";
     fullscreen = false;
 };
 
@@ -270,25 +270,25 @@ jumpStop = () => {
 function removeKeyBoard() {
     window.addEventListener('keydown', (e) => {
         if (e.keyCode == 39) {
-            keyboard.RIGHT = true;
+            keyboard.RIGHT = false;
         }
         if (e.keyCode == 37) {
-            keyboard.LEFT = true;
+            keyboard.LEFT = false;
         }
         if (e.keyCode == 38) {
-            keyboard.UP = true;
+            keyboard.UP = false;
         }
         if (e.keyCode == 40) {
-            keyboard.DOWN = true;
+            keyboard.DOWN = false;
         }
         if (e.keyCode == 32) {
-            keyboard.SPACE = true;
+            keyboard.SPACE = false;
         }
         if (e.keyCode == 66) {
-            keyboard.B = true;
+            keyboard.B = false;
         }
         if (e.keyCode == 83) {
-            keyboard.S = true;
+            keyboard.S = false;
         }
     })
 }
