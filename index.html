@@ -59,6 +59,15 @@
         style="display: none"
       />
       <img
+        ontouchstart="throwShuriken()"
+        ontouchend="throwShurikenStop()"
+        onContextMenu="return false;"
+        id="mobileThrow"
+        class="mobileIcon mobileThrow"
+        src="img/icons/throw.svg"
+        style="display: none"
+      />
+      <img
         ontouchstart="jump()"
         ontouchend="jumpStop()"
         id="mobileJump"
