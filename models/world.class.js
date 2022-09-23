@@ -63,6 +63,10 @@ class World {
         for (let chicken = 0; chicken <= randomNum; chicken++) {
           this.level.enemies.push(new Chicken())
         }
+        // Random number of smaller chickens
+        for (let smallChickens = 0; smallChickens <= randomNum; smallChickens++) {
+          this.level.enemies.push(new ChickenSmall())
+        }
         // Random number of bottles
         for (let bottle = 0; bottle <= randomNum; bottle++) {
             this.level.bottles.push(new Bottle())
