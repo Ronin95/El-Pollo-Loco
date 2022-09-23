@@ -1,6 +1,6 @@
 class ChickenSmall extends MovableObject {
-    height = 40;
-    width = 40;
+    height = 50;
+    width = 50;
     y = 390;
     energy = 1;
     CHICKEN_SMALL_WALKING = [

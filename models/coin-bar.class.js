@@ -10,12 +10,12 @@ class CoinBar extends DrawableObject {
     coins = 0;
 
     constructor() {
-        super();
-        this.loadImages(this.IMAGES_COINS);
-        this.setCoins(0);
-        this.x = 210;
-        this.y = 5;
-        this.width = 200;
+        super().loadImage('img/7_statusbars/3_icons/icon_coin.png');
+        // this.loadImages(this.IMAGES_COINS);
+        // this.setCoins(0);
+        this.x = 5;
+        this.y = 50;
+        this.width = 50;
         this.height = 50;
     }
 
@@ -30,9 +30,9 @@ class CoinBar extends DrawableObject {
      * @returns {void}
      */
     setCoins(coins) {
-        this.coins = coins; // -> 0...5 
-        let path = this.IMAGES_COINS[this.resolveImageIndex()];
-        this.img = this.imageCache[path];
+        // this.coins = coins; // -> 0...5 
+        // let path = this.IMAGES_COINS[this.resolveImageIndex()];
+        // this.img = this.imageCache[path];
     }
 
     /**
@@ -44,21 +44,23 @@ class CoinBar extends DrawableObject {
      * @memberof CoinBar
      * @returns {0 | 1 | 2 | 3 | 4 | 5}
      */
-    resolveImageIndex() {
-        if(this.coins > 10) {
-            return 0;
-    }   else if(this.coins > 8 && this.coins <= 10) {
-            return 1;
-    }   else if(this.coins > 6 && this.coins <= 8) {
-            return 2;
-    }   else if(this.coins > 4 && this.coins <= 6) {
-            return 3;
-    }   else if(this.coins >= 2 && this.coins <= 4) {
-            return 4;
-    }   else if(this.coins < 2) {
-            return 5;
-    }   else {
-            return 0;
-    }
-    }
+//     resolveImageIndex() {
+//         if(this.coins > 10) {
+//             return 0;
+//     }   else if(this.coins > 8 && this.coins <= 10) {
+//             return 1;
+//     }   else if(this.coins > 6 && this.coins <= 8) {
+//             return 2;
+//     }   else if(this.coins > 4 && this.coins <= 6) {
+//             return 3;
+//     }   else if(this.coins >= 2 && this.coins <= 4) {
+//             return 4;
+//     }   else if(this.coins < 2) {
+//             return 5;
+//     }   else {
+//             return 0;
+//     }
+//     }
+
+
 }

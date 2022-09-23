@@ -100,7 +100,7 @@ class World {
             let bottle = new ThrowableObject(this.character.x+50, this.character.y+80);
             this.throwableObjects.push(bottle);
             this.level.bottlesAmount.splice(0,1);
-            this.healthBar.setHealth(this.level.bottlesAmount.length);
+            this.bottleBar.setBottles(this.level.bottlesAmount.length);
             setInterval(() => {
               this.level.enemies.forEach((enemy, indexEnemy) => {
                 if (bottle.collidingPepe(enemy)) {
@@ -296,7 +296,7 @@ class World {
           this.collect_bottle_sound.play();
           this.level.bottlesAmount.push(bottle);
           this.level.bottles.splice(indexBottles, 1);
-          this.healthBar.setHealth(this.level.bottlesAmount.length);
+          this.bottleBar.setBottles(this.level.bottlesAmount.length);
         }
       });
     }
