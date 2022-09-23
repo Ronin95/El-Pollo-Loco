@@ -36,6 +36,15 @@ class ThrowableObject extends MovableObject {
         // Add the shuriken throw here later on
     }
 
+    /**
+     * Throwing the bottle.
+     * 
+     * @method
+     * @name throw
+     * @kind method
+     * @memberof ThrowableObject
+     * @returns {void}
+     */
     throw() {
       if (this.bottlesAmount < 0) {
         this.bottlesAmount = 0;
@@ -52,6 +61,15 @@ class ThrowableObject extends MovableObject {
       }
     }
 
+    /**
+     * It checks if the bottle is thrown.
+     * 
+     * @method
+     * @name checkThrow
+     * @kind method
+     * @memberof ThrowableObject
+     * @returns {void}
+     */
     checkThrow() {
         setInterval(() => {
           if (this.y >= 280) {

@@ -19,12 +19,31 @@ class CoinBar extends DrawableObject {
         this.height = 50;
     }
 
+    /**
+     * Setting the coins to the value of coins.
+     * 
+     * @method
+     * @name setCoins
+     * @kind method
+     * @memberof CoinBar
+     * @param {any} coins
+     * @returns {void}
+     */
     setCoins(coins) {
         this.coins = coins; // -> 0...5 
         let path = this.IMAGES_COINS[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
+    /**
+     * A method that returns a number between 0 and 5.
+     * 
+     * @method
+     * @name resolveImageIndex
+     * @kind method
+     * @memberof CoinBar
+     * @returns {0 | 1 | 2 | 3 | 4 | 5}
+     */
     resolveImageIndex() {
         if(this.coins > 10) {
             return 0;

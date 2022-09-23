@@ -19,12 +19,31 @@ class HealthBar extends DrawableObject {
         this.height = 50;
     }
 
+    /**
+     * Setting the health of the player.
+     * 
+     * @method
+     * @name setHealth
+     * @kind method
+     * @memberof HealthBar
+     * @param {any} health
+     * @returns {void}
+     */
     setHealth(health) {
         this.health = health; // -> 0...5
         let path = this.IMAGES_HEALTH[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
+    /**
+     * A method that returns a number between 0 and 5.
+     * 
+     * @method
+     * @name resolveImageIndex
+     * @kind method
+     * @memberof HealthBar
+     * @returns {0 | 1 | 2 | 3 | 4 | 5}
+     */
     resolveImageIndex() {
         if(this.health <= 0) {
             return 0;

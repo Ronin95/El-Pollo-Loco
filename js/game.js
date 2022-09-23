@@ -9,12 +9,20 @@ let openHelp = false;
 let mobileMode = false;
 
 
+/**
+ * Setting the background image of the canvas to the start screen.
+ * 
+ */
 loadCanvasStartScreen = () => {
     document.getElementById('canvas').style = 
         "background-image: url('img/9_intro_outro_screens/start/startscreen_1.png')";
 };
 
-removeCanvasBackground = () => {
+/**
+ * It removes the background image of the canvas, while playing the game
+ * 
+ */
+removeCanvasBackgroundWhilePlaying = () => {
     console.log('True');
     document.getElementById('canvas').style = "";
 }

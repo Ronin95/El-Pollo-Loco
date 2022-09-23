@@ -23,6 +23,15 @@ class Chicken extends MovableObject {
         this.animate();
     }
 
+    /**
+     * A method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is called when the Chicken is created. It is a method that is
+     * 
+     * @method
+     * @name animate
+     * @kind method
+     * @memberof Chicken
+     * @returns {void}
+     */
     animate() {
         this.moveLeft();
         setInterval(() => {

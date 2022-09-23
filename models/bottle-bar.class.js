@@ -19,12 +19,31 @@ class BottleBar extends DrawableObject {
         this.height = 50;
     }
 
+    /**
+     * Setting the number of bottles.
+     * 
+     * @method
+     * @name setBottles
+     * @kind method
+     * @memberof BottleBar
+     * @param {any} bottles
+     * @returns {void}
+     */
     setBottles(bottles) {
         this.bottles = bottles; // -> 0...5 
         let path = this.IMAGES_BOTTLES[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
+    /**
+     * A method that returns an index for the image to be used.
+     * 
+     * @method
+     * @name resolveImageIndex
+     * @kind method
+     * @memberof BottleBar
+     * @returns {0 | 1 | 2 | 3 | 4 | 5}
+     */
     resolveImageIndex() {
         if(this.bottles <= 0) {
             return 0;
