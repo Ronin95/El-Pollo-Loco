@@ -55,19 +55,21 @@ class World {
         for (let cloud = 0; cloud <= randomNum; cloud++) {
             this.level.clouds.push(new Cloud())
         }
+
         // Random number of coins
         for (let coin = 0; coin <= randomNum; coin++) {
             this.level.coins.push(new Coin())
         }
+
+        // Random number of chickens
+        for (let chicken = 0; chicken <= randomNum; chicken++) {
+          this.level.enemies.push(new Chicken())
+        }
+        
         // Random number of bottles
         for (let bottle = 0; bottle <= randomNum; bottle++) {
             this.level.bottles.push(new Bottle())
         }
-        // Random number of chickens
-        for (let chicken = 0; chicken <= randomNum; chicken++) {
-            this.level.enemies.push(new Chicken())
-        }
-
     }
 
     /**
@@ -124,10 +126,7 @@ class World {
     checkCollisions() {
         setInterval(() => {
             this.level.enemies.forEach((enemy, indexEnemy) => {
-              if (
-                this.character.collidingPepe(enemy) &&
-                this.character.y + this.character.height < 420
-              ) {
+              if (this.character.collidingPepe(enemy) && this.character.y + this.character.height < 420) {
                 this.level.enemies[indexEnemy].energy -= 1;
               }
             });
@@ -135,11 +134,7 @@ class World {
       
           setInterval(() => {
             this.level.enemies.forEach((enemy, indexEnemy) => {
-              if (
-                this.character.collidingPepe(enemy) &&
-                this.level.enemies[indexEnemy].energy > 0 &&
-                this.runPepe == true
-              ) {
+              if (this.character.collidingPepe(enemy) && this.level.enemies[indexEnemy].energy > 0 && this.runPepe == true) {
                 this.character.hit();
                 this.hurt_pepe_sound.play();
                 this.healthBar.setHealth(this.character.energy);
@@ -148,6 +143,16 @@ class World {
           }, 200);
     }
 
+    /**
+     * Checking if the character is throwing a bottle or shuriken.
+     * Or if the character is collecting the coin or bottle
+     * 
+     * @method
+     * @name collisionOfObjects
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
     collisionOfObjects() {
       setInterval(() => {
         this.checkThrowObjects();

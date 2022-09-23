@@ -23,7 +23,6 @@ loadCanvasStartScreen = () => {
  * 
  */
 removeCanvasBackgroundWhilePlaying = () => {
-    console.log('True');
     document.getElementById('canvas').style = "";
 }
 
