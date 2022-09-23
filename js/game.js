@@ -14,6 +14,11 @@ loadCanvasStartScreen = () => {
         "background-image: url('img/9_intro_outro_screens/start/startscreen_1.png')";
 };
 
+removeCanvasBackground = () => {
+    console.log('True');
+    document.getElementById('canvas').style = "";
+}
+
 /**
  * A function that is called when the page is loaded.
  * 
