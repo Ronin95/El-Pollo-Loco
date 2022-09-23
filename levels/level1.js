@@ -1,19 +1,19 @@
 const level1 = new Level(
     [
-    //Coins
+       // enemies
+       new Endboss() 
     ],
     [
-    //Bottles
+        //coins
     ],
     [
-    //BottlesInIventory
+        //bottles
     ],
     [
-    //Chicken
-        new Endboss(),
+        //clouds
     ],
     [
-    //Clouds
+        //BottlesAmount
     ],
     [
         new BackgroundObject('img/5_background/layers/air.png', -720),
