@@ -103,10 +103,12 @@ figure {
       rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   }
   
-  .more,
-  .play,
-  .help {
+  .more {
     height: 32px;
+  }
+
+  .play {
+    height: 80px;
   }
   
   .mobile {
