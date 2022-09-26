@@ -219,6 +219,8 @@ class World {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         return;
       }
+      // this.ctx.font = '54px serif';
+      // this.ctx.strokeText('Level 1', 300, 200);
     }
 
     /**
