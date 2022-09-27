@@ -46,6 +46,7 @@ class ThrowableObject extends MovableObject {
      * @returns {void}
      */
     throw() {
+      
       if (this.bottlesAmount < 0) {
         this.bottlesAmount = 0;
       }
@@ -54,7 +55,7 @@ class ThrowableObject extends MovableObject {
           this.playAnimation(this.BOTTLE_ROTATION);
         }, 50);
         this.speedY = 30;
-        this.applyGravitiy();
+        this.applyGravity();
         setInterval(() => {
           this.x += 8;
         }, 1000 / 60);
@@ -71,6 +72,7 @@ class ThrowableObject extends MovableObject {
      * @returns {void}
      */
     checkThrow() {
+      
         setInterval(() => {
           if (this.y >= 280) {
             this.y = 280;
