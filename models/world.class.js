@@ -50,7 +50,7 @@ class World {
      */
     createRandomWorld() {
         let randomNum = Math.floor(Math.random()*20)+5; // Random number between 5 and 19
-        
+        console.log(randomNum);
         // Random number of clouds
         for (let cloud = 0; cloud <= randomNum; cloud++) {
             this.level.clouds.push(new Cloud())
