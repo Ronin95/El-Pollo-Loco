@@ -353,7 +353,7 @@ class World {
         }
         
         mo.draw(this.ctx);
-        mo.drawFrame(this.ctx);
+        // mo.drawFrame(this.ctx); - draws a frame around the character and chickens
 
         if (mo.otherDirection) {
             this.flipImageBack(mo);

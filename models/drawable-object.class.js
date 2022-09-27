@@ -56,7 +56,7 @@ class DrawableObject {
     }
 
     /**
-     * Drawing a frame around the character.
+     * Drawing a frame around the character and chickens.
      * 
      * @method
      * @name drawFrame
@@ -65,15 +65,15 @@ class DrawableObject {
      * @param {any} ctx
      * @returns {void}
      */
-    drawFrame(ctx) {
-        if (this instanceof Character || this instanceof Chicken) {
-            ctx.beginPath();
-            ctx.lineWidth = '5';
-            ctx.strokeStyle = 'blue';
-            ctx.rect(this.x, this.y, this.width, this.height);
-            ctx.stroke();
-        }
-    }
+    // drawFrame(ctx) {
+    //     if (this instanceof Character || this instanceof Chicken) {
+    //         ctx.beginPath();
+    //         ctx.lineWidth = '5';
+    //         ctx.strokeStyle = 'blue';
+    //         ctx.rect(this.x, this.y, this.width, this.height);
+    //         ctx.stroke();
+    //     }
+    // }
 
     /**
      * Checking if the character is colliding with the object.

@@ -46,7 +46,6 @@ class ThrowableObject extends MovableObject {
      * @returns {void}
      */
     throw() {
-      
       if (this.bottlesAmount < 0) {
         this.bottlesAmount = 0;
       }
@@ -72,7 +71,6 @@ class ThrowableObject extends MovableObject {
      * @returns {void}
      */
     checkThrow() {
-      
         setInterval(() => {
           if (this.y >= 280) {
             this.y = 280;
