@@ -12,10 +12,11 @@ class Birds extends MovableObject {
         this.loadImages(this.BIRDS_FLY);
         this.x = 200;
         this.y = 200;
-        this.animate();
+        this.animateBirds();
     }
 
-    animate() {
+    animateBirds() {
+        debugger;
         setInterval( () => {
             let i = this.currentBird % this.BIRDS_FLY.length;
             let path =  this.BIRDS_FLY[i];
