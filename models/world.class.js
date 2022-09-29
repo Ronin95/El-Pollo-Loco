@@ -253,7 +253,7 @@ class World {
         if (this.character.collidingCoin(coin) && this.runPepe == true) {
           this.collect_coin_sound.play();
           this.level.coins.splice(indexCoins, 1);
-          this.coinBar.setCoins(this.level.coins.length);
+          // this.coinBar.setCoins(this.level.coins.length);
         }
       });
     }
@@ -298,7 +298,7 @@ class World {
           this.collect_bottle_sound.play();
           this.level.bottlesAmount.push(bottle);
           this.level.bottles.splice(indexBottles, 1);
-          this.bottleBar.setBottles(this.level.bottlesAmount.length);
+          // this.bottleBar.setBottles(this.level.bottlesAmount.length);
         }
       });
     }
