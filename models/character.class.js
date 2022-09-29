@@ -108,11 +108,11 @@ class Character extends MovableObject {
         setTimeout(() => {
             setInterval(() => {
                 this.inactivePepe = new Date().getTime() - this.lastPepeAction;
-                if(this.inactivePepe > 5000) {
+                if(this.inactivePepe > 4000) {
                     this.playAnimation(this.IMAGES_SLEEPING);
                 }
             }, 100);
-        }, 5000);
+        }, 4000);
     }
 
     /**
@@ -160,28 +160,21 @@ class Character extends MovableObject {
             this.walking_sound.pause();
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
                 this.moveRight();
-                this.otherDirection = false;
-                this.walking_sound.play();
-            }
-
-            if (this.world.keyboard.LEFT && this.x > 0) {
-                this.moveLeft();
+            } 
+            if (this.world.keyboard.LEFT && this.x > 400) {
+                this.x -= this.speed;
                 this.otherDirection = true;
-                this.walking_sound.play();
             }
-
-            if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
+            if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
                 this.walking_sound.play();
             } else {
                 this.walking_sound.pause();
             }
-
-            if (this.world.keyboard.SPACE && !this.isAboveGround()) {
-                this.jump(); // pepe jumps
+            if((this.world.keyboard.SPACE || this.world.keyboard.UP) && !this.isAboveGround()) {
+                this.jump();
             }
-
-            this.world.camera_x = -this.x + 100;
-        }, 1000/60)
+            this.world.camera_x = -this.x +100;
+        }, 1000 / 60);
     }
 
     /**
@@ -195,8 +188,8 @@ class Character extends MovableObject {
      */
     pepeStandingStill() {
         setInterval(() => {
-            if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.SPACE || this.world.keyboard.B || this.world.keyboard.S || this.isAboveGround() || this.isHurt() || this.isDead()) {
-                this.lastAction = new Date().getTime();
+            if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.SPACE || this.world.keyboard.B || this.world.keyboard.S || this.isAboveGround() || this.isHurt() || this.isDead()) {
+                this.lastPepeAction = new Date().getTime();
              }
         }, 100);
     }
