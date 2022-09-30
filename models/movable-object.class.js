@@ -92,7 +92,7 @@ class MovableObject extends DrawableObject {
     }
 
     /**
-     * The different animations of Pepe are loaded depending on the
+     * The different animations of characters are loaded depending on the
      * experiences he is encountering - hurt - dead - hit etc
      * 
      * @method

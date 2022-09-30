@@ -1,6 +1,6 @@
 class Birds extends MovableObject {
-    height = 50;
-    width = 50;
+    height = 250;
+    width = 250;
     BIRDS_FLY = [
         'img/10_otherTools/bird1.png',
         'img/10_otherTools/bird2.png'
@@ -16,12 +16,8 @@ class Birds extends MovableObject {
     }
 
     animateBirds() {
-        debugger;
         setInterval( () => {
-            let i = this.currentBird % this.BIRDS_FLY.length;
-            let path =  this.BIRDS_FLY[i];
-            this.img = this.imageCache[path];
-            this.currentBird++;
-        },100);
+            this.playAnimation(this.BIRDS_FLY);
+        }, 100);
     }
 }
