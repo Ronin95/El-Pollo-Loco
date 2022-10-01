@@ -1,6 +1,7 @@
 class Birds extends MovableObject {
-    height = 350;
-    width = 350;
+    birdsBackgroundImg;
+    height = 20;
+    width = 60;
     BIRDS_FLY = [
         'img/10_otherTools/birds/bird1.png',
         'img/10_otherTools/birds/bird2.png',
@@ -9,16 +10,16 @@ class Birds extends MovableObject {
     currentBird = 0;
 
     constructor() {
-        super().loadImage('img/10_otherTools/bird1.png');
+        super().loadImage('img/10_otherTools/birds/bird1.png');
         this.loadImages(this.BIRDS_FLY);
-        this.x = 100;
-        this.y = 100;
+        this.x = 600;
+        this.y = 10;
         this.animateBirds();
     }
 
     animateBirds() {
         setInterval(() => {
             this.playAnimation(this.BIRDS_FLY);
-        }, 100);
+        }, 500);
     }
 }
