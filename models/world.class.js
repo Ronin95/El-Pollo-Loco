@@ -1,6 +1,7 @@
 class World {
     character = new Character();
     birdsBackground = new Birds();
+    eagle = new Eagle();
     level = level1;
     ctx;
     canvas;
@@ -198,11 +199,11 @@ class World {
 
         this.ctx.translate(this.camera_x, 0);
         
-        this.addBackgroundObjects(); // All the clouds and backgroundobjects
+        this.addBackgroundObjects(); // All the clouds and the desert
         this.moveStatusbarsWithCamera(); // All the statusbars are moved with the camera perspective
+        this.addAnimatedBackgroundObjects(); // Animated background objects are the birds in right top corner and the eagle
 
         this.addToMap(this.character);
-        this.addToMap(this.birdsBackground);
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.level.bottles);
@@ -221,6 +222,11 @@ class World {
       }
       // this.ctx.font = '54px serif';
       // this.ctx.strokeText('Level 1', 300, 200);
+    }
+
+    addAnimatedBackgroundObjects() {
+      this.addToMap(this.birdsBackground);
+      this.addToMap(this.eagle);
     }
 
     /**

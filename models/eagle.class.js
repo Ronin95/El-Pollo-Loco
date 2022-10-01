@@ -1,4 +1,7 @@
 class Eagle extends MovableObject {
+    height = 100;
+    width = 90;
+    currentEagle = 0;
     EAGLE_FLYING = [
         'img/10_otherTools/eagle/0.png',
         'img/10_otherTools/eagle/1.png',
@@ -22,4 +25,18 @@ class Eagle extends MovableObject {
         'img/10_otherTools/eagle/19.png',
         'img/10_otherTools/eagle/20.png'
     ];
+
+    constructor() {
+        super().loadImage('img/10_otherTools/eagle/0.png');
+        this.loadImages(this.EAGLE_FLYING);
+        this.x = 100;
+        this.y = 100;
+        this.animateEagle();
+    }
+
+    animateEagle() {
+        setInterval(() => {
+            this.playAnimation(this.EAGLE_FLYING);
+        }, 50);
+    }
 }
