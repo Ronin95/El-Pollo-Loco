@@ -1,5 +1,6 @@
 class World {
     character = new Character();
+    birds = new Birds();
     level = level1;
     ctx;
     canvas;
@@ -32,11 +33,10 @@ class World {
         this.createRandomWorld();
         this.draw();
         this.setWorld();
+        this.setBirds();
         this.collisionOfObjects();
         this.checkCollisions();
         this.changeBottlesAxis();
-        
-
     }
 
     /**
@@ -84,6 +84,10 @@ class World {
      */
     setWorld() {
         this.character.world = this;
+    }
+
+    setBirds() {
+        this.birds.world = this;
     }
 
     /**
