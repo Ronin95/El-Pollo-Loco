@@ -3,7 +3,8 @@ class Birds extends MovableObject {
     width = 250;
     BIRDS_FLY = [
         'img/10_otherTools/bird1.png',
-        'img/10_otherTools/bird2.png'
+        'img/10_otherTools/bird2.png',
+        'img/10_otherTools/bird3.png'
     ];
     currentBird = 0;
 
