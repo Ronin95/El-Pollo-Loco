@@ -31,7 +31,7 @@ class ChickenSmall extends MovableObject {
      * @returns {void}
      */
     animate() {
-        this.moveChickenSmallLeft();
+        //this.moveChickenSmallLeft();
         setInterval(() => {
             if(this.energy <= 0) {
                 this.energy = 0;

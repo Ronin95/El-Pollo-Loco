@@ -29,14 +29,22 @@ class Eagle extends MovableObject {
     constructor() {
         super().loadImage('img/10_otherTools/eagle/0.png');
         this.loadImages(this.EAGLE_FLYING);
-        this.x = 100;
-        this.y = 100;
+        this.x = 500 + Math.random() * 6000;
+        this.y = 30;
+        this.speed = 0.35 + Math.random() * 0.1;
         this.animateEagle();
     }
 
     animateEagle() {
+        this.moveEagleLeft();
         setInterval(() => {
             this.playAnimation(this.EAGLE_FLYING);
         }, 50);
+    }
+
+    moveEagleLeft() {
+        setInterval(() => {
+          this.x -= this.speed;
+        }, 1000 / 60);
     }
 }

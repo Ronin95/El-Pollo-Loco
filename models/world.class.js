@@ -220,12 +220,9 @@ class World {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         return;
       }
-      // this.ctx.font = '54px serif';
-      // this.ctx.strokeText('Level 1', 300, 200);
     }
 
     addAnimatedBackgroundObjects() {
-      this.addToMap(this.birdsBackground);
       this.addToMap(this.eagle);
     }
 
@@ -324,6 +321,7 @@ class World {
         this.addToMap(this.healthBar);
         this.addToMap(this.coinBar);
         this.addToMap(this.bottleBar);
+        this.addToMap(this.birdsBackground);
         this.ctx.translate(this.camera_x, 0); 
     }
     

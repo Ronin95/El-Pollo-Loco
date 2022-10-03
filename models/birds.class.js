@@ -12,7 +12,7 @@ class Birds extends MovableObject {
     constructor() {
         super().loadImage('img/10_otherTools/birds/bird1.png');
         this.loadImages(this.BIRDS_FLY);
-        this.x = 600;
+        this.x = 650;
         this.y = 10;
         this.animateBirds();
     }
