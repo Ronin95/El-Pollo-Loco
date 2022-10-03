@@ -12,6 +12,8 @@ class World {
     coinBar = new CoinBar();
     bottleBar = new BottleBar();
     throwableObjects = [];
+    bottlesCollected = [];
+    coinsCollected = [];
     
     /* Sounds */
     chickens_1_sound = new Audio('audio/audio_chicken_1.mp3');
@@ -96,11 +98,12 @@ class World {
      * @returns {void}
      */
     checkThrowObjects() {
-        if (this.keyboard.B && this.level.bottlesAmount.length > 0) {
+        if (this.keyboard.B && this.bottlesCollected.length > 0) {
             let bottle = new ThrowableObject(this.character.x+50, this.character.y+80);
             this.throwableObjects.push(bottle);
-            this.level.bottlesAmount.splice(0,1);
-            this.bottleBar.setBottles(this.level.bottlesAmount.length);
+            debugger;
+            this.bottlesCollected.splice(0,1);
+            // this.bottleBar.setBottles(this.level.bottlesCollected.length);
             setInterval(() => {
               this.level.enemies.forEach((enemy, indexEnemy) => {
                 if (bottle.collidingPepe(enemy)) {
@@ -243,7 +246,7 @@ class World {
     /**
      * Checking if the character is colliding with a 
      * coin and if it is, it will remove the coin from
-     *  the array and add it to the coinsAmount array.
+     *  the array and add it to the coinsCollected array.
      * 
      * @method
      * @name checkCollectCoin
@@ -287,7 +290,7 @@ class World {
     /**
      * Checking if the character is colliding with a bottle 
      * and if it is, it will remove the bottle from the array 
-     * and add it to the bottlesAmount array.
+     * and add it to the bottlesCollected array.
      * 
      * @method
      * @name checkCollectBottle
@@ -299,9 +302,9 @@ class World {
       this.level.bottles.forEach((bottle, indexBottles) => {
         if (this.character.collidingBottle(bottle) && this.runPepe == true) {
           this.collect_bottle_sound.play();
-          this.level.bottlesAmount.push(bottle);
+          this.bottlesCollected.push(bottle);
+          console.log(this.bottlesCollected.length);
           this.level.bottles.splice(indexBottles, 1);
-          // this.bottleBar.setBottles(this.level.bottlesAmount.length);
         }
       });
     }
