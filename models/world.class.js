@@ -21,7 +21,6 @@ class World {
     use_shuriken_sound = new Audio('audio/shuriken_sound.mp3');
     collect_coin_sound = new Audio('audio/coin.mp3');
     collect_bottle_sound = new Audio('audio/collect_bottle.mp3');
-    game_over_sound = new Audio('audio/game_over.mp3');
     jump_pepe_sound = new Audio('audio/jump.mp3');
     hurt_pepe_sound = new Audio('audio/ouch.mp3');
     dead_pepe_sound = new Audio('audio/Pepe_dies.mp3');
@@ -37,6 +36,7 @@ class World {
         this.collisionOfObjects();
         this.checkCollisions();
         this.changeBottlesAxis();
+        this.checkGameStatus();
     }
 
     /**
@@ -276,11 +276,11 @@ class World {
     checkGameStatus() {
       setInterval(() => {
         if (this.character.energy <= 0) {
-          removeKeyboard();
+          removeKeyBoard();
           enableEndscreenLost();
           this.runPepe = false;
         } else if (this.level.enemies[0].energy <= 0) {
-          removeKeyboard();
+          removeKeyBoard();
           enableEndscreenWon();
           this.runPepe = false;
         }

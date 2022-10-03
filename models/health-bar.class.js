@@ -8,6 +8,7 @@ class HealthBar extends DrawableObject {
         'img/7_statusbars/1_statusbar/2_statusbar_health/blue/100.png'
     ];
     health = 100;
+    game_over_sound = new Audio('audio/game_over.mp3');
 
     constructor() {
         super();
@@ -44,21 +45,20 @@ class HealthBar extends DrawableObject {
      * @memberof HealthBar
      * @returns {0 | 1 | 2 | 3 | 4 | 5}
      */
-    resolveImageIndex() {
-        if(this.health <= 0) {
-            return 0;
-    }   else if(this.health > 0 && this.health <= 2) {
-            return 1;
-    }   else if(this.health > 2 && this.health <= 4) {
-            return 2;
-    }   else if(this.health > 4 && this.health <= 6) {
-            return 3;
-    }   else if(this.health > 6 && this.health <= 7) {
-            return 4;
-    }   else if(this.health > 7) {
-            return 5;
-    }   else {
-            return 0;
-    }
-}
+        resolveImageIndex() {
+                if (this.health == 100) {
+                        return 5;
+                }   else if (this.health > 80) {
+                        return 4;
+                }   else if (this.health > 60) {
+                        return 3;
+                }   else if (this.health > 40) {
+                        return 2;
+                }   else if (this.health > 20) {
+                        return 1;
+                }   else {
+                        this.game_over_sound.play();
+                        return 0;
+                }
+        }
 }
