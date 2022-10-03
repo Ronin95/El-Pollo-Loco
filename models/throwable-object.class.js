@@ -14,13 +14,12 @@ class ThrowableObject extends MovableObject {
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png'
     ];
     SHURIKEN_ROTATION = [
-      'img/10_otherTools/shuriken-1.png',
-      'img/10_otherTools/shuriken-2.png'
+      'img/10_otherTools/shuriken/shuriken-1.png',
+      'img/10_otherTools/shuriken/shuriken-2.png'
     ];
 
     broken_bottle_sound = new Audio('./audio/breakbottle.mp3');
     throw_shuriken_sound = new Audio('audio/shuriken_throw_sound.mp3');
-    bottlesCollected = this.world.bottlesCollected;
 
     constructor(x, y) {
         super().loadImage('img/6_salsa_bottle/salsa_bottle.png');
@@ -46,10 +45,10 @@ class ThrowableObject extends MovableObject {
      * @returns {void}
      */
     throw() {
-      if (bottlesCollected < 0) {
-        bottlesCollected = 0;
+      if (___ < 0) {
+        ___ = 0;
       }
-      if (bottlesCollected > 0) {
+      if (___ > 0) {
         setInterval(() => {
           this.playAnimation(this.BOTTLE_ROTATION);
         }, 50);

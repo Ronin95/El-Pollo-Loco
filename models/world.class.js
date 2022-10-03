@@ -101,7 +101,6 @@ class World {
         if (this.keyboard.B && this.bottlesCollected.length > 0) {
             let bottle = new ThrowableObject(this.character.x+50, this.character.y+80);
             this.throwableObjects.push(bottle);
-            debugger;
             this.bottlesCollected.splice(0,1);
             // this.bottleBar.setBottles(this.level.bottlesCollected.length);
             setInterval(() => {
@@ -258,6 +257,8 @@ class World {
       this.level.coins.forEach((coin, indexCoins) => {
         if (this.character.collidingCoin(coin) && this.runPepe == true) {
           this.collect_coin_sound.play();
+          this.coinsCollected.push(coin);
+          console.log(this.coinsCollected.length, 'collected coins');
           this.level.coins.splice(indexCoins, 1);
           // this.coinBar.setCoins(this.level.coins.length);
         }
@@ -303,7 +304,7 @@ class World {
         if (this.character.collidingBottle(bottle) && this.runPepe == true) {
           this.collect_bottle_sound.play();
           this.bottlesCollected.push(bottle);
-          console.log(this.bottlesCollected.length);
+          console.log(this.bottlesCollected.length, 'collected bottles');
           this.level.bottles.splice(indexBottles, 1);
         }
       });
