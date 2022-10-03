@@ -41,7 +41,7 @@ class Chicken extends MovableObject {
      * @returns {void}
      */
     animate() {
-        this.moveLeft();
+        this.moveChickenNormalLeft();
         setInterval(() => {
             if(this.energy <= 0) {
                 this.energy = 0;
@@ -52,5 +52,11 @@ class Chicken extends MovableObject {
                 this.playAnimation(this.CHICKEN_NORMAL_WALKING);
             }
         }, 100);
+    }
+
+    moveChickenNormalLeft() {
+        setInterval(() => {
+          this.x -= this.speed;
+        }, 1000 / 60);
     }
 }

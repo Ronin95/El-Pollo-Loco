@@ -17,7 +17,7 @@ class ChickenSmall extends MovableObject {
         this.loadImages(this.CHICKEN_SMALL_WALKING);
         this.loadImages(this.CHICKEN_SMALL_DEAD);
         this.x = 300 + Math.random()*6000; // Number between 200 and 25  00
-        this.speed = 0.35 + Math.random() * 1.4;
+        this.speed = 0.35 + Math.random() * 1.9;
         this.animate();
     }
 
@@ -31,7 +31,7 @@ class ChickenSmall extends MovableObject {
      * @returns {void}
      */
     animate() {
-        this.moveLeft();
+        this.moveChickenSmallLeft();
         setInterval(() => {
             if(this.energy <= 0) {
                 this.energy = 0;
@@ -42,5 +42,11 @@ class ChickenSmall extends MovableObject {
                 this.playAnimation(this.CHICKEN_SMALL_WALKING);
             }
         }, 100);
+    }
+
+    moveChickenSmallLeft() {
+        setInterval(() => {
+          this.x -= this.speed;
+        }, 1000 / 60);
     }
 }
