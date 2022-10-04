@@ -17,20 +17,23 @@ class ThrowableObject extends MovableObject {
       'img/10_otherTools/shuriken/shuriken-1.png',
       'img/10_otherTools/shuriken/shuriken-2.png'
     ];
-
     broken_bottle_sound = new Audio('./audio/breakbottle.mp3');
     throw_shuriken_sound = new Audio('audio/shuriken_throw_sound.mp3');
+    world;
 
-    constructor(x, y) {
+    constructor(x, y, world) {
         super().loadImage('img/6_salsa_bottle/salsa_bottle.png');
         this.loadImages(this.BOTTLE_ROTATION);
         this.loadImages(this.BOTTLE_SPLASH);
         this.loadImages(this.SHURIKEN_ROTATION);
+        this.world = world;
         this.x = x;
         this.y = y;
         this.height = 80;
         this.width = 70;
         this.throw();
+        // this.throwBottle();
+        // this.throwShuriken();
         this.checkThrow();
         // Add the shuriken throw here later on
     }
@@ -45,10 +48,10 @@ class ThrowableObject extends MovableObject {
      * @returns {void}
      */
     throw() {
-      if (___ < 0) {
-        ___ = 0;
+      if (this.world.bottlesCollected.length < 0) {
+        this.world.bottlesCollected.length = 0;
       }
-      if (___ > 0) {
+      if (this.world.bottlesCollected.length > 0) {
         setInterval(() => {
           this.playAnimation(this.BOTTLE_ROTATION);
         }, 50);
@@ -60,8 +63,16 @@ class ThrowableObject extends MovableObject {
       }
     }
 
+    // throwBottle() {
+
+    // }
+
+    // throwShuriken() {
+
+    // }
+
     /**
-     * It checks if the bottle is thrown.
+     * It checks if the bottle or shuriken is thrown.
      * 
      * @method
      * @name checkThrow
@@ -84,5 +95,5 @@ class ThrowableObject extends MovableObject {
         setTimeout(() => {
           this.broken_bottle_sound.play();
         }, 500);
-      }
+    }
 }

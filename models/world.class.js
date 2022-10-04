@@ -52,7 +52,7 @@ class World {
      */
     createRandomWorld() {
         let randomNum = Math.floor(Math.random()*20)+5; // Random number between 5 and 19
-        console.log(randomNum);
+        console.log(randomNum, 'random number of created enemies, clouds, coins and bottles');
         // Random number of clouds
         for (let cloud = 0; cloud <= randomNum; cloud++) {
             this.level.clouds.push(new Cloud())
@@ -90,6 +90,27 @@ class World {
 
     /**
      * Checking if the character is throwing a bottle or shuriken.
+     * Or if the character is collecting the coin or bottle
+     * 
+     * @method
+     * @name collisionOfObjects
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
+     collisionOfObjects() {
+      setInterval(() => {
+        this.checkThrowObjects();
+      }, 500);
+  
+      setInterval(() => {
+        this.checkCollectCoin();
+        this.checkCollectBottle();
+      }, 100);
+    }
+
+    /**
+     * Checking if the character is throwing a bottle or shuriken.
      * 
      * @method
      * @name checkThrowObjects
@@ -99,15 +120,17 @@ class World {
      */
     checkThrowObjects() {
         if (this.keyboard.B && this.bottlesCollected.length > 0) {
-            let bottle = new ThrowableObject(this.character.x+50, this.character.y+80);
-            let shuriken = new ThrowableObject(this.character.x+50, this.character.y+80);
+            let bottle = new ThrowableObject(this.character.x+50, this.character.y+80, this);
+            let shuriken = new ThrowableObject(this.character.x+50, this.character.y+80, this);
             this.throwableObjects.push(bottle);
-            this.bottlesCollected.splice(0,1);
-            // this.bottleBar.setBottles(this.level.bottlesCollected.length);
+            this.throwableObjects.push(shuriken);
+            // subtract 1 bottle from the array bottlesCollected
             setInterval(() => {
               this.level.enemies.forEach((enemy, indexEnemy) => {
                 if (bottle.collidingPepe(enemy)) {
                   this.level.enemies[indexEnemy].energy -= 2;
+                } else if (shuriken.collidingPepe(enemy)) {
+                  this.level.enemies[indexEnemy].energy -= 10;
                 }
                 if (this.level.enemies[indexEnemy].energy <= 0) {
                   this.level.enemies[indexEnemy].energy = 0;
@@ -145,27 +168,6 @@ class World {
               }
             });
           }, 200);
-    }
-
-    /**
-     * Checking if the character is throwing a bottle or shuriken.
-     * Or if the character is collecting the coin or bottle
-     * 
-     * @method
-     * @name collisionOfObjects
-     * @kind method
-     * @memberof World
-     * @returns {void}
-     */
-    collisionOfObjects() {
-      setInterval(() => {
-        this.checkThrowObjects();
-      }, 500);
-  
-      setInterval(() => {
-        this.checkCollectCoin();
-        this.checkCollectBottle();
-      }, 100);
     }
 
     /**
@@ -259,7 +261,7 @@ class World {
         if (this.character.collidingCoin(coin) && this.runPepe == true) {
           this.collect_coin_sound.play();
           this.coinsCollected.push(coin);
-          console.log(this.coinsCollected.length, 'collected coins');
+          console.log(this.coinsCollected.length, 'collected coins aus coinsCollected Array in world.class.js');
           this.level.coins.splice(indexCoins, 1);
           // this.coinBar.setCoins(this.level.coins.length);
         }
@@ -305,7 +307,7 @@ class World {
         if (this.character.collidingBottle(bottle) && this.runPepe == true) {
           this.collect_bottle_sound.play();
           this.bottlesCollected.push(bottle);
-          console.log(this.bottlesCollected.length, 'collected bottles');
+          console.log(this.bottlesCollected.length, 'collected bottles aus bottlesCollect Array in world.class.js');
           this.level.bottles.splice(indexBottles, 1);
         }
       });
