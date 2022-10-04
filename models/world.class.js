@@ -100,6 +100,7 @@ class World {
     checkThrowObjects() {
         if (this.keyboard.B && this.bottlesCollected.length > 0) {
             let bottle = new ThrowableObject(this.character.x+50, this.character.y+80);
+            let shuriken = new ThrowableObject(this.character.x+50, this.character.y+80);
             this.throwableObjects.push(bottle);
             this.bottlesCollected.splice(0,1);
             // this.bottleBar.setBottles(this.level.bottlesCollected.length);
