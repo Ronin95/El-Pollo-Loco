@@ -19,6 +19,8 @@ class CoinBar extends DrawableObject {
         this.height = 140;
     }
 
+    
+
     /**
      * Setting the coins to the value of coins.
      * 

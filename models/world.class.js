@@ -121,16 +121,12 @@ class World {
     checkThrowObjects() {
         if (this.keyboard.B && this.bottlesCollected.length > 0) {
             let bottle = new ThrowableObject(this.character.x+50, this.character.y+80, this);
-            let shuriken = new ThrowableObject(this.character.x+50, this.character.y+80, this);
             this.throwableObjects.push(bottle);
-            this.throwableObjects.push(shuriken);
             // subtract 1 bottle from the array bottlesCollected
             setInterval(() => {
               this.level.enemies.forEach((enemy, indexEnemy) => {
                 if (bottle.collidingPepe(enemy)) {
                   this.level.enemies[indexEnemy].energy -= 2;
-                } else if (shuriken.collidingPepe(enemy)) {
-                  this.level.enemies[indexEnemy].energy -= 10;
                 }
                 if (this.level.enemies[indexEnemy].energy <= 0) {
                   this.level.enemies[indexEnemy].energy = 0;
@@ -261,6 +257,7 @@ class World {
         if (this.character.collidingCoin(coin) && this.runPepe == true) {
           this.collect_coin_sound.play();
           this.coinsCollected.push(coin);
+          console.log(indexCoins, 'indexCoins');
           console.log(this.coinsCollected.length, 'collected coins aus coinsCollected Array in world.class.js');
           this.level.coins.splice(indexCoins, 1);
           // this.coinBar.setCoins(this.level.coins.length);

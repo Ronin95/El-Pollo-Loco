@@ -31,9 +31,8 @@ class ThrowableObject extends MovableObject {
         this.y = y;
         this.height = 80;
         this.width = 70;
-        this.throw();
-        // this.throwBottle();
-        // this.throwShuriken();
+        this.throwBottles();
+        this.throwShuriken();
         this.checkThrow();
         // Add the shuriken throw here later on
     }
@@ -47,10 +46,7 @@ class ThrowableObject extends MovableObject {
      * @memberof ThrowableObject
      * @returns {void}
      */
-    throw() {
-      if (this.world.bottlesCollected.length < 0) {
-        this.world.bottlesCollected.length = 0;
-      }
+    throwBottles() {
       if (this.world.bottlesCollected.length > 0) {
         setInterval(() => {
           this.playAnimation(this.BOTTLE_ROTATION);
@@ -63,13 +59,9 @@ class ThrowableObject extends MovableObject {
       }
     }
 
-    // throwBottle() {
+    throwShuriken() {
 
-    // }
-
-    // throwShuriken() {
-
-    // }
+    }
 
     /**
      * It checks if the bottle or shuriken is thrown.
