@@ -223,15 +223,43 @@ class World {
       }
     }
 
+    /**
+     * Adding the background objects to the scene.
+     * In this case only the eagle.
+     * 
+     * @method
+     * @name addAnimatedBackgroundObjects
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
     addAnimatedBackgroundObjects() {
       this.addToMap(this.eagle);
     }
 
+    /**
+     * Writing to the canvas the amount of coins that the player has collected.
+     * 
+     * @method
+     * @name displayCoinsAmount
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
     displayCoinsAmount() {
       this.ctx.font = "45px zabars";
       this.ctx.fillText(this.coinsCollected.length, 290, 55);
     }
 
+    /**
+     * Writing to the canvas the amount of bottles that the player has collected.
+     * 
+     * @method
+     * @name displayBottlesAmount
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
     displayBottlesAmount() {
       this.ctx.font = "45px zabars";
       this.ctx.fillText(this.bottlesCollected.length, 400, 55);
