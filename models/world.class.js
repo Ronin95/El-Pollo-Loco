@@ -210,6 +210,9 @@ class World {
         this.addObjectsToMap(this.level.bottles);
         this.addObjectsToMap(this.throwableObjects);
 
+        // displayCoinsAmount
+        // displayBottlesAmount
+
         this.ctx.translate(-this.camera_x, 0);
 
         // Draw is being called constantly
@@ -225,6 +228,14 @@ class World {
 
     addAnimatedBackgroundObjects() {
       this.addToMap(this.eagle);
+    }
+
+    displayCoinsAmount() {
+
+    }
+
+    displayBottlesAmount() {
+      
     }
 
     /**
