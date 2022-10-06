@@ -210,9 +210,6 @@ class World {
         this.addObjectsToMap(this.level.bottles);
         this.addObjectsToMap(this.throwableObjects);
 
-        // displayCoinsAmount
-        // displayBottlesAmount
-
         this.ctx.translate(-this.camera_x, 0);
 
         // Draw is being called constantly
@@ -231,11 +228,13 @@ class World {
     }
 
     displayCoinsAmount() {
-
+      this.ctx.font = "45px zabars";
+      this.ctx.fillText(this.coinsCollected.length, 290, 55);
     }
 
     displayBottlesAmount() {
-      
+      this.ctx.font = "45px zabars";
+      this.ctx.fillText(this.bottlesCollected.length, 400, 55);
     }
 
     /**
@@ -337,6 +336,8 @@ class World {
         this.addToMap(this.coinBar);
         this.addToMap(this.bottleBar);
         this.addToMap(this.birdsBackground);
+        this.displayCoinsAmount();
+        this.displayBottlesAmount();
         this.ctx.translate(this.camera_x, 0); 
     }
     
