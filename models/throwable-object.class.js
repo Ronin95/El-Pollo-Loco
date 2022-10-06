@@ -60,7 +60,17 @@ class ThrowableObject extends MovableObject {
     }
 
     throwShuriken() {
-
+      console.log('throwShuriken activated');
+      if (this.world.coinsCollected.length >= 5) {
+        setInterval(() => {
+          this.playAnimation(this.SHURIKEN_ROTATION);
+        });
+        this.speedY = 40;
+        this.applyGravity();
+        setInterval(() => {
+          this.x += 10;
+        }, 1000/60);
+      }
     }
 
     /**
