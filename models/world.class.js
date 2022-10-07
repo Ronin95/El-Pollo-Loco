@@ -249,6 +249,10 @@ class World {
     displayCoinsAmount() {
       this.ctx.font = "45px zabars";
       this.ctx.fillText(this.coinsCollected.length, 290, 55);
+
+      if (this.coinsCollected.length >= 5 && this.coinsCollected.length < 6) {
+        this.use_shuriken_sound.play();
+      }
     }
 
     /**
