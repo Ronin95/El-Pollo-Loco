@@ -119,20 +119,33 @@ class World {
      * @returns {void}
      */
     checkThrowObjects() {
-        if (this.keyboard.B && this.bottlesCollected.length > 0) {
-            let bottle = new ThrowableObject(this.character.x+50, this.character.y+80, this);
-            this.throwableObjects.push(bottle);
-            // subtract 1 bottle from the array bottlesCollected
-            setInterval(() => {
-              this.level.enemies.forEach((enemy, indexEnemy) => {
-                if (bottle.collidingPepe(enemy)) {
-                  this.level.enemies[indexEnemy].energy -= 2;
-                }
-                if (this.level.enemies[indexEnemy].energy <= 0) {
-                  this.level.enemies[indexEnemy].energy = 0;
-                }
-              });
-            }, 1000 / 60);
+        if (this.keyboard.B && this.bottlesCollected.length >= 1) {
+          let bottle = new ThrowableObject(this.character.x+50, this.character.y+80, this);
+          this.throwableObjects.push(bottle);
+          this.bottlesCollected.splice(0,1);
+          setInterval(() => {
+            this.level.enemies.forEach((enemy, indexEnemy) => {
+              if (bottle.collidingPepe(enemy)) {
+                this.level.enemies[indexEnemy].energy -= 2;
+              }
+              if (this.level.enemies[indexEnemy].energy <= 0) {
+                this.level.enemies[indexEnemy].energy = 0;
+              }
+            });
+          }, 1000 / 60);
+        } else if (this.keyboard.S && this.coinsCollected.length >= 5) {
+          let shuriken = new ThrowableObject(this.character.x+50, this.character.y+80, this);
+          this.throwableObjects.push(shuriken);
+          setInterval(() => {
+            this.level.enemies.forEach((enemy, indexEnemy) => {
+              if (shuriken.collidingPepe(enemy)) {
+                this.level.enemies[indexEnemy].energy -= 5;
+              }
+              if (this.level.enemies[indexEnemy].energy <= 0) {
+                this.level.enemies[indexEnemy].energy = 0;
+              }
+            });
+          }, 1000 / 60);
         }
     }
 

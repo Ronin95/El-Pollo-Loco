@@ -34,7 +34,7 @@ class ThrowableObject extends MovableObject {
         this.throwBottles();
         this.throwShuriken();
         this.checkThrow();
-        // Add the shuriken throw here later on
+        this.checkShurikenThrow();
     }
 
     /**
@@ -71,7 +71,6 @@ class ThrowableObject extends MovableObject {
     throwShuriken() {
       // can only throw shurikens, when coinscollected are over 5
       if (this.world.coinsCollected.length >= 5) {
-        console.log(this.world.coinsCollected.length);
         setInterval(() => {
           this.playAnimation(this.SHURIKEN_ROTATION);
         });
@@ -81,6 +80,31 @@ class ThrowableObject extends MovableObject {
           this.x += 10;
         }, 1000/60);
       }
+    }
+
+    /**
+     * It checks if the shuriken is thrown.
+     * 
+     * @method
+     * @name checkShurikenThrow
+     * @kind method
+     * @memberof ThrowableObject
+     * @returns {void}
+     */
+    checkShurikenThrow() {
+      setInterval(() => {
+        if (this.y >= 280) {
+          this.y = 280;
+          this.width = 160;
+          this.height = 160;
+          setTimeout(() => {
+            this.x = -1000;
+          }, 100);
+        }
+      }, 50);
+      setTimeout(() => {
+        this.throw_shuriken_sound.play();
+      }, 500);
     }
 
     /**
