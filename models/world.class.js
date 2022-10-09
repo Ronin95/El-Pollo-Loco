@@ -250,8 +250,10 @@ class World {
       this.ctx.font = "45px zabars";
       this.ctx.fillText(this.coinsCollected.length, 290, 55);
 
-      if (this.coinsCollected.length >= 5 && this.coinsCollected.length < 6) {
+      if (this.coinsCollected.length >= 5 && this.coinsCollected.length <= 6) {
         this.use_shuriken_sound.play();
+        this.ctx.font = "45px zabars";
+        this.ctx.fillText('Press S', 300, 155);
       }
     }
 
