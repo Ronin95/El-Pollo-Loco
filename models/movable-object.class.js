@@ -6,6 +6,8 @@ class MovableObject extends DrawableObject {
     energy = 100;
     lastHit = 0;
 
+    jump_pepe_sound = new Audio('audio/jump.mp3');
+
     /**
      * A method that is called every 25th of a second. 
      * It checks if the object is above the ground or if it is falling. 
@@ -119,6 +121,7 @@ class MovableObject extends DrawableObject {
      * @returns {void}
      */
     jump() {
+        this.jump_pepe_sound.play();
         this.speedY = 30; // how high pepe jumps
     }
 

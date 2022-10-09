@@ -15,7 +15,7 @@ class World {
     bottlesCollected = [];
     coinsCollected = [];
     
-    /* Sounds */
+    /* World Sounds */
     chickens_1_sound = new Audio('audio/audio_chicken_1.mp3');
     chickens_2_sound = new Audio('audio/audio_chicken_2.mp3');
     throw_bottle_sound = new Audio('audio/audio_throw_bottle.mp3');
@@ -23,7 +23,6 @@ class World {
     use_shuriken_sound = new Audio('audio/shuriken_sound.mp3');
     collect_coin_sound = new Audio('audio/coin.mp3');
     collect_bottle_sound = new Audio('audio/collect_bottle.mp3');
-    jump_pepe_sound = new Audio('audio/jump.mp3');
     hurt_pepe_sound = new Audio('audio/ouch.mp3');
     dead_pepe_sound = new Audio('audio/Pepe_dies.mp3');
     pepe_walking_sound = new Audio('audio/walking.mp3');
