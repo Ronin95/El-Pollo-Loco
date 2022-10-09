@@ -99,7 +99,8 @@ class World {
      */
      collisionOfObjects() {
       setInterval(() => {
-        this.checkThrowObjects();
+        this.checkThrowBottles();
+        this.checkThrowShurikens();
       }, 500);
   
       setInterval(() => {
@@ -108,16 +109,32 @@ class World {
       }, 100);
     }
 
+    // checkThrowShurikens() {
+    //   if (this.keyboard.S && this.coinsCollected.length >= 5) {
+    //     let shuriken = new ThrowableObject(this.character.x+10, this.character.y+10, this);
+    //     this.throwableObjects.push(shuriken);
+    //     setInterval(() => {
+    //       this.level.enemies.forEach((enemy, indexEnemy) => {
+    //         if (shuriken.collidingPepe(enemy)) {
+    //           this.level.enemies[indexEnemy].energy -= 5;
+    //         }
+    //         if (this.level.enemies[indexEnemy].energy <= 0) {
+    //           this.level.enemies[indexEnemy].energy = 0;
+    //         }
+    //       });
+    //     }, 1000 / 60);
+    // }
+
     /**
      * Checking if the character is throwing a bottle or shuriken.
      * 
      * @method
-     * @name checkThrowObjects
+     * @name checkThrowBottles
      * @kind method
      * @memberof World
      * @returns {void}
      */
-    checkThrowObjects() {
+    checkThrowBottles() {
         if (this.keyboard.B && this.bottlesCollected.length >= 1) {
           let bottle = new ThrowableObject(this.character.x+50, this.character.y+80, this);
           this.throwableObjects.push(bottle);
@@ -132,20 +149,7 @@ class World {
               }
             });
           }, 1000 / 60);
-        } else if (this.keyboard.S && this.coinsCollected.length >= 5) {
-          let shuriken = new ThrowableObject(this.character.x+50, this.character.y+80, this);
-          this.throwableObjects.push(shuriken);
-          setInterval(() => {
-            this.level.enemies.forEach((enemy, indexEnemy) => {
-              if (shuriken.collidingPepe(enemy)) {
-                this.level.enemies[indexEnemy].energy -= 5;
-              }
-              if (this.level.enemies[indexEnemy].energy <= 0) {
-                this.level.enemies[indexEnemy].energy = 0;
-              }
-            });
-          }, 1000 / 60);
-        }
+        } 
     }
 
     /**
