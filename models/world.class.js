@@ -251,9 +251,11 @@ class World {
       this.ctx.fillText(this.coinsCollected.length, 290, 55);
 
       if (this.coinsCollected.length >= 5 && this.coinsCollected.length <= 6) {
-        this.use_shuriken_sound.play();
+        setTimeout(() => {
+          this.use_shuriken_sound.play();
+        },3000);
         this.ctx.font = "45px zabars";
-        this.ctx.fillText('Press S', 300, 155);
+        this.ctx.fillText('Press S for hidden weapon', 300, 155);
       }
     }
 
