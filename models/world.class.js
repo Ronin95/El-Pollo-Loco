@@ -255,7 +255,7 @@ class World {
           this.use_shuriken_sound.play();
         },3000);
         this.ctx.font = "45px zabars";
-        this.ctx.fillText('Press S for hidden weapon', 300, 155);
+        this.ctx.fillText('Press S for hidden weapon', 170, 135);
       }
     }
 
