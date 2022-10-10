@@ -99,8 +99,7 @@ class World {
      */
      collisionOfObjects() {
       setInterval(() => {
-        this.checkThrowBottles();
-        this.checkThrowShurikens();
+        this.checkThrownWeapons();
       }, 500);
   
       setInterval(() => {
@@ -109,7 +108,7 @@ class World {
       }, 100);
     }
 
-    checkThrowShurikens() {
+    checkThrownWeapons() {
       if (this.keyboard.S && this.coinsCollected.length >= 5) {
         let shuriken = new ThrowableObject(this.character.x+10, this.character.y+10, this);
         this.throwableObjects.push(shuriken);
@@ -117,6 +116,20 @@ class World {
           this.level.enemies.forEach((enemy, indexEnemy) => {
             if (shuriken.collidingPepe(enemy)) {
               this.level.enemies[indexEnemy].energy -= 5;
+            }
+            if (this.level.enemies[indexEnemy].energy <= 0) {
+              this.level.enemies[indexEnemy].energy = 0;
+            }
+          });
+        }, 1000 / 60);
+      } else if (this.keyboard.B && this.bottlesCollected.length >= 1) {
+        let bottle = new ThrowableObject(this.character.x+50, this.character.y+80, this);
+        this.throwableObjects.push(bottle);
+        this.bottlesCollected.splice(0,1);
+        setInterval(() => {
+          this.level.enemies.forEach((enemy, indexEnemy) => {
+            if (bottle.collidingPepe(enemy)) {
+              this.level.enemies[indexEnemy].energy -= 2;
             }
             if (this.level.enemies[indexEnemy].energy <= 0) {
               this.level.enemies[indexEnemy].energy = 0;
@@ -135,23 +148,24 @@ class World {
      * @memberof World
      * @returns {void}
      */
-    checkThrowBottles() {
-        if (this.keyboard.B && this.bottlesCollected.length >= 1) {
-          let bottle = new ThrowableObject(this.character.x+50, this.character.y+80, this);
-          this.throwableObjects.push(bottle);
-          this.bottlesCollected.splice(0,1);
-          setInterval(() => {
-            this.level.enemies.forEach((enemy, indexEnemy) => {
-              if (bottle.collidingPepe(enemy)) {
-                this.level.enemies[indexEnemy].energy -= 2;
-              }
-              if (this.level.enemies[indexEnemy].energy <= 0) {
-                this.level.enemies[indexEnemy].energy = 0;
-              }
-            });
-          }, 1000 / 60);
-        } 
-    }
+    // checkThrowBottles() {
+    //   if (this.keyboard.B && this.bottlesCollected.length >= 1) {
+    //     debugger;
+    //     let bottle = new ThrowableObject(this.character.x+50, this.character.y+80, this);
+    //     this.throwableObjects.push(bottle);
+    //     this.bottlesCollected.splice(0,1);
+    //     setInterval(() => {
+    //       this.level.enemies.forEach((enemy, indexEnemy) => {
+    //         if (bottle.collidingPepe(enemy)) {
+    //           this.level.enemies[indexEnemy].energy -= 2;
+    //         }
+    //         if (this.level.enemies[indexEnemy].energy <= 0) {
+    //           this.level.enemies[indexEnemy].energy = 0;
+    //         }
+    //       });
+    //     }, 1000 / 60);
+    //   } 
+    // }
 
     /**
      * Checking if the character is colliding with an enemy 
