@@ -108,6 +108,16 @@ class World {
       }, 100);
     }
 
+    /**
+     * Checking to see if the player has any thrown weapons.
+     * Weapons that can be thrown are bottles or shurikens
+     * 
+     * @method
+     * @name checkThrownWeapons
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
     checkThrownWeapons() {
       if (this.keyboard.S && this.coinsCollected.length >= 5) {
         let shuriken = new ThrowableObject(this.character.x+10, this.character.y+10, this);
