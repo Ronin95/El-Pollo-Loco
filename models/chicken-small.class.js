@@ -44,6 +44,16 @@ class ChickenSmall extends MovableObject {
         }, 100);
     }
 
+    /**
+     * A method that is called when the Chicken is created.
+     * The chickens are moving to the left
+     * 
+     * @method
+     * @name moveChickenSmallLeft
+     * @kind method
+     * @memberof ChickenSmall
+     * @returns {void}
+     */
     moveChickenSmallLeft() {
         setInterval(() => {
           this.x -= this.speed;

@@ -35,6 +35,15 @@ class Eagle extends MovableObject {
         this.animateEagle();
     }
 
+    /**
+     * Eagle is being animated
+     * 
+     * @method
+     * @name animateEagle
+     * @kind method
+     * @memberof Eagle
+     * @returns {void}
+     */
     animateEagle() {
         this.moveEagleLeft();
         setInterval(() => {
@@ -42,6 +51,15 @@ class Eagle extends MovableObject {
         }, 50);
     }
 
+    /**
+     * Moving the eagle left.
+     * 
+     * @method
+     * @name moveEagleLeft
+     * @kind method
+     * @memberof Eagle
+     * @returns {void}
+     */
     moveEagleLeft() {
         setInterval(() => {
           this.x -= this.speed;
