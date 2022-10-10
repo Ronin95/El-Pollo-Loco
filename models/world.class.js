@@ -109,21 +109,22 @@ class World {
       }, 100);
     }
 
-    // checkThrowShurikens() {
-    //   if (this.keyboard.S && this.coinsCollected.length >= 5) {
-    //     let shuriken = new ThrowableObject(this.character.x+10, this.character.y+10, this);
-    //     this.throwableObjects.push(shuriken);
-    //     setInterval(() => {
-    //       this.level.enemies.forEach((enemy, indexEnemy) => {
-    //         if (shuriken.collidingPepe(enemy)) {
-    //           this.level.enemies[indexEnemy].energy -= 5;
-    //         }
-    //         if (this.level.enemies[indexEnemy].energy <= 0) {
-    //           this.level.enemies[indexEnemy].energy = 0;
-    //         }
-    //       });
-    //     }, 1000 / 60);
-    // }
+    checkThrowShurikens() {
+      if (this.keyboard.S && this.coinsCollected.length >= 5) {
+        let shuriken = new ThrowableObject(this.character.x+10, this.character.y+10, this);
+        this.throwableObjects.push(shuriken);
+        setInterval(() => {
+          this.level.enemies.forEach((enemy, indexEnemy) => {
+            if (shuriken.collidingPepe(enemy)) {
+              this.level.enemies[indexEnemy].energy -= 5;
+            }
+            if (this.level.enemies[indexEnemy].energy <= 0) {
+              this.level.enemies[indexEnemy].energy = 0;
+            }
+          });
+        }, 1000 / 60);
+      }
+    }
 
     /**
      * Checking if the character is throwing a bottle or shuriken.
@@ -266,12 +267,12 @@ class World {
       this.ctx.font = "45px zabars";
       this.ctx.fillText(this.coinsCollected.length, 290, 55);
 
-      if (this.coinsCollected.length >= 5 && this.coinsCollected.length <= 6) {
-        setTimeout(() => {
-          this.use_shuriken_sound.play();
-        },3000);
+      if (this.coinsCollected.length >= 5 && this.coinsCollected.length < 6) {
         this.ctx.font = "45px zabars";
         this.ctx.fillText('Press S for hidden weapon', 170, 135);
+        setTimeout(() => {
+          this.use_shuriken_sound.play();
+        }, 5000);
       }
     }
 
