@@ -1,4 +1,4 @@
-class ThrowableObject extends MovableObject {
+class ThrowableBottle extends MovableObject {
     BOTTLE_ROTATION = [
         'img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png',
         'img/6_salsa_bottle/bottle_rotation/2_bottle_rotation.png',
@@ -13,28 +13,20 @@ class ThrowableObject extends MovableObject {
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/5_bottle_splash.png',
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png'
     ];
-    SHURIKEN_ROTATION = [
-      'img/10_otherTools/shuriken/shuriken-1.png',
-      'img/10_otherTools/shuriken/shuriken-2.png'
-    ];
     broken_bottle_sound = new Audio('./audio/breakbottle.mp3');
-    throw_shuriken_sound = new Audio('audio/shuriken_throw_sound.mp3');
     world;
 
     constructor(x, y, world) {
         super().loadImage('img/6_salsa_bottle/salsa_bottle.png');
         this.loadImages(this.BOTTLE_ROTATION);
         this.loadImages(this.BOTTLE_SPLASH);
-        this.loadImages(this.SHURIKEN_ROTATION);
         this.world = world;
         this.x = x;
         this.y = y;
         this.height = 80;
         this.width = 70;
         this.throwBottles();
-        this.throwShuriken();
         this.checkThrow();
-        this.checkShurikenThrow();
     }
 
     /**
@@ -43,7 +35,7 @@ class ThrowableObject extends MovableObject {
      * @method
      * @name throw
      * @kind method
-     * @memberof ThrowableObject
+     * @memberof ThrowableBottle
      * @returns {void}
      */
     throwBottles() {
@@ -60,60 +52,12 @@ class ThrowableObject extends MovableObject {
     }
 
     /**
-     * Throwing the shuriken.
-     * 
-     * @method
-     * @name throwShuriken
-     * @kind method
-     * @memberof ThrowableObject
-     * @returns {void}
-     */
-    throwShuriken() {
-      // can only throw shurikens, when coinscollected are over 5
-      if (this.world.coinsCollected.length >= 5) {
-        setInterval(() => {
-          this.playAnimation(this.SHURIKEN_ROTATION);
-        });
-        this.speedY = 40;
-        this.applyGravity();
-        setInterval(() => {
-          this.x += 10;
-        }, 1000/60);
-      }
-    }
-
-    /**
-     * It checks if the shuriken is thrown.
-     * 
-     * @method
-     * @name checkShurikenThrow
-     * @kind method
-     * @memberof ThrowableObject
-     * @returns {void}
-     */
-    checkShurikenThrow() {
-      setInterval(() => {
-        if (this.y >= 280) {
-          this.y = 280;
-          this.width = 160;
-          this.height = 160;
-          setTimeout(() => {
-            this.x = -1000;
-          }, 100);
-        }
-      }, 50);
-      setTimeout(() => {
-        this.throw_shuriken_sound.play();
-      }, 500);
-    }
-
-    /**
      * It checks if the bottle or shuriken is thrown.
      * 
      * @method
      * @name checkThrow
      * @kind method
-     * @memberof ThrowableObject
+     * @memberof ThrowableBottle
      * @returns {void}
      */
     checkThrow() {
