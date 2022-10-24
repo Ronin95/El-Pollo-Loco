@@ -39,7 +39,9 @@ class MovableObject extends DrawableObject {
      * @returns {boolean}
      */
     isAboveGround() {
-        if (this instanceof ThrowableBottle && this instanceof ThrowableShuriken) { // ThrowableObjects should always fall
+        if (this instanceof ThrowableBottle) { // ThrowableObjects should always fall
+            return true;
+        } else if (this instanceof ThrowableShuriken) {
             return true;
         } else {
             return this.y < 180;
