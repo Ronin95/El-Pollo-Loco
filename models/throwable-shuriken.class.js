@@ -13,13 +13,13 @@ class ThrowableShuriken extends MovableObject {
     world;
 
     constructor(x, y, world) {
-        super();
+        super().loadImage('img/10_otherTools/shuriken/shuriken-0.png');
         this.loadImages(this.SHURIKEN_ROTATION);
         this.world = world;
         this.x = x;
         this.y = y;
-        this.height = 30;
-        this.width = 30;
+        this.height = 50;
+        this.width = 50;
         this.throwShuriken();
         this.checkShurikenThrow();
     }
@@ -39,10 +39,10 @@ class ThrowableShuriken extends MovableObject {
         setInterval(() => {
           this.playAnimation(this.SHURIKEN_ROTATION);
         });
-        this.speedY = 40;
+        this.speedY = 5;
         this.applyGravity();
         setInterval(() => {
-          this.x += 10;
+          this.x += 20;
         }, 1000/60);
       }
     }
@@ -60,10 +60,10 @@ class ThrowableShuriken extends MovableObject {
       setInterval(() => {
         if (this.y >= 280) {
           this.y = 280;
-          this.width = 160;
-          this.height = 160;
+          this.width = 60;
+          this.height = 60;
           setTimeout(() => {
-            this.x = -1000;
+            this.x = -10;
           }, 100);
         }
       }, 50);
