@@ -3,7 +3,7 @@ class Character extends MovableObject {
     width = 150;
     y = 80;
     x = 40;
-    speed = 10;
+    speed = 8;
     inactivePepe = 0;
     lastPepeAction = 0;
 
@@ -108,11 +108,11 @@ class Character extends MovableObject {
         setTimeout(() => {
             setInterval(() => {
                 this.inactivePepe = new Date().getTime() - this.lastPepeAction;
-                if(this.inactivePepe > 4000) {
+                if(this.inactivePepe >= 5000) {
                     this.playAnimation(this.IMAGES_SLEEPING);
                 }
             }, 100);
-        }, 4000);
+        }, 5000);
     }
 
     /**
@@ -193,11 +193,32 @@ class Character extends MovableObject {
      * @memberof Character
      * @returns {void}
      */
-    pepeStandingStill() {
+     pepeStandingStill() {
         setInterval(() => {
-            if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.SPACE || this.world.keyboard.B || this.world.keyboard.S || this.isAboveGround() || this.isHurt() || this.isDead()) {
+            if (this.noButtonsPressedAndNoCharacterAnimations()) {
                 this.lastPepeAction = new Date().getTime();
              }
         }, 100);
+    }
+    
+
+    /**
+     * Checking if any of the buttons are pressed or if any of the character animations are playing.
+     * 
+     * @method
+     * @name noButtonsPressedAndNoCharacterAnimations
+     * @kind method
+     * @memberof Character
+     * @returns {any}
+     */
+    noButtonsPressedAndNoCharacterAnimations() {
+        return this.world.keyboard.RIGHT || 
+               this.world.keyboard.LEFT || 
+               this.world.keyboard.SPACE || 
+               this.world.keyboard.B || 
+               this.world.keyboard.S || 
+               this.isAboveGround() || 
+               this.isHurt() || 
+               this.isDead();
     }
 }
