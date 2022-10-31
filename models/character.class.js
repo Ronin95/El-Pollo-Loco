@@ -90,7 +90,7 @@ class Character extends MovableObject {
      * @returns {void}
      */
     displayBehaviour() {
-        this.inactivity();
+        // this.inactivity();
         this.pepeAnimations();
         this.pepeMovement();
     }
@@ -104,16 +104,16 @@ class Character extends MovableObject {
      * @memberof Character
      * @returns {void}
      */
-    inactivity() {
-        setTimeout(() => {
-            setInterval(() => {
-                this.inactivePepe = new Date().getTime() - this.lastPepeAction;
-                if(this.inactivePepe >= 5000) {
-                    this.playAnimation(this.IMAGES_SLEEPING);
-                }
-            }, 100);
-        }, 5000);
-    }
+    // inactivity() {
+    //     setTimeout(() => {
+    //         setInterval(() => {
+    //             this.inactivePepe = new Date().getTime() - this.lastPepeAction;
+    //             if(this.inactivePepe >= 5000) {
+    //                 this.playAnimation(this.IMAGES_SLEEPING);
+    //             }
+    //         }, 100);
+    //     }, 5000);
+    // }
 
     /**
      * Checking if pepe is dead, hurt, above the ground, moving or
@@ -133,12 +133,30 @@ class Character extends MovableObject {
                 this.playAnimation(this.IMAGES_HURT);
             } else if (this.isAboveGround()) {
                 this.playAnimation(this.IMAGES_JUMPING);
-            } else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT && !this.isAboveGround()) {
+            } else if (this.pepeMovingRightLeftNotAbove()) {
                 this.playAnimation(this.IMAGES_WALKING);
             } else {
-                this.playAnimation(this.IMAGES_WAITING);
+                this.inactivePepe = new Date().getTime() - this.lastPepeAction;
+                if (this.inactivePepe > 5000) {
+                    this.playAnimation(this.IMAGES_SLEEPING);
+                } else {
+                    this.playAnimation(this.IMAGES_WAITING);
+                }
             }
         }, 100);
+    }
+
+    /**
+     * Checking if pepe is moving to the right or left or not above (jumping).
+     * 
+     * @method
+     * @name pepeMovingRightLeft
+     * @kind method
+     * @memberof Character
+     * @returns {any}
+     */
+    pepeMovingRightLeftNotAbove() {
+        return this.world.keyboard.RIGHT || this.world.keyboard.LEFT && !this.isAboveGround()
     }
 
     /**
