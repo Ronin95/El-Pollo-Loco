@@ -89,30 +89,9 @@ class Character extends MovableObject {
      * @returns {void}
      */
     displayBehaviour() {
-        // this.inactivity();
         this.pepeAnimations();
         this.pepeMovement();
     }
-    
-    /**
-     * A function that is called when pepe is not moving for 4 seconds.
-     * 
-     * @method
-     * @name standingStill
-     * @kind method
-     * @memberof Character
-     * @returns {void}
-     */
-    // inactivity() {
-    //     setTimeout(() => {
-    //         setInterval(() => {
-    //             this.inactivePepe = new Date().getTime() - this.lastPepeAction;
-    //             if(this.inactivePepe >= 5000) {
-    //                 this.playAnimation(this.IMAGES_SLEEPING);
-    //             }
-    //         }, 100);
-    //     }, 5000);
-    // }
 
     /**
      * Checking if pepe is dead, hurt, above the ground, moving or
