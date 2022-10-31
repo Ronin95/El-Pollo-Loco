@@ -114,14 +114,27 @@ class Character extends MovableObject {
             } else if (this.pepeMovingRightLeftNotAbove()) {
                 this.playAnimation(this.IMAGES_WALKING);
             } else {
-                this.inactivePepe = new Date().getTime() - this.lastPepeAction;
-                if (this.inactivePepe > 5000) {
-                    this.playAnimation(this.IMAGES_SLEEPING);
-                } else {
-                    this.playAnimation(this.IMAGES_WAITING);
-                }
+                this.pepeSleepingWaitingAnimations();
             }
         }, 100);
+    }
+
+    /**
+     * Checking if pepe is sleeping or waiting.
+     * 
+     * @method
+     * @name pepeSleepingWaitingAnimations
+     * @kind method
+     * @memberof Character
+     * @returns {void}
+     */
+    pepeSleepingWaitingAnimations() {
+        this.inactivePepe = new Date().getTime() - this.lastPepeAction;
+        if (this.inactivePepe > 5000) {
+            this.playAnimation(this.IMAGES_SLEEPING);
+        } else {
+            this.playAnimation(this.IMAGES_WAITING);
+        }
     }
 
     /**
