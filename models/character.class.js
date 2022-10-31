@@ -41,7 +41,6 @@ class Character extends MovableObject {
         'img/2_character_pepe/4_hurt/H-43.png'
     ];
     IMAGES_SLEEPING = [
-        'img/2_character_pepe/1_idle/idle/I-1.png',
         'img/2_character_pepe/1_idle/long_idle/I-12.png',
         'img/2_character_pepe/1_idle/long_idle/I-13.png',
         'img/2_character_pepe/1_idle/long_idle/I-14.png',
