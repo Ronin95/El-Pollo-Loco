@@ -68,9 +68,11 @@ class Endboss extends MovableObject {
      * @returns {void}
      */
     animate() {
-        setInterval(() => {
-            this.playAnimation(this.ENDBOSS_STANDING_STILL);
-        }, 500);
+        if (this.endbossEnergy >= 80) {
+            setInterval(() => {
+                this.playAnimation(this.ENDBOSS_STANDING_STILL);
+            }, 100);
+        }
     }
 
     /**
@@ -87,7 +89,7 @@ class Endboss extends MovableObject {
         setInterval(() => {
             if(this.endbossEnergy <= 0) {
                 this.playAnimation(this.ENDBOSS_DEAD);
-            } else if(this.endbossEnergy > 0 && this.endbossEnergy <= 50) {
+            } else if (this.endbossEnergy > 0 && this.endbossEnergy <= 50) {
                 this.playAnimation(this.ENDBOSS_ATTACK);
             } else {
                 this.playAnimation(this.ENDBOSS_WALKING);
@@ -106,7 +108,7 @@ class Endboss extends MovableObject {
      */
     endbossMove() {
         setInterval(() => {
-            if(this.endbossEnergy < 70) {
+            if(this.endbossEnergy < 80) {
                 this.x -= 20;
                 this.y -= 20;
                 this.y += 20;
@@ -129,7 +131,7 @@ class Endboss extends MovableObject {
      * @returns {void}
      */
     endbossAngry() {
-        if(this.endbossEnergy < 70) {
+        if(this.endbossEnergy < 80) {
             setInterval(() => {
                 this.playAnimation(this.ENDBOSS_ATTACK);
             }, 300);

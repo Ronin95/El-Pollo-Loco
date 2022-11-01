@@ -8,6 +8,8 @@ class World {
     keyboard;
     camera_x = 0;
     runPepe = true;
+    endbossHealthBar = new EndbossHealthBar();
+    endbossHealthBarImg = new EndbossHealthBarImg();
     healthBar = new HealthBar();
     coinBar = new CoinBar();
     bottleBar = new BottleBar();
@@ -33,6 +35,7 @@ class World {
         this.keyboard = keyboard;
         this.createRandomWorld();
         this.draw();
+        this.enableEndbossHealthBar();
         this.setWorld();
         this.collisionOfObjects();
         this.checkCollisions();
@@ -85,6 +88,20 @@ class World {
      */
     setWorld() {
         this.character.world = this;
+    }
+
+    checkEndboss() {
+      setInterval(() => {
+        if (this.character.x >= 5500 && this.run == true) {
+          this.endbossHealthBar.loadImages(this.endbossHealthBar.ENDBOSS_HEALTHBAR);
+        }
+  
+        if (this.level.enemies[0].energy <= 0) {
+          setTimeout(() => {
+            this.level.enemies.width = 0;
+          }, 1000);
+        }
+      }, 200);
     }
 
     /**
@@ -222,6 +239,8 @@ class World {
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.level.bottles);
         this.addObjectsToMap(this.throwableObjects);
+        this.addToMap(this.endbossHealthBar);
+        this.addToMap(this.endbossHealthBarImg);
 
         this.ctx.translate(-this.camera_x, 0);
 
@@ -234,6 +253,20 @@ class World {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         return;
       }
+    }
+
+
+    enableEndbossHealthBar() {
+      setInterval(() => {
+        this.endbossHealthBar.setEndbossEnergy(this.level.enemies[0].energy);
+        if (this.endbossHealthBar.energy <= 0) {
+          this.endbossHealthBar.width = 0;
+          this.endbossHealthBarImg.width = 0;
+        } else if (this.character.x > 5000) {
+          this.endbossHealthBar.width = 320;
+          this.endbossHealthBarImg.width = 110;
+        }
+      }, 300);
     }
 
     /**
@@ -316,8 +349,6 @@ class World {
         if (this.character.collidingCoin(coin) && this.runPepe == true) {
           this.collect_coin_sound.play();
           this.coinsCollected.push(coin);
-          console.log(indexCoins, 'indexCoins');
-          console.log(this.coinsCollected.length, 'collected coins aus coinsCollected Array in world.class.js');
           this.level.coins.splice(indexCoins, 1);
           // this.coinBar.setCoins(this.level.coins.length);
         }
@@ -363,7 +394,6 @@ class World {
         if (this.character.collidingBottle(bottle) && this.runPepe == true) {
           this.collect_bottle_sound.play();
           this.bottlesCollected.push(bottle);
-          console.log(this.bottlesCollected.length, 'collected bottles aus bottlesCollect Array in world.class.js');
           this.level.bottles.splice(indexBottles, 1);
         }
       });
