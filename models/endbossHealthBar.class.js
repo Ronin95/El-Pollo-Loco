@@ -22,6 +22,16 @@ class EndbossHealthBar extends DrawableObject {
     }
 
     
+    /**
+     * Setting the energy of the endboss.
+     * 
+     * @method
+     * @name setEndbossEnergy
+     * @kind method
+     * @memberof EndbossHealthBar
+     * @param {any} energy
+     * @returns {void}
+     */
     setEndbossEnergy(energy) {
         this.energyEndboss = energy;
         let path = this.ENDBOSS_HEALTHBAR[this.setEndbossHealthbar()];
@@ -29,6 +39,15 @@ class EndbossHealthBar extends DrawableObject {
     }
 
     
+    /**
+     * Function that calculates the endboss health
+     * 
+     * @method
+     * @name setEndbossHealthbar
+     * @kind method
+     * @memberof EndbossHealthBar
+     * @returns {5 | 4 | 3 | 2 | 1 | 0 | undefined}
+     */
     setEndbossHealthbar() {
         if(this.energyEndboss >= 100) {
             return 5;

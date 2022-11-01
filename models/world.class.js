@@ -256,6 +256,15 @@ class World {
     }
 
 
+    /**
+     * Enabling the endboss health bar.
+     * 
+     * @method
+     * @name enableEndbossHealthBar
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
     enableEndbossHealthBar() {
       setInterval(() => {
         this.endbossHealthBar.setEndbossEnergy(this.level.enemies[0].energy);
