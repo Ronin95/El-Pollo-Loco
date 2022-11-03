@@ -42,7 +42,7 @@ class ThrowableShuriken extends MovableObject {
         this.speedY = 5;
         this.applyGravity();
         setInterval(() => {
-          this.x += 20;
+          this.x += 10;
         }, 1000/60);
       }
     }
@@ -58,12 +58,12 @@ class ThrowableShuriken extends MovableObject {
      */
     checkShurikenThrow() {
       setInterval(() => {
-        if (this.y >= 280) {
-          this.y = 280;
+        if (this.y >= 350) {
+          this.y = 350;
           this.width = 60;
           this.height = 60;
           setTimeout(() => {
-            this.x = -10;
+            this.x = -20;
           }, 100);
         }
       }, 50);

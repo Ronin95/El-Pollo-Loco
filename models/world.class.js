@@ -90,6 +90,15 @@ class World {
         this.character.world = this;
     }
 
+    /**
+     * Checking if the endboss is dead.
+     * 
+     * @method
+     * @name checkEndboss
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
     checkEndboss() {
       setInterval(() => {
         if (this.character.x >= 5500 && this.run == true) {
