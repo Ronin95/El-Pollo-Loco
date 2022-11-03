@@ -146,7 +146,7 @@ class World {
      */
     checkThrownWeapons() {
       if (this.keyboard.S && this.coinsCollected.length >= 5) {
-        let shuriken = new ThrowableShuriken(this.character.x+10, this.character.y+10, this);
+        let shuriken = new ThrowableShuriken(this.character.x+50, this.character.y+150, this);
         this.throwableObjects.push(shuriken);
         setInterval(() => {
           this.level.enemies.forEach((enemy, indexEnemy) => {

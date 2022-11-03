@@ -39,10 +39,10 @@ class ThrowableShuriken extends MovableObject {
         setInterval(() => {
           this.playAnimation(this.SHURIKEN_ROTATION);
         });
-        this.speedY = 5;
+        this.speedY = 15;
         this.applyGravity();
         setInterval(() => {
-          this.x += 10;
+          this.x += 15;
         }, 1000/60);
       }
     }
@@ -63,7 +63,7 @@ class ThrowableShuriken extends MovableObject {
           this.width = 60;
           this.height = 60;
           setTimeout(() => {
-            this.x = -20;
+            this.x = +40;
           }, 100);
         }
       }, 50);
