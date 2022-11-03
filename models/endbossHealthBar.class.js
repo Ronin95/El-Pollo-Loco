@@ -1,6 +1,7 @@
 class EndbossHealthBar extends DrawableObject {
 
     ENDBOSS_HEALTHBAR = [
+        '',
         'img/7_statusbars/1_statusbar/2_statusbar_health/green/0.png',
         'img/7_statusbars/1_statusbar/2_statusbar_health/green/20.png',
         'img/7_statusbars/1_statusbar/2_statusbar_health/green/40.png',
@@ -32,9 +33,9 @@ class EndbossHealthBar extends DrawableObject {
      * @param {any} energy
      * @returns {void}
      */
-    setEndbossEnergy(energy) {
-        this.energyEndboss = energy;
-        let path = this.ENDBOSS_HEALTHBAR[this.setEndbossHealthbar()];
+    setEndbossEnergy(endbossEnergy) {
+        this.energyEndboss = endbossEnergy;
+        let path = this.ENDBOSS_HEALTHBAR[this.setEndbossHealthBar()];
         this.img = this.imageCache[path];
     }
 
@@ -48,7 +49,7 @@ class EndbossHealthBar extends DrawableObject {
      * @memberof EndbossHealthBar
      * @returns {5 | 4 | 3 | 2 | 1 | 0 | undefined}
      */
-    setEndbossHealthbar() {
+    setEndbossHealthBar() {
         if(this.energyEndboss >= 100) {
             return 5;
         } else if (this.energyEndboss < 100 && this.energyEndboss >= 80) {

@@ -237,6 +237,9 @@ class World {
       if (this.runPepe == true) {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
+        this.addToMap(this.endbossHealthBar);
+        this.addToMap(this.endbossHealthBarImg);
+
         this.ctx.translate(this.camera_x, 0);
         
         this.addBackgroundObjects(); // All the clouds and the desert
@@ -248,8 +251,6 @@ class World {
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.level.bottles);
         this.addObjectsToMap(this.throwableObjects);
-        this.addToMap(this.endbossHealthBar);
-        this.addToMap(this.endbossHealthBarImg);
 
         this.ctx.translate(-this.camera_x, 0);
 
@@ -276,7 +277,7 @@ class World {
      */
     enableEndbossHealthBar() {
       setInterval(() => {
-        this.endbossHealthBar.setEndbossEnergy(this.level.enemies[0].energy);
+        this.endbossHealthBar.setEndbossEnergy(this.level.enemies[0].endbossEnergy);
         if (this.endbossHealthBar.energy <= 0) {
           this.endbossHealthBar.width = 0;
           this.endbossHealthBarImg.width = 0;
