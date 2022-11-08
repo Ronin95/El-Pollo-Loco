@@ -41,6 +41,7 @@ class World {
         this.checkCollisions();
         this.changeBottlesAxis();
         this.checkGameStatus();
+        this.checkEndboss();
     }
 
     /**
