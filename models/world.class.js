@@ -238,9 +238,6 @@ class World {
       if (this.runPepe == true) {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        this.addToMap(this.endbossHealthBar);
-        this.addToMap(this.endbossHealthBarImg);
-
         this.ctx.translate(this.camera_x, 0);
         
         this.addBackgroundObjects(); // All the clouds and the desert
@@ -261,7 +258,7 @@ class World {
             self.draw();
         });
       } else if (this.runPepe == false) {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+          this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         return;
       }
     }
@@ -431,6 +428,8 @@ class World {
     moveStatusbarsWithCamera() {
         this.ctx.translate(-this.camera_x, 0);
         // Space for fixed objects
+        this.addToMap(this.endbossHealthBar);
+        this.addToMap(this.endbossHealthBarImg);
         this.addToMap(this.healthBar);
         this.addToMap(this.coinBar);
         this.addToMap(this.bottleBar);
