@@ -146,7 +146,7 @@ class World {
      * @returns {void}
      */
     checkThrownWeapons() {
-      if (this.keyboard.S && this.coinsCollected.length >= 5) {
+      if (this.keyboard.S && this.coinsCollected.length >= 4) {
         let shuriken = new ThrowableShuriken(this.character.x+50, this.character.y+150, this);
         this.throwableObjects.push(shuriken);
         setInterval(() => {
@@ -241,15 +241,15 @@ class World {
         this.ctx.translate(this.camera_x, 0);
         
         this.addBackgroundObjects(); // All the clouds and the desert
-        this.moveStatusbarsWithCamera(); // All the statusbars are moved with the camera perspective
         this.addAnimatedBackgroundObjects(); // Animated background objects are the birds in right top corner and the eagle
-
+        
         this.addToMap(this.character);
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.level.bottles);
         this.addObjectsToMap(this.throwableObjects);
-
+        
+        this.moveStatusbarsWithCamera(); // All the statusbars are moved with the camera perspective
         this.ctx.translate(-this.camera_x, 0);
 
         // Draw is being called constantly
@@ -313,7 +313,7 @@ class World {
       this.ctx.font = "45px zabars";
       this.ctx.fillText(this.coinsCollected.length, 290, 55);
 
-      if (this.coinsCollected.length >= 5 && this.coinsCollected.length < 6) {
+      if (this.coinsCollected.length >= 4 && this.coinsCollected.length < 5) {
         this.ctx.font = "45px zabars";
         this.ctx.fillText('Press S for hidden weapon', 170, 135);
         setTimeout(() => {
