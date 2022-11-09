@@ -123,7 +123,6 @@ enableMobileMode = () => {
       document.getElementById("mobileRight").style = "";
       document.getElementById("mobileJump").style = "";
       document.getElementById("mobileThrow").style = "";
-      document.getElementById("help").style = "display: none";
       mobileMode = true;
     } else {
       fullscreenMode();
