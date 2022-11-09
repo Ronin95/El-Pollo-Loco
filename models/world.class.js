@@ -102,7 +102,7 @@ class World {
      */
     checkEndboss() {
       setInterval(() => {
-        if (this.character.x >= 5500 && this.run == true) {
+        if (this.character.x >= 6000 && this.run == true) {
           this.endbossHealthBar.loadImages(this.endbossHealthBar.ENDBOSS_HEALTHBAR);
         }
   
@@ -152,7 +152,7 @@ class World {
         setInterval(() => {
           this.level.enemies.forEach((enemy, indexEnemy) => {
             if (shuriken.collidingPepe(enemy)) {
-              this.level.enemies[indexEnemy].energy -= 5;
+              this.level.enemies[indexEnemy].energy -= 50; // one hit kill on the endboss
             }
             if (this.level.enemies[indexEnemy].energy <= 0) {
               this.level.enemies[indexEnemy].energy = 0;
@@ -160,7 +160,7 @@ class World {
           });
         }, 1000 / 60);
       } else if (this.keyboard.B && this.bottlesCollected.length >= 1) {
-        let bottle = new ThrowableBottle(this.character.x+50, this.character.y+80, this);
+        let bottle = new ThrowableBottle(this.character.x+10, this.character.y+80, this);
         this.throwableObjects.push(bottle);
         this.bottlesCollected.splice(0,1);
         setInterval(() => {
