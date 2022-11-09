@@ -32,8 +32,8 @@ class EndbossHealthBar extends DrawableObject {
      * @param {any} energy
      * @returns {void}
      */
-    setEndbossEnergy(endbossEnergy) {
-        this.energyEndboss = endbossEnergy;
+    setEndbossEnergy(energyEndboss) {
+        this.energyEndboss = energyEndboss;
         let path = this.ENDBOSS_HEALTHBAR[this.setEndbossHealthBar()];
         this.img = this.imageCache[path];
     }

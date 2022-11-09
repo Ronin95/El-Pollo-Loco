@@ -46,7 +46,7 @@ class Endboss extends MovableObject {
     ];
 
     constructor() {
-        super()
+        super().loadImage('img/4_enemie_boss_chicken/2_alert/G5.png');
         this.loadImages(this.ENDBOSS_WALKING);
         this.loadImages(this.ENDBOSS_STANDING_STILL);
         this.loadImages(this.ENDBOSS_ATTACK);
@@ -115,13 +115,13 @@ class Endboss extends MovableObject {
                 this.x += 14;
             }
             if(this.x < 2000) {
-                this.x += 40
+                this.x += 40;
             }
         }, 100);
     }
 
     /**
-     * Checking if the endbossEnergy is less than 70. 
+     * Checking if the endbossEnergy is less than 80. 
      * If it is, it will play the animation of the endboss attacking.
      * 
      * @method

@@ -102,8 +102,10 @@ class World {
      */
     checkEndboss() {
       setInterval(() => {
-        if (this.character.x >= 6000 && this.run == true) {
-          this.endbossHealthBar.loadImages(this.endbossHealthBar.ENDBOSS_HEALTHBAR);
+        if (this.character.x >= 6000 && this.runPepe == true) {
+          this.endbossHealthBar.loadImages(
+            this.endbossHealthBar.ENDBOSS_HEALTHBAR
+          );
         }
   
         if (this.level.enemies[0].energy <= 0) {
@@ -279,8 +281,8 @@ class World {
         if (this.endbossHealthBar.energy <= 0) {
           this.endbossHealthBar.width = 0;
           this.endbossHealthBarImg.width = 0;
-        } else if (this.character.x > 5000) {
-          this.endbossHealthBar.width = 320;
+        } else if (this.character.x > 6000) {
+          this.endbossHealthBar.width = 350;
           this.endbossHealthBarImg.width = 110;
         }
       }, 300);
@@ -318,7 +320,7 @@ class World {
         this.ctx.fillText('Press S for hidden weapon', 170, 135);
         setTimeout(() => {
           this.use_shuriken_sound.play();
-        }, 5000);
+        }, 3000);
       }
     }
 
@@ -367,7 +369,6 @@ class World {
           this.collect_coin_sound.play();
           this.coinsCollected.push(coin);
           this.level.coins.splice(indexCoins, 1);
-          // this.coinBar.setCoins(this.level.coins.length);
         }
       });
     }
