@@ -277,7 +277,7 @@ class World {
      */
     enableEndbossHealthBar() {
       setInterval(() => {
-        this.endbossHealthBar.setEndbossEnergy(this.level.enemies[0].endbossEnergy);
+        this.endbossHealthBar.setEndbossEnergy(this.level.enemies[0].energy);
         if (this.endbossHealthBar.energy <= 0) {
           this.endbossHealthBar.width = 0;
           this.endbossHealthBarImg.width = 0;
