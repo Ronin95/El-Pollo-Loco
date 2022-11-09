@@ -20,14 +20,11 @@ class World {
     /* World Sounds */
     chickens_1_sound = new Audio('audio/audio_chicken_1.mp3');
     chickens_2_sound = new Audio('audio/audio_chicken_2.mp3');
-    throw_bottle_sound = new Audio('audio/audio_throw_bottle.mp3');
-    broken_bottle_sound = new Audio('audio/breakbottle.mp3');
-    use_shuriken_sound = new Audio('audio/shuriken_sound.mp3');
     collect_coin_sound = new Audio('audio/coin.mp3');
     collect_bottle_sound = new Audio('audio/collect_bottle.mp3');
     hurt_pepe_sound = new Audio('audio/ouch.mp3');
-    dead_pepe_sound = new Audio('audio/Pepe_dies.mp3');
-    pepe_walking_sound = new Audio('audio/walking.mp3');
+    music = new Audio('audio/music.mp3');
+
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -42,6 +39,7 @@ class World {
         this.changeBottlesAxis();
         this.checkGameStatus();
         this.checkEndboss();
+        this.chickenSounds();
     }
 
     /**
@@ -168,7 +166,7 @@ class World {
         setInterval(() => {
           this.level.enemies.forEach((enemy, indexEnemy) => {
             if (bottle.collidingPepe(enemy)) {
-              this.level.enemies[indexEnemy].energy -= 2;
+              this.level.enemies[indexEnemy].energy -= 1;
             }
             if (this.level.enemies[indexEnemy].energy <= 0) {
               this.level.enemies[indexEnemy].energy = 0;
@@ -318,9 +316,6 @@ class World {
       if (this.coinsCollected.length >= 4 && this.coinsCollected.length < 5) {
         this.ctx.font = "45px zabars";
         this.ctx.fillText('Press S for hidden weapon', 170, 135);
-        setTimeout(() => {
-          this.use_shuriken_sound.play();
-        }, 3000);
       }
     }
 
@@ -534,5 +529,5 @@ class World {
             this.chickens_2_sound.play();
           }
         }, 14000);
-      }
+    }
 }

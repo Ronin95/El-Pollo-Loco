@@ -77,11 +77,11 @@ figure {
     gap: 50px;
   }
 
-  .checkbox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;    
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;    
 }
 
 .checkbox input[type="checkbox"], input[type="radio"] {
