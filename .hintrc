@@ -17,6 +17,12 @@
           "accent-color"
         ]
       }
+    ],
+    "axe/parsing": [
+      "default",
+      {
+        "duplicate-id": "off"
+      }
     ]
   }
 }

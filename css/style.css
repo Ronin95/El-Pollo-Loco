@@ -50,6 +50,8 @@ figure {
   }
 
   .canvasContainer {
+    border-style: dashed;
+    color:white;
     position: relative;
     display: flex;
     justify-content: center;
@@ -62,7 +64,7 @@ figure {
   }
   
   .menuBar {
-    width: 40px;
+    border-style: dotted;
     height: 240px;
     display: flex;
     flex-direction: column;
@@ -91,6 +93,7 @@ figure {
 }
   
   .mobileIcon {
+    border-style: dotted;
     position: absolute;
     z-index: 3;
     height: 50px;
@@ -103,8 +106,8 @@ figure {
       rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   }
   
-  .more {
-    height: 32px;
+  .details {
+    height: 35px;
   }
 
   .play {
@@ -115,8 +118,8 @@ figure {
     height: 28px;
   }
   
-  .fullscreen {
-    height: 38px;
+  .fullscreen-icon {
+    height: 40px;
   }
   
   .mobileLeft {
@@ -145,17 +148,6 @@ figure {
     cursor: pointer;
   }
   
-  .linksContainer {
-    position: absolute;
-    bottom: 0;
-  }
-  
-  .iconLinks {
-    font-size: 1rem;
-    color: black;
-    text-decoration: none;
-  }
-  
   .userWon {
     position: absolute;
     display: flex;
@@ -168,14 +160,6 @@ figure {
     color: #e3c400;
   }
   
-  .lostImg {
-    position: absolute;
-    z-index: 2;
-    height: 480px;
-    width: 720px;
-    border-radius: 20px;
-  }
-  
   @media (max-width: 720px) {
     .userWon {
       font-size: 2rem;
@@ -186,7 +170,7 @@ figure {
   
   @media (max-width: 600px) {
     .button {
-      height: 24px !important;
+      height: 30px !important;
     }
   }
   
