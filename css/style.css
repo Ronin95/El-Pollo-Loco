@@ -23,6 +23,10 @@ canvas {
       rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
+border-test {
+  border-style: dotted;
+}
+
 figure {
   margin: 0;
   padding: 0;
@@ -50,9 +54,6 @@ figure {
   }
 
   .canvasContainer {
-    border-style: dashed;
-    color:white;
-    position: relative;
     display: flex;
     justify-content: center;
   }

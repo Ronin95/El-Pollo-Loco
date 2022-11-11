@@ -157,8 +157,7 @@ fullscreenMode = () => {
  * 
  */
 noFullscreenAlive = () => {
-    document.getElementById("canvasContainer").style =
-      "width: 100%; height: 100vh";
+    document.getElementById("canvasContainer").style = "width: 100%; height: 50%";
     document.getElementById("canvas").style =
       "width: 100%; height: 100vh; border-radius: 0px; background-image: url('img/9_intro_outro_screens/start/startscreen_2.png'); background-size: cover; background-position: 20%";
     fullscreen = true;
@@ -192,7 +191,7 @@ fullscreenNotAlive = () => {
  */
 noFullscreenNotAlive = () => {
     document.getElementById("canvasContainer").style =
-        "width: 100%; height: 100vh";
+        "width: 100%; height: 50%";
     document.getElementById("canvas").style =
         "width: 100%; height: 100vh; border-radius: 0px; background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
     fullscreen = true;
