@@ -1,8 +1,8 @@
 class Endboss extends MovableObject {
     height = 400;
-    width = 250;
+    width = 300;
     y = 70;
-    endbossEnergy = 100;
+    energy = 100;
 
     ENDBOSS_WALKING = [
         'img/4_enemie_boss_chicken/1_walk/G1.png',
@@ -46,16 +46,20 @@ class Endboss extends MovableObject {
     ];
 
     constructor() {
-        super().loadImage('img/4_enemie_boss_chicken/2_alert/G5.png');
+        super();
         this.loadImages(this.ENDBOSS_WALKING);
         this.loadImages(this.ENDBOSS_STANDING_STILL);
         this.loadImages(this.ENDBOSS_ATTACK);
         this.loadImages(this.ENDBOSS_HURT);
         this.loadImages(this.ENDBOSS_DEAD);
         this.x = 6500; // How far away the final boss is
-        this.checkEndbossEnergy();
-        this.endbossMove();
-        
+        this.animateEndboss();
+    }
+
+    standingStill() {
+        setInterval(() => {
+            this.playAnimation(this.ENDBOSS_STANDING_STILL);
+        }, 300);
     }
 
     /**
@@ -67,12 +71,18 @@ class Endboss extends MovableObject {
      * @memberof Endboss
      * @returns {void}
      */
-    animate() {
-        if (this.endbossEnergy >= 80) {
-            setInterval(() => {
-                this.playAnimation(this.ENDBOSS_STANDING_STILL);
-            }, 100);
+    animateEndboss() {
+        if (this.energy >= 90) {
+            this.standingStill();
+        } else if (this.energy >= 10 && this.energy <= 90) {
+            console.log('Endboss angry');
+            this.endbossAngry();
         }
+        // else if energy >= 10 and energy <= 80
+        // play animation Angry
+        // move endboss to the left
+        // create a normal chicken and a small chicken and move those chickens to the left
+        // 
     }
 
     /**
@@ -87,14 +97,18 @@ class Endboss extends MovableObject {
      */
     checkEndbossEnergy() {
         setInterval(() => {
-            if(this.endbossEnergy <= 0) {
-                this.playAnimation(this.ENDBOSS_DEAD);
-            } else if (this.endbossEnergy > 0 && this.endbossEnergy <= 50) {
+            if(this.energy >= 80) {
+                console.log('----Endboss energy: ', this.energy);
+                this.playAnimation(this.ENDBOSS_WALKING)
+            } else if (this.energy > 0 && this.energy <= 70) {
+                this.endbossMove();
                 this.playAnimation(this.ENDBOSS_ATTACK);
+            } else if (this.energy <= 0) {
+                this.playAnimation(this.ENDBOSS_DEAD);
             } else {
-                this.playAnimation(this.ENDBOSS_WALKING);
+                this.playAnimation(this.ENDBOSS_STANDING_STILL);
             };
-        }, 400);
+        }, 300);
     }
 
     /**
@@ -107,17 +121,15 @@ class Endboss extends MovableObject {
      * @returns {void}
      */
     endbossMove() {
-        setInterval(() => {
-            if(this.endbossEnergy < 80) {
-                this.x -= 20;
-                this.y -= 20;
-                this.y += 20;
-                this.x += 14;
-            }
-            if(this.x < 2000) {
-                this.x += 40;
-            }
-        }, 100);
+        if(this.energy < 80) {
+            this.x -= 50;
+            this.y -= 120;
+            this.y += 50;
+            this.x += 120;
+        }
+        if(this.x < 6000) {
+            this.x += 40;
+        }
     }
 
     /**
@@ -131,11 +143,9 @@ class Endboss extends MovableObject {
      * @returns {void}
      */
     endbossAngry() {
-        if(this.endbossEnergy < 80) {
-            setInterval(() => {
-                this.playAnimation(this.ENDBOSS_ATTACK);
-            }, 300);
-        }
+        setInterval(() => {
+            this.playAnimation(this.ENDBOSS_ATTACK);
+        }, 300);
     }
 
     /**
@@ -150,11 +160,9 @@ class Endboss extends MovableObject {
      * @returns {void}
      */
     endbossDead() {
-        setInterval(() => {
-            if(this.endbossEnergy <= 0) {
-                this.endbossEnergy = 0;
-                    this.playAnimation(this.ENDBOSS_DEAD);
-            }
-        }, 1000 / 60);
+        if (this.energy <= 0) {
+            this.energy = 0;
+                this.playAnimation(this.ENDBOSS_DEAD);
+        }
     }
 }
