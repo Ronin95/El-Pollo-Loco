@@ -23,9 +23,6 @@ canvas {
       rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-border-test {
-  border-style: dotted;
-}
 
 figure {
   margin: 0;
@@ -65,7 +62,6 @@ figure {
   }
   
   .menuBar {
-    border-style: dotted;
     height: 240px;
     display: flex;
     flex-direction: column;
@@ -94,7 +90,6 @@ figure {
 }
   
   .mobileIcon {
-    border-style: dotted;
     position: absolute;
     z-index: 3;
     height: 50px;
@@ -124,24 +119,30 @@ figure {
   }
   
   .mobileLeft {
-    bottom: 4px;
+    bottom: -100px;
     left: 10px;
   }
   
   .mobileRight {
-    bottom: 4px;
+    bottom: -100px;
     left: 100px;
   }
   
   .mobileJump {
-    bottom: 10px;
-    right: 80px;
+    bottom: -100px;
+    right: 85px;
     height: 40px;
   }
   
-  .mobileThrow {
-    bottom: 10px;
-    right: 10px;
+  .mobileThrowBottle {
+    bottom: -100px;
+    right: 150px;
+    height: 40px;
+  }
+
+  .mobileThrowShuriken {
+    bottom: -100px;
+    right: 20px;
     height: 40px;
   }
   

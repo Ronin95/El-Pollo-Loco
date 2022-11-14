@@ -122,7 +122,8 @@ enableMobileMode = () => {
       document.getElementById("mobileLeft").style = "";
       document.getElementById("mobileRight").style = "";
       document.getElementById("mobileJump").style = "";
-      document.getElementById("mobileThrow").style = "";
+      document.getElementById("mobileThrowBottle").style = "";
+      document.getElementById("mobileThrowShuriken").style = "";
       mobileMode = true;
     } else {
       fullscreenMode();
@@ -130,7 +131,8 @@ enableMobileMode = () => {
       document.getElementById("mobileLeft").style = "display: none";
       document.getElementById("mobileRight").style = "display: none";
       document.getElementById("mobileJump").style = "display: none";
-      document.getElementById("mobileThrow").style = "display: none";
+      document.getElementById("mobileThrowBottle").style = "display: none";
+      document.getElementById("mobileThrowShuriken").style = "";
       mobileMode = false;
     }
 };
@@ -277,6 +279,14 @@ jumpStop = () => {
     keyboard.SPACE = false;
 };
 
+/**
+ * Removing the keyboard.
+ * 
+ * @function
+ * @name removeKeyBoard
+ * @kind function
+ * @returns {void}
+ */
 function removeKeyBoard() {
     window.addEventListener('keydown', (e) => {
         if (e.keyCode == 39) {
@@ -303,6 +313,13 @@ function removeKeyBoard() {
     })
 }
 
+/**
+ * Listening to the keydown event.
+ * 
+ * @var
+ * @name window
+ * @type {Window & typeof globalThis}
+ */
 window.addEventListener('keydown', (e) => {
     if (e.keyCode == 39) {
         keyboard.RIGHT = true;
@@ -327,6 +344,13 @@ window.addEventListener('keydown', (e) => {
     }
 })
 
+/**
+ * Listening to the keyup event.
+ * 
+ * @var
+ * @name window
+ * @type {Window & typeof globalThis}
+ */
 window.addEventListener('keyup', (e) => {
     if (e.keyCode == 39) {
         keyboard.RIGHT = false;
