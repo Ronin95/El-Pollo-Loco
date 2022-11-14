@@ -49,22 +49,16 @@ class EndbossHealthBar extends DrawableObject {
      */
     setEndbossHealthBar() {
         if (this.energy >= 100) {
-            console.log('energyBOSS-1: ', this.energy);
             return 5;
         } else if (this.energy < 100 && this.energy >= 80) {
-            console.log('energyBOSS-2: ', this.energy);
             return 4;
         } else if (this.energy < 80 && this.energy >= 60) {
-            console.log('energyBOSS-3: ', this.energy);
             return 3;
         } else if (this.energy < 60 && this.energy >= 40) {
-            console.log('energyBOSS-4: ', this.energy);
             return 2;
         } else if (this.energy < 40 && this.energy > 0) {
-            console.log('energyBOSS-5: ', this.energy);
             return 1;
         } else if (this.energy <= 0) {
-            console.log('energyBOSS-6: ', this.energy);
             return 0;
         }
     }

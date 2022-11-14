@@ -54,6 +54,7 @@ class Endboss extends MovableObject {
         this.loadImages(this.ENDBOSS_DEAD);
         this.x = 6500; // How far away the final boss is
         this.animateEndboss();
+        this.checkEndbossEnergy();
     }
 
     standingStill() {
