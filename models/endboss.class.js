@@ -98,10 +98,10 @@ class Endboss extends MovableObject {
      */
     checkEndbossEnergy() {
         setInterval(() => {
-            if(this.energy >= 80) {
-                console.log('----Endboss energy: ', this.energy);
-                this.playAnimation(this.ENDBOSS_WALKING)
-            } else if (this.energy > 0 && this.energy <= 70) {
+            if(this.energy >= 90) {
+                this.playAnimation(this.ENDBOSS_WALKING);
+                // console.log(this.energy, ' endboss energy');
+            } else if (this.energy > 1 && this.energy <= 80) {
                 this.endbossMove();
                 this.playAnimation(this.ENDBOSS_ATTACK);
             } else if (this.energy <= 0) {
@@ -123,10 +123,10 @@ class Endboss extends MovableObject {
      */
     endbossMove() {
         if(this.energy < 80) {
-            this.x -= 50;
-            this.y -= 120;
-            this.y += 50;
-            this.x += 120;
+            this.x -= 20;
+            this.y -= 20;
+            this.y += 20;
+            this.x += 10;
         }
         if(this.x < 6000) {
             this.x += 40;
