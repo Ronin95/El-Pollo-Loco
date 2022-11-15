@@ -30,51 +30,51 @@ figure {
 }
   
 
-  .settings-and-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    width: 700px;
-  }
+.settings-and-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 700px;
+}
 
-  .settings {
-    display: flex;
-    align-items: center;
-    letter-spacing: 5px;
-    gap: 50px;
-  }
+.settings {
+  display: flex;
+  align-items: center;
+  letter-spacing: 5px;
+  gap: 50px;
+}
 
-  h1 {
-    letter-spacing: 10px;
-    font-size: 46px;
-  }
+h1 {
+  letter-spacing: 10px;
+  font-size: 46px;
+}
 
-  .canvasContainer {
-    display: flex;
-    justify-content: center;
-  }
+.canvasContainer {
+  display: flex;
+  justify-content: center;
+}
 
-  .icon {
-    margin: 6px;
-    z-index: 3;
-    height: 40px;
-  }
-  
-  .menuBar {
-    height: 240px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-  }
+.icon {
+  margin: 6px;
+  z-index: 3;
+  height: 40px;
+}
 
-  .playInfo {
-    letter-spacing: 5px;
-    display: flex;
-    align-items: center;
-    gap: 50px;
-  }
+.menuBar {
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.playInfo {
+  letter-spacing: 5px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
 
 .checkbox {
   display: flex;
@@ -89,156 +89,156 @@ figure {
     accent-color: var(--txt-color);
 }
   
-  .mobileIcon {
-    position: absolute;
-    z-index: 3;
-    height: 50px;
-  }
-  
-  .mobileIcon:hover {
-    transform: scale(1.1);
-    border-radius: 50%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  }
-  
-  .details {
-    height: 35px;
-  }
+.mobileIcon {
+  position: absolute;
+  z-index: 3;
+  height: 50px;
+}
 
-  .play {
-    height: 80px;
-  }
-  
-  .mobile {
-    height: 28px;
-  }
-  
-  .fullscreen-icon {
-    height: 40px;
-  }
-  
-  .mobileLeft {
-    bottom: -100px;
-    left: 10px;
-  }
-  
-  .mobileRight {
-    bottom: -100px;
-    left: 100px;
-  }
-  
-  .mobileJump {
-    bottom: -100px;
-    right: 85px;
-    height: 40px;
-  }
-  
-  .mobileThrowBottle {
-    bottom: -100px;
-    right: 150px;
-    height: 40px;
-  }
+.mobileIcon:hover {
+  transform: scale(1.1);
+  border-radius: 50%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
 
-  .mobileThrowShuriken {
-    bottom: -100px;
-    right: 20px;
-    height: 40px;
-  }
+.details {
+  height: 35px;
+}
+
+.play {
+  height: 80px;
+}
+
+.mobile {
+  height: 28px;
+}
+
+.fullscreen-icon {
+  height: 40px;
+}
+
+.mobileLeft {
+  bottom: -100px;
+  left: 10px;
+}
+
+.mobileRight {
+  bottom: -100px;
+  left: 100px;
+}
+
+.mobileJump {
+  bottom: -100px;
+  right: 85px;
+  height: 40px;
+}
+
+.mobileThrowBottle {
+  bottom: -100px;
+  right: 150px;
+  height: 40px;
+}
+
+.mobileThrowShuriken {
+  bottom: -100px;
+  right: 20px;
+  height: 40px;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.userWon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 120px;
+  font-size: 6rem;
+  letter-spacing: 10px;
+  word-spacing: 10px;
+  color: #e3c400;
+}
   
-  .button {
-    cursor: pointer;
-  }
-  
+@media (max-width: 720px) {
   .userWon {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 120px;
-    font-size: 6rem;
-    letter-spacing: 10px;
-    word-spacing: 10px;
-    color: #e3c400;
+    font-size: 2rem;
+    width: 12rem;
+    height: 4rem;
   }
-  
-  @media (max-width: 720px) {
-    .userWon {
-      font-size: 2rem;
-      width: 12rem;
-      height: 4rem;
-    }
+}
+
+@media (max-width: 600px) {
+  .button {
+    height: 30px !important;
   }
-  
-  @media (max-width: 600px) {
-    .button {
-      height: 30px !important;
-    }
+}
+
+@media (max-width: 400px) {
+  .button {
+    height: 18px !important;
   }
-  
-  @media (max-width: 400px) {
-    .button {
-      height: 18px !important;
-    }
-  
-    .mobileJump {
-      right: 50px;
-    }
-  
-    .mobileLeft,
-    .mobileRight {
-      height: 30px;
-    }
-  
-    .mobileRight {
-      left: 50px;
-    }
+
+  .mobileJump {
+    right: 50px;
   }
-  
+
+  .mobileLeft,
+  .mobileRight {
+    height: 30px;
+  }
+
+  .mobileRight {
+    left: 50px;
+  }
+}
 
 
-  @media (max-width: 720px) {
-    .userWon {
-      font-size: 2rem;
-      width: 12rem;
-      height: 4rem;
-    }
+
+@media (max-width: 720px) {
+  .userWon {
+    font-size: 2rem;
+    width: 12rem;
+    height: 4rem;
   }
-  
-  @media (max-width: 600px) {
-    .button {
-      height: 24px !important;
-    }
+}
+
+@media (max-width: 600px) {
+  .button {
+    height: 24px !important;
   }
-  
-  @media (max-width: 400px) {
-    .button {
-      height: 18px !important;
-    }
-  
-    .mobileJump {
-      right: 50px;
-    }
-  
-    .mobileLeft,
-    .mobileRight {
-      height: 30px;
-    }
-  
-    .mobileRight {
-      left: 50px;
-    }
+}
+
+@media (max-width: 400px) {
+  .button {
+    height: 18px !important;
   }
-  
-  @media only screen and (max-width: 720px) {
-    canvas {
-      width: 100%;
-    }
+
+  .mobileJump {
+    right: 50px;
   }
-  
-  @media only screen and (max-height: 480px) {
-    canvas {
-      height: 100vh;
-    }
+
+  .mobileLeft,
+  .mobileRight {
+    height: 30px;
   }
+
+  .mobileRight {
+    left: 50px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  canvas {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-height: 480px) {
+  canvas {
+    height: 100vh;
+  }
+}
   
