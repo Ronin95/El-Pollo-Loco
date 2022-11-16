@@ -64,7 +64,7 @@ enableReplay = () => {
 enableEndscreenLost = () => {
     if (fullscreen == true) {
       document.getElementById("canvas").style =
-        "width: 60%; height: 70%; border-radius: 20px; background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
+        "width: 70%; height: 60%; border-radius: 20px; background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
     } else {
       document.getElementById("canvas").style =
         "background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
@@ -159,9 +159,9 @@ fullscreenMode = () => {
  * 
  */
 noFullscreenAlive = () => {
-    document.getElementById("canvasContainer").style = "width: 80%; height: 60%";
+    document.getElementById("canvasContainer").style = "width: 70%; height: 60%";
     document.getElementById("canvas").style =
-      "width: 80%; height: 60%; border-radius: 20px; background-image: url('img/9_intro_outro_screens/start/startscreen_2.png'); background-size: cover; background-position: 100%";
+      "width: 70%; height: 60%; border-radius: 20px; background-image: url('img/9_intro_outro_screens/start/startscreen_2.png'); background-size: cover; background-position: 100%";
     fullscreen = true;
 };
 
@@ -193,9 +193,9 @@ fullscreenNotAlive = () => {
  */
 noFullscreenNotAlive = () => {
     document.getElementById("canvasContainer").style =
-        "width: 60%; height: 70%";
+        "width: 70%; height: 60%";
     document.getElementById("canvas").style =
-        "width: 6%; height: 70%; border-radius: 20px; background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
+        "width: 70%; height: 60%; border-radius: 20px; background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
     fullscreen = true;
 };
 

@@ -239,7 +239,10 @@ h1 {
 
 @media only screen and (min-width: 720px) {
   .canvasContainer {
-    border-style: dotted;
+    /* border-style: dotted; */
+    position: relative;
+    height: 10px;
+    top: 390px;
   }
 
   .mobileIcon {
@@ -247,11 +250,11 @@ h1 {
     height: 50px;
   }
   
-  .mobileLeft, .mobileRight {
+  /* .mobileLeft, .mobileRight {
     border-style: dotted;
   }
   
   .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
     border-style: dotted;
-  }
+  } */
 }
