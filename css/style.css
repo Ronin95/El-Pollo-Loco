@@ -28,22 +28,7 @@ figure {
   margin: 0;
   padding: 0;
 }
-  
 
-.settings-and-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  width: 700px;
-}
-
-.settings {
-  display: flex;
-  align-items: center;
-  letter-spacing: 5px;
-  gap: 50px;
-}
 
 h1 {
   letter-spacing: 10px;
@@ -52,11 +37,11 @@ h1 {
 
 .canvasContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .icon {
-  margin: 6px;
+  margin: 10px;
   z-index: 3;
   height: 40px;
 }
@@ -89,17 +74,12 @@ h1 {
     accent-color: var(--txt-color);
 }
   
-.mobileIcon {
-  position: relative;
-  z-index: 3;
-  height: 50px;
-}
 
 .mobileIcon:hover {
   transform: scale(1.1);
   border-radius: 50%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .details {
@@ -117,34 +97,6 @@ h1 {
 .fullscreen-icon {
   height: 40px;
 }
-
-/* .mobileLeft {
-  bottom: -100px;
-  left: 10px;
-}
-
-.mobileRight {
-  bottom: -100px;
-  left: 100px;
-}
-
-.mobileJump {
-  bottom: -100px;
-  right: 85px;
-  height: 40px;
-}
-
-.mobileThrowBottle {
-  bottom: -100px;
-  right: 150px;
-  height: 40px;
-}
-
-.mobileThrowShuriken {
-  bottom: -100px;
-  right: 20px;
-  height: 40px;
-} */
 
 .button {
   cursor: pointer;
@@ -270,7 +222,6 @@ h1 {
     position: relative;
     left: 40px;
   }
-
 }
 
 @media only screen and (max-width: 720px) {
@@ -281,7 +232,26 @@ h1 {
 
 @media only screen and (max-height: 480px) {
   canvas {
-    height: 80vh;
+    height: 80%;
   }
 }
+ 
+
+@media only screen and (min-width: 720px) {
+  .canvasContainer {
+    border-style: dotted;
+  }
+
+  .mobileIcon {
+    z-index: 3;
+    height: 50px;
+  }
   
+  .mobileLeft, .mobileRight {
+    border-style: dotted;
+  }
+  
+  .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
+    border-style: dotted;
+  }
+}
