@@ -36,6 +36,7 @@ h1 {
 }
 
 .canvasContainer {
+  position: relative;
   display: flex;
   justify-content: space-around;
 }
@@ -102,6 +103,14 @@ h1 {
   cursor: pointer;
 }
 
+.mobileLeft, .mobileRight {
+  width: 10%;
+}
+
+.mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
+  width: 10%;
+}
+
 .userWon {
   position: absolute;
   display: flex;
@@ -114,147 +123,54 @@ h1 {
   color: #e3c400;
 }
 
-
-@media (max-width: 720px) {
-  .userWon {
-    font-size: 2rem;
-    width: 12rem;
-    height: 4rem;
-  }
-
-  .button {
-    height: 24px !important;
-  }
-
-  .mobileIcon {
-    height: 50px;
-    position: relative;
-    top: 410px;
-  }
+@media screen and (max-width: 400px) {
 
   .mobileLeft, .mobileRight {
-    padding-right: 10px;
-    padding-left: 10px;
-    height: 25px;
+    width: 8%;
     position: relative;
-    left: -190px;
-  }
-  
-  .mobileThrowBottle, .mobileThrowShuriken, .mobileJump {
-    padding-right: 10px;
-    padding-left: 10px;
-    height: 25px;
-    position: relative;
-    left: 200px;
-  }
-}
-
-@media (max-width: 600px) {
-  .userWon {
-    font-size: 2rem;
-    width: 12rem;
-    height: 4rem;
-  }
-
-  .button {
-    height: 24px !important;
-  }
-
-  .mobileIcon {
-    height: 30px;
-    position: relative;
-    top: 340px;
-  }
-
-  .mobileLeft, .mobileRight {
-    padding-right: 10px;
-    padding-left: 10px;
-    height: 25px;
-    position: relative;
-    left: -140px;
-  }
-  
-  .mobileThrowBottle, .mobileThrowShuriken, .mobileJump {
-    padding-right: 10px;
-    padding-left: 10px;
-    height: 25px;
-    position: relative;
-    left: 140px;
-  }
-}
-
-@media (max-width: 400px) {
-  .userWon {
-    font-size: 2rem;
-    width: 12rem;
-    height: 4rem;
-  }
-
-  .playInfo {
-    margin-top: 30px;
-    justify-items: center;
-    width: 90%;
-    flex-direction: row;
-  }
-
-  .button {
-    height: 20px !important;
-  }
-
-  .mobileIcon {
-    height: 20px;
-    position: relative;
-    top: 220px;
-  }
-
-  .mobileLeft, .mobileRight {
-    padding-right: 10px;
-    padding-left: 10px;
-    height: 25px;
-    position: relative;
-    left: -40px;
-  }
-
-  .mobileThrowBottle, .mobileThrowShuriken, .mobileJump {
-    padding-right: 10px;
-    padding-left: 10px;
-    height: 25px;
-    position: relative;
-    left: 40px;
-  }
-}
-
-@media only screen and (max-width: 720px) {
-  canvas {
-    width: 90%;
-  }
-}
-
-@media only screen and (max-height: 480px) {
-  canvas {
-    height: 80%;
-  }
-}
- 
-
-@media only screen and (min-width: 720px) {
-  .canvasContainer {
-    /* border-style: dotted; */
-    position: relative;
-    height: 10px;
-    top: 390px;
-  }
-
-  .mobileIcon {
-    z-index: 3;
-    height: 50px;
-  }
-  
-  /* .mobileLeft, .mobileRight {
-    border-style: dotted;
+    top: 20px;
+    right: 5%;
   }
   
   .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
-    border-style: dotted;
-  } */
+    width: 8%;
+    position: relative;
+    top: 20px;
+    left: 5%;
+  }
+}
+
+
+@media screen and (max-width: 780px) {
+  .game-title {
+    text-align: center;
+  }
+
+  .canvasContainer {
+    position: relative;
+    top: -45px;
+  }
+
+  .mobileLeft, .mobileRight {
+    width: 8%;
+    position: relative;
+    right: 5%;
+  }
+  
+  .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
+    width: 8%;
+    position: relative;
+    left: 5%;
+  }
+
+  canvas {
+    width: 90%;
+  }
+
+  .playInfo {
+    width: 80%;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
 }

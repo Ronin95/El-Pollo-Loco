@@ -1,0 +1,147 @@
+@media (max-width: 720px) {
+  .userWon {
+    font-size: 2rem;
+    width: 12rem;
+    height: 4rem;
+  }
+
+  .button {
+    height: 24px !important;
+  }
+
+  .mobileIcon {
+    height: 50px;
+    position: relative;
+    top: 410px;
+  }
+
+  .mobileLeft, .mobileRight {
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 25px;
+    position: relative;
+    left: -190px;
+  }
+  
+  .mobileThrowBottle, .mobileThrowShuriken, .mobileJump {
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 25px;
+    position: relative;
+    left: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .canvasContainer {
+    z-index: 5;
+  }
+
+  .userWon {
+    font-size: 2rem;
+    width: 12rem;
+    height: 4rem;
+  }
+
+  .button {
+    height: 24px !important;
+  }
+
+  .mobileIcon {
+    height: 30px;
+    position: relative;
+    top: 340px;
+  }
+
+  .mobileLeft, .mobileRight {
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 25px;
+    position: relative;
+    left: -140px;
+  }
+  
+  .mobileThrowBottle, .mobileThrowShuriken, .mobileJump {
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 25px;
+    position: relative;
+    left: 140px;
+  }
+}
+
+@media (max-width: 400px) {
+  .userWon {
+    font-size: 2rem;
+    width: 12rem;
+    height: 4rem;
+  }
+
+  .playInfo {
+    margin-top: 30px;
+    justify-items: center;
+    width: 90%;
+    flex-direction: row;
+  }
+
+  .button {
+    height: 20px !important;
+  }
+
+  .mobileIcon {
+    height: 20px;
+    position: relative;
+    top: 220px;
+  }
+
+  .mobileLeft, .mobileRight {
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 25px;
+    position: relative;
+    left: -40px;
+  }
+
+  .mobileThrowBottle, .mobileThrowShuriken, .mobileJump {
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 25px;
+    position: relative;
+    left: 40px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  canvas {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-height: 480px) {
+  canvas {
+    height: 80%;
+  }
+}
+ 
+
+@media only screen and (min-width: 720px) {
+  .canvasContainer {
+    border-style: dotted;
+    position: relative;
+    height: 10px;
+    top: 390px;
+  }
+
+  .mobileIcon {
+    z-index: 3;
+    height: 50px;
+  }
+  
+  /* .mobileLeft, .mobileRight {
+    border-style: dotted;
+  }
+  
+  .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
+    border-style: dotted;
+  } */
+}

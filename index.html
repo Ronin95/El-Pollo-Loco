@@ -34,9 +34,12 @@
     <link rel="icon" type="image/x-icon" href="img/icons/pepe.png">   
 </head>
 <body onload="loadCanvasStartScreen()">
-    <h1>El Pollo Loco</h1>
+    <h1 class="game-title">El Pollo Loco</h1>
 
-    <section id="canvasContainer" class="canvasContainer">
+    <span id="youWon" class="userWon" style="display: none"> YOU WON! </span>
+    <canvas id="canvas" width="720" height="480" style="border-radius: 20px">
+    </canvas>
+    <div id="canvasContainer" class="canvasContainer">
       <img
         ontouchstart="moveLeft()"
         ontouchend="moveLeftStop()"
@@ -82,10 +85,7 @@
         src="img/icons/jump.svg"
         style="display: none"
       />
-    </section>
-    <span id="youWon" class="userWon" style="display: none"> YOU WON! </span>
-    <canvas id="canvas" width="720" height="480" style="border-radius: 20px">
-    </canvas>
+    </div>
     <div class="playInfo">
       <div class="instructions">
         <h3>Run - Arrow Left/Right</h3>
