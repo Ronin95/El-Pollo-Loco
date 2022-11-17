@@ -140,6 +140,20 @@ h1 {
   }
 }
 
+@media screen and (max-width: 630px) {
+  .mobileLeft, .mobileRight {
+    position: relative;
+    width: 7%;
+    right: 6%;
+  }
+  
+  .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
+    position: relative;
+    width: 7%;
+    left: 6%;
+  }
+}
+
 
 @media screen and (max-width: 780px) {
   .game-title {
@@ -172,5 +186,37 @@ h1 {
     flex-direction: column;
     gap: 5px;
     text-align: center;
+  }
+}
+
+@media screen and (min-width: 781px) {
+  .mobileLeft, .mobileRight {
+    position: relative;
+    width: 7%;
+    bottom: 45px;
+    right: 6%;
+  }
+  
+  .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
+    position: relative;
+    width: 7%;
+    bottom: 45px;
+    left: 6%;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .mobileLeft, .mobileRight {
+    position: relative;
+    width: 7%;
+    bottom: 50px;
+    right: 6%;
+  }
+  
+  .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
+    position: relative;
+    width: 7%;
+    bottom: 50px;
+    left: 6%;
   }
 }
