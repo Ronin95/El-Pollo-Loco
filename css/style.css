@@ -9,6 +9,7 @@ body {
     align-items: center;
     background-image: url('../img/5_background/desert-background.png');
     background-position: center;
+    background-attachment: fixed;
     font-family: 'zabars', Arial, Helvetica, sans-serif;
 }
 

@@ -17,6 +17,15 @@ class Birds extends MovableObject {
         this.animateBirds();
     }
 
+    /**
+     * A method that is called every 500ms. It plays the birds in the top right corner.
+     * 
+     * @method
+     * @name animateBirds
+     * @kind method
+     * @memberof Birds
+     * @returns {void}
+     */
     animateBirds() {
         setInterval(() => {
             this.playAnimation(this.BIRDS_FLY);

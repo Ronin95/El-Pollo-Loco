@@ -45,6 +45,8 @@ class Endboss extends MovableObject {
         'img/4_enemie_boss_chicken/5_dead/G26.png'
     ];
 
+    endboss_hurt_sound = new Audio('./audio/endboss_hurt.mp3');
+
     constructor() {
         super();
         this.loadImages(this.ENDBOSS_WALKING);
@@ -57,6 +59,15 @@ class Endboss extends MovableObject {
         this.checkEndbossEnergy();
     }
 
+    /**
+     * Playing the animation of the endboss standing still.
+     * 
+     * @method
+     * @name standingStill
+     * @kind method
+     * @memberof Endboss
+     * @returns {void}
+     */
     standingStill() {
         setInterval(() => {
             this.playAnimation(this.ENDBOSS_STANDING_STILL);
@@ -78,12 +89,8 @@ class Endboss extends MovableObject {
         } else if (this.energy >= 10 && this.energy <= 90) {
             console.log('Endboss angry');
             this.endbossAngry();
+            this.endboss_hurt_sound.play();
         }
-        // else if energy >= 10 and energy <= 80
-        // play animation Angry
-        // move endboss to the left
-        // create a normal chicken and a small chicken and move those chickens to the left
-        // 
     }
 
     /**
@@ -123,12 +130,12 @@ class Endboss extends MovableObject {
      */
     endbossMove() {
         if(this.energy < 80) {
-            this.x -= 20;
+            this.x -= 50;
             this.y -= 20;
             this.y += 20;
             this.x += 10;
         }
-        if(this.x < 6000) {
+        if(this.x < 3000) { // endboss is moving towards you, when you attack
             this.x += 40;
         }
     }

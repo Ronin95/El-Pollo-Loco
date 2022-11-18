@@ -12,6 +12,7 @@ class Cloud extends MovableObject {
 
     /**
      * A method that is called when the object is created.
+     * It moves the clouds to the left.
      * 
      * @method
      * @name animate
