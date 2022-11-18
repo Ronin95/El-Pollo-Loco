@@ -34,7 +34,7 @@ class ThrowableShuriken extends MovableObject {
      * @returns {void}
      */
     throwShuriken() {
-      // can only throw shurikens, when coinscollected are over 5
+      // can only throw shurikens, when coinscollected are over 4
       if (this.world.coinsCollected.length >= 4) {
         setInterval(() => {
           this.playAnimation(this.SHURIKEN_ROTATION);

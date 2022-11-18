@@ -147,33 +147,61 @@ class World {
      */
     checkThrownWeapons() {
       if (this.keyboard.S && this.coinsCollected.length >= 4) {
-        let shuriken = new ThrowableShuriken(this.character.x+50, this.character.y+150, this);
-        this.throwableObjects.push(shuriken);
-        setInterval(() => {
-          this.level.enemies.forEach((enemy, indexEnemy) => {
-            if (shuriken.collidingPepe(enemy)) {
-              this.level.enemies[indexEnemy].energy -= 50; // one hit kill on the endboss
-            }
-            if (this.level.enemies[indexEnemy].energy <= 0) {
-              this.level.enemies[indexEnemy].energy = 0;
-            }
-          });
-        }, 1000 / 60);
+        this.throwShurikenWeapon();
       } else if (this.keyboard.B && this.bottlesCollected.length >= 1) {
-        let bottle = new ThrowableBottle(this.character.x+10, this.character.y+80, this);
-        this.throwableObjects.push(bottle);
-        this.bottlesCollected.splice(0,1);
-        setInterval(() => {
-          this.level.enemies.forEach((enemy, indexEnemy) => {
-            if (bottle.collidingPepe(enemy)) {
-              this.level.enemies[indexEnemy].energy -= 1;
-            }
-            if (this.level.enemies[indexEnemy].energy <= 0) {
-              this.level.enemies[indexEnemy].energy = 0;
-            }
-          });
-        }, 1000 / 60);
+        this.throwBottleWeapon();
       }
+    }
+
+    /**
+     * Calling the throwShurikenWeapon() method.
+     * Function is only called from the checkThrownWeapons Function
+     * 
+     * @method
+     * @name throwShurikenWeapon
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
+    throwShurikenWeapon() {
+      let shuriken = new ThrowableShuriken(this.character.x+50, this.character.y+150, this);
+      this.throwableObjects.push(shuriken);
+      setInterval(() => {
+        this.level.enemies.forEach((enemy, indexEnemy) => {
+          if (shuriken.collidingPepe(enemy)) {
+            this.level.enemies[indexEnemy].energy -= 50; // one hit kill on the endboss
+          }
+          if (this.level.enemies[indexEnemy].energy <= 0) {
+            this.level.enemies[indexEnemy].energy = 0;
+          }
+        });
+      }, 1000 / 60);
+    }
+
+    /**
+     * Creating a function called throwBottleWeapon.
+     * Function is only called from the checkThrownWeapons Function
+     * 
+     * @method
+     * @name throwBottleWeapon
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
+    throwBottleWeapon() {
+      let bottle = new ThrowableBottle(this.character.x+10, this.character.y+80, this);
+      this.throwableObjects.push(bottle);
+      this.bottlesCollected.splice(0,1);
+      setInterval(() => {
+        this.level.enemies.forEach((enemy, indexEnemy) => {
+          if (bottle.collidingPepe(enemy)) {
+            this.level.enemies[indexEnemy].energy -= 1;
+          }
+          if (this.level.enemies[indexEnemy].energy <= 0) {
+            this.level.enemies[indexEnemy].energy = 0;
+          }
+        });
+      }, 1000 / 60);
     }
 
     /**
@@ -313,7 +341,7 @@ class World {
       this.ctx.font = "45px zabars";
       this.ctx.fillText(this.coinsCollected.length, 290, 55);
 
-      if (this.coinsCollected.length >= 4 && this.coinsCollected.length < 5) {
+      if (this.coinsCollected.length >= 4 && this.coinsCollected.length < 7) {
         this.ctx.font = "45px zabars";
         this.ctx.fillText('Press S for hidden weapon', 170, 135);
       }

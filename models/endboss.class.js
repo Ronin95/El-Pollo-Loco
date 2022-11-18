@@ -87,9 +87,7 @@ class Endboss extends MovableObject {
         if (this.energy >= 90) {
             this.standingStill();
         } else if (this.energy >= 10 && this.energy <= 90) {
-            console.log('Endboss angry');
             this.endbossAngry();
-            this.endboss_hurt_sound.play();
         }
     }
 
@@ -107,10 +105,11 @@ class Endboss extends MovableObject {
         setInterval(() => {
             if(this.energy >= 90) {
                 this.playAnimation(this.ENDBOSS_WALKING);
-                // console.log(this.energy, ' endboss energy');
             } else if (this.energy > 1 && this.energy <= 80) {
                 this.endbossMove();
                 this.playAnimation(this.ENDBOSS_ATTACK);
+                this.endboss_hurt_sound.play();
+                this.endboss_hurt_sound.volume = 1.5;
             } else if (this.energy <= 0) {
                 this.playAnimation(this.ENDBOSS_DEAD);
             } else {
