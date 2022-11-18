@@ -52,28 +52,96 @@ class World {
      * @returns {void}
      */
     createRandomWorld() {
-        let randomNum = Math.floor(Math.random()*20)+5; // Random number between 5 and 19
-        console.log(randomNum, 'random number of created enemies, clouds, coins and bottles');
-        // Random number of clouds
-        for (let cloud = 0; cloud <= randomNum; cloud++) {
-            this.level.clouds.push(new Cloud())
-        }
-        // Random number of coins
-        for (let coin = 0; coin <= randomNum; coin++) {
-            this.level.coins.push(new Coin())
-        }
-        // Random number of chickens
-        for (let chicken = 0; chicken <= randomNum; chicken++) {
-          this.level.enemies.push(new Chicken())
-        }
-        // Random number of smaller chickens
-        for (let smallChickens = 0; smallChickens <= randomNum; smallChickens++) {
-          this.level.enemies.push(new ChickenSmall())
-        }
-        // Random number of bottles
-        for (let bottle = 0; bottle <= randomNum; bottle++) {
-            this.level.bottles.push(new Bottle())
-        }
+        this.randomNumberOfClouds();
+        this.randomNumberOfCoins();
+        this.randomNumberOfChickens();
+        this.randomNumberOfSmallChickens();
+        this.randomNumberOfBottles();
+    }
+
+    /**
+     * Random number of clouds
+     * 
+     * @method
+     * @name randomNumberOfClouds
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
+    randomNumberOfClouds() {
+      let randomNum = Math.floor(Math.random()*20)+6; // Random number between 6 and 19
+      // Random number of clouds
+      for (let cloud = 0; cloud <= randomNum; cloud++) {
+          this.level.clouds.push(new Cloud())
+      }
+    }
+
+    /**
+     * Random number of coins
+     * 
+     * @method
+     * @name randomNumberOfCoins
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
+    randomNumberOfCoins() {
+      let randomNum = Math.floor(Math.random()*20)+6; // Random number between 6 and 19
+      // Random number of coins
+      for (let coin = 0; coin <= randomNum; coin++) {
+        this.level.coins.push(new Coin())
+      }
+    }
+
+    /**
+     * Creating a function that will return a random number of normal chickens between 6 and 19.
+     * 
+     * @method
+     * @name randomNumberOfChickens
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
+    randomNumberOfChickens() {
+      let randomNum = Math.floor(Math.random()*20)+6; // Random number between 6 and 19
+      // Random number of chickens
+      for (let chicken = 0; chicken <= randomNum; chicken++) {
+        this.level.enemies.push(new Chicken())
+      }
+    }
+
+    /**
+     * Creating a function that will return a random number of small chickens between 6 and 19.
+     * 
+     * @method
+     * @name randomNumberOfSmallChickens
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
+    randomNumberOfSmallChickens() {
+      let randomNum = Math.floor(Math.random()*20)+6; // Random number between 6 and 19
+      // Random number of smaller chickens
+      for (let smallChickens = 0; smallChickens <= randomNum; smallChickens++) {
+        this.level.enemies.push(new ChickenSmall())
+      }
+    }
+
+    /**
+     * Creating a function called randomNumberOfBottles that will return a random number of bottles between 1 and 19.
+     * 
+     * @method
+     * @name randomNumberOfBottles
+     * @kind method
+     * @memberof World
+     * @returns {void}
+     */
+    randomNumberOfBottles() {
+      let randomNum = Math.floor(Math.random()*20)+6; // Random number between 6 and 19
+      // Random number of bottles
+      for (let bottle = 0; bottle <= randomNum; bottle++) {
+        this.level.bottles.push(new Bottle())
+    }
     }
 
     /**
@@ -127,7 +195,7 @@ class World {
      collisionOfObjects() {
       setInterval(() => {
         this.checkThrownWeapons();
-      }, 500);
+      }, 300);
   
       setInterval(() => {
         this.checkCollectCoin();

@@ -33,7 +33,7 @@ removeCanvasBackgroundWhilePlaying = () => {
 init = () => {
     document.getElementById("playButton").style = "display: none";
     document.getElementById("mobileButton").style = "display: none;";
-    document.getElementById("fullscreenIcon").style = "display: none;";
+    // document.getElementById("fullscreenIcon").style = "display: none;";
     canvas = document.getElementById("canvas");
     world = new World(canvas, keyboard);
     enableReplayButton();
@@ -54,7 +54,10 @@ enableReplayButton = () => {
  * 
  */
 enableReplay = () => {
-    window.location.reload();
+    for (let i = 0; i < 999; i++){
+        clearInterval(i);
+    }
+    init();
 };
 
 /**
@@ -101,11 +104,11 @@ showMenu = () => {
     if (!openMenu) {
       document.getElementById("playButton").style = "";
       document.getElementById("mobileButton").style = "";
-      document.getElementById("fullscreenIcon").style = "";
+    //   document.getElementById("fullscreenIcon").style = "";
       openMenu = true;
     } else {
       document.getElementById("mobileButton").style = "display: none;";
-      document.getElementById("fullscreenIcon").style = "display: none;";
+    //   document.getElementById("fullscreenIcon").style = "display: none;";
       openMenu = false;
     }
 };
