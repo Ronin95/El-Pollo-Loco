@@ -237,7 +237,7 @@ class World {
       setInterval(() => {
         this.level.enemies.forEach((enemy, indexEnemy) => {
           if (shuriken.collidingPepe(enemy)) {
-            this.level.enemies[indexEnemy].energy -= 50; // one hit kill on the endboss
+            this.level.enemies[indexEnemy].energy -= 20; // one hit kill on the endboss
           }
           if (this.level.enemies[indexEnemy].energy <= 0) {
             this.level.enemies[indexEnemy].energy = 0;
@@ -286,7 +286,7 @@ class World {
         setInterval(() => {
             this.level.enemies.forEach((enemy, indexEnemy) => {
               if (this.character.collidingPepe(enemy) && this.character.y + this.character.height < 420) {
-                this.level.enemies[indexEnemy].energy -= 1;
+                this.level.enemies[indexEnemy].energy -= 4;
               }
             });
           }, 1000 / 60);
@@ -477,11 +477,11 @@ class World {
       setInterval(() => {
         if (this.character.energy <= 0) {
           removeKeyBoard();
-          enableEndscreenLost();
+          gameLost();
           this.runPepe = false;
         } else if (this.level.enemies[0].energy <= 0) {
           removeKeyBoard();
-          enableEndscreenWon();
+          gameWon();
           this.runPepe = false;
         }
       }, 500);

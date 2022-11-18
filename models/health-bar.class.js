@@ -8,7 +8,6 @@ class HealthBar extends DrawableObject {
         'img/7_statusbars/1_statusbar/2_statusbar_health/blue/100.png'
     ];
     health = 100;
-    game_over_sound = new Audio('audio/game_over.mp3');
 
     constructor() {
         super();
@@ -57,7 +56,6 @@ class HealthBar extends DrawableObject {
                 }   else if (this.health > 20) {
                         return 1;
                 }   else {
-                        this.game_over_sound.play();
                         return 0;
                 }
         }
