@@ -43,18 +43,18 @@ h1 {
   justify-content: space-around;
 }
 
-.icon {
-  margin: 10px;
-  z-index: 3;
-  height: 40px;
-}
+
 
 .menuBar {
-  height: 240px;
+  width: 80px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
+  bottom: 575px;
+  left: 630px;
 }
 
 .instructions {
@@ -69,42 +69,39 @@ h1 {
 
 .soundOnOffClass {
   cursor: pointer;
-  border-style: dotted;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 50px;
   position:relative;
-  bottom: 550px;
-  left: 550px;
+  bottom: 540px;
+  left: 580px;
 }
   
 
-.mobileIcon:hover {
+/* .mobileIcon:hover {
   transform: scale(1.1);
   border-radius: 50%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
   rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
+} */
 
 .details {
   height: 35px;
 }
 
 .play {
-  height: 80px;
+  height: 60px;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 .mobile {
-  height: 28px;
+  height: 30px;
 }
 
 .fullscreen-icon {
   height: 40px;
-}
-
-.button {
-  cursor: pointer;
 }
 
 .mobileLeft, .mobileRight {
@@ -120,11 +117,11 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 120px;
+  top: 20px;
   font-size: 6rem;
   letter-spacing: 10px;
   word-spacing: 10px;
-  color: #e3c400;
+  color: #ceb303;
 }
 
 @media screen and (max-width: 400px) {
