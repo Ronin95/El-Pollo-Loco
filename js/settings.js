@@ -20,13 +20,9 @@ let music = new Audio('audio/music.mp3');
  * @returns {void}
  */
 function disableSound() {
-    let sounds = document.getElementById('chkSound');
-    if (sounds.checked == true) {
-        music.volume = 0.05;
-        music.play();
-    } else {
-        music.pause();
-    }
+    // document.getElementById('soundOnOff').src = 'img/icons/volume-on.png';
+    // document.getElementById('soundOnOff').src = 'img/icons/volume-off.png';
+    console.log('test');
 }
 
 function gameWonSound() {
@@ -50,6 +46,7 @@ function loadCanvasStartScreen() {
 
 function removeCanvasBackgroundWhilePlaying() {
     document.getElementById('canvas').style = "";
+    // document.getElementById("instruct").style = "display: none";
 }
 
 function init() {

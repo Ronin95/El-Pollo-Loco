@@ -57,27 +57,26 @@ h1 {
   align-items: center;
 }
 
-.playInfo {
-  border-style: dotted;
-  letter-spacing: 5px;
+.instructions {
   display: flex;
+  font-size: 20px;
+  letter-spacing: 3px;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
   position: relative;
-  bottom: 400px;
+  bottom: 60px;
 }
 
-.checkbox {
+.soundOnOffClass {
+  cursor: pointer;
+  border-style: dotted;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;    
-}
-
-.checkbox input[type="checkbox"], input[type="radio"] {
-    min-width: 1.33rem;
-    min-height: 1.33rem;
-    accent-color: var(--txt-color);
+  width: 50px;
+  position:relative;
+  bottom: 550px;
+  left: 550px;
 }
   
 

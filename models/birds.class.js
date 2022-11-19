@@ -12,8 +12,8 @@ class Birds extends MovableObject {
     constructor() {
         super().loadImage('img/10_otherTools/birds/bird1.png');
         this.loadImages(this.BIRDS_FLY);
-        this.x = 650;
-        this.y = 10;
+        this.x = 450;
+        this.y = 30;
         this.animateBirds();
     }
 
@@ -29,6 +29,6 @@ class Birds extends MovableObject {
     animateBirds() {
         setInterval(() => {
             this.playAnimation(this.BIRDS_FLY);
-        }, 500);
+        }, 800);
     }
 }
