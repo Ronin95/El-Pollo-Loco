@@ -2,6 +2,7 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 let alive = true;
+let fullscreen = false;
 let openMenu = false;
 let mobileMode = false;
 let game_status = true; 
@@ -32,6 +33,85 @@ function playMusic() {
     }
 }
 
+function enableMobileMode() {
+    if (!mobileMode) {
+        fullscreen = false;
+        // fullscreenMode();
+        document.getElementById("mobileButton").src = "img/icons/mobileoff.svg";
+        document.getElementById("mobileLeft").style = "";
+        document.getElementById("mobileRight").style = "";
+        document.getElementById("mobileJump").style = "";
+        document.getElementById("mobileThrowBottle").style = "";
+        document.getElementById("mobileThrowShuriken").style = "";
+        mobileMode = true;
+    } else {
+        // fullscreenMode();
+        document.getElementById("mobileButton").src = "img/icons/mobile.svg";
+        document.getElementById("mobileLeft").style = "display: none";
+        document.getElementById("mobileRight").style = "display: none";
+        document.getElementById("mobileJump").style = "display: none";
+        document.getElementById("mobileThrowBottle").style = "display: none";
+        document.getElementById("mobileThrowShuriken").style = "display: none";
+        mobileMode = false;
+    }
+    // document.getElementById('canvas').requestFullscreen();
+}
+
+function fullscreenMode() {
+    if (!fullscreen && alive) {
+      noFullscreenAlive();
+    } else if (fullscreen && alive) {
+      fullscreenAlive();
+    } else if (fullscreen && !alive) {
+      fullscreenNotAlive();
+    } else if (!fullscreen && !alive) {
+      noFullscreenNotAlive();
+    }
+};
+
+function noFullscreenAlive() {
+    document.getElementById("canvasContainer").style = "width: 70%; height: 60%";
+    document.getElementById("canvas").style =
+      "width: 70%; height: 60%; border-radius: 20px; background-image: url('img/9_intro_outro_screens/start/startscreen_2.png'); background-size: cover; background-position: 100%";
+    fullscreen = true;
+};
+
+/**
+ * A function that is called when the player presses the fullscreen button.
+ * 
+ */
+function fullscreenAlive() {
+    document.getElementById("canvasContainer").style = "";
+    document.getElementById("canvas").style =
+        "background-image: url('img/9_intro_outro_screens/start/startscreen_2.png');";
+    fullscreen = false;
+};
+
+/**
+ * A function that is called when the player presses the fullscreen button.
+ * 
+ */
+function fullscreenNotAlive() {
+    document.getElementById("canvasContainer").style = "";
+    document.getElementById("canvas").style =
+        "background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over!.png')";
+    fullscreen = false;
+    game_over_sound.play();
+};
+
+/**
+ * A function that is called when the player presses the fullscreen button.
+ * 
+ */
+function noFullscreenNotAlive() {
+    document.getElementById("canvasContainer").style =
+        "width: 70%; height: 60%";
+    document.getElementById("canvas").style =
+        "width: 70%; height: 60%; border-radius: 20px; background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
+    fullscreen = true;
+    game_over_sound.play();
+};
+
 function gameWonSound() {
     if (game_status) {
         game_won_sound.play();
@@ -53,12 +133,12 @@ function loadCanvasStartScreen() {
 
 function removeCanvasBackgroundWhilePlaying() {
     document.getElementById('canvas').style = "";
-    // document.getElementById("instruct").style = "display: none";
 }
+
 
 function init() {
     document.getElementById("playButton").style = "display: none";
-    document.getElementById("mobileButton").style = "display: none;";
+    document.getElementById("mobileButton").style = "display: none";
     canvas = document.getElementById("canvas");
     world = new World(canvas, keyboard);
     enableReplayButton();

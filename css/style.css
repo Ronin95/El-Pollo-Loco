@@ -79,12 +79,14 @@ h1 {
 }
   
 
-/* .mobileIcon:hover {
+.mobileIcon:hover {
   transform: scale(1.1);
   border-radius: 50%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
   rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-} */
+}
+
+
 
 .details {
   height: 35px;
@@ -219,4 +221,8 @@ h1 {
     bottom: 50px;
     left: 6%;
   }
+}
+
+@media (orientation: landscape) {
+  
 }
