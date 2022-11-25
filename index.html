@@ -91,34 +91,34 @@
         <h2>B - Throw Bottle</h2>
       </div>
       <div>
-        <a onclick="disableSound()" id="soundOnOff" class="soundOnOffClass">
-          <img src="img/icons/volume-off.png" width="30px;">
+        <a onclick="playMusic()" class="playMusicClass">
+          <img id="playMusic" src="img/icons/volume-off.png" width="30px;">
         </a>
       </div>
       <div>
         <section class="menuBar">
           <img
             id="detailsButton"
-            class="details button"
+            class="details"
             src="img/icons/more.svg"
             onclick="showMenu()"
           />
           <img
             id="playButton"
-            class="play button"
+            class="play"
             src="img/icons/play.svg"
             onclick="init(); removeCanvasBackgroundWhilePlaying()"
           />
           <img
             id="mobileButton"
-            class="mobile button"
+            class="mobile"
             style="display: none"
             src="img/icons/mobile.svg"
             onclick="enableMobileMode()"
           />
           <!-- <img
             id="fullscreenIcon"
-            class="fullscreen-icon icon button"
+            class="fullscreen-icon icon"
             style="display: none"
             src="img/icons/fullscreen.svg"
             onclick="fullscreenMode()"

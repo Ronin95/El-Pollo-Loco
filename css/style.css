@@ -54,7 +54,7 @@ h1 {
   align-items: center;
   position: relative;
   bottom: 575px;
-  left: 630px;
+  left: 635px;
 }
 
 .instructions {
@@ -67,7 +67,7 @@ h1 {
   bottom: 60px;
 }
 
-.soundOnOffClass {
+.playMusicClass {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -88,16 +88,19 @@ h1 {
 
 .details {
   height: 35px;
+  cursor: pointer;
 }
 
 .play {
   height: 60px;
   margin-top: 5px;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .mobile {
   height: 30px;
+  cursor: pointer;
 }
 
 .fullscreen-icon {

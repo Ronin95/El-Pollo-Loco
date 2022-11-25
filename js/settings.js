@@ -7,7 +7,8 @@ let mobileMode = false;
 let game_status = true; 
 let game_over_sound = new Audio('audio/game_over.mp3');
 let game_won_sound = new Audio('audio/win.mp3');
-let music = new Audio('audio/music.mp3');
+let song = new Audio('audio/music.mp3');
+let music = false;
 
 
 /**
@@ -19,10 +20,16 @@ let music = new Audio('audio/music.mp3');
  * @kind function
  * @returns {void}
  */
-function disableSound() {
-    // document.getElementById('soundOnOff').src = 'img/icons/volume-on.png';
-    // document.getElementById('soundOnOff').src = 'img/icons/volume-off.png';
-    console.log('test');
+function playMusic() {
+    if (music == false) {
+        document.getElementById('playMusic').src = 'img/icons/volume-off.png';
+        song.pause();
+        music = true;
+    } else if (music == true) {
+        music = false;
+        document.getElementById('playMusic').src = 'img/icons/volume-on.png';
+        song.play();
+    }
 }
 
 function gameWonSound() {
