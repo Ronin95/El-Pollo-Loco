@@ -95,8 +95,6 @@ h1 {
   width: 10px;
 }
 
-  
-
 .mobileIcon:hover {
   transform: scale(1.1);
   border-radius: 50%;
@@ -126,10 +124,6 @@ h1 {
   cursor: pointer;
 }
 
-/* .fullscreen-icon {
-  height: 10px;
-} */
-
 .mobileLeft, .mobileRight {
   width: 5%;
 }
@@ -150,24 +144,83 @@ h1 {
   color: #ceb303;
 }
 
-/* @media screen and (max-width: 400px) {
+@media screen and (max-width: 400px) and (orientation:portrait) {
+  canvas {
+    position: relative;
+    width: 155vw;
+    top: 20px;
+    left: 115px;
+  }
 
-  .mobileLeft, .mobileRight {
+  .instructions {
+    width: 150vw;
+    position: relative;
+    left: 140px;
+  }
+
+  .settingsBasePosition {
+    position: relative;
+    left: 625px;
+    bottom: 410px;
+  }
+
+  .settingsMobilePosition {
+    position: relative;
+    left: 625px;
+    bottom: 470px;
+  }
+
+  .mobileLeft {
     width: 8%;
     position: relative;
-    top: 20px;
-    right: 5%;
+    top: 15px;
+    left: 18%;
+  }
+
+  .mobileRight {
+    width: 8%;
+    position: relative;
+    top: 15px;
+    left: 10%;
   }
   
   .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
     width: 8%;
     position: relative;
-    top: 20px;
-    left: 5%;
+    top: 10px;
+    left: 15%;
   }
 }
 
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 700px) and (orientation:portrait) {
+  canvas {
+    width: 100vw;
+    position:relative;
+    left: 1px;
+  }
+
+  .settingsBasePosition {
+    position: relative;
+    left: 590px;
+    bottom: 480px;
+  }
+
+  .settingsMobilePosition {
+    position: relative;
+    left: 590px;
+    bottom: 515px;
+  }
+
+  .instructions {
+    position: relative;
+    left: 10px;
+    gap: 20px;
+  }
+}
+
+
+
+/* @media screen and (max-width: 630px) {
   .mobileLeft, .mobileRight {
     position: relative;
     width: 7%;
@@ -179,10 +232,10 @@ h1 {
     width: 7%;
     left: 6%;
   }
-}
+} */
 
 
-@media screen and (max-width: 780px) {
+/* @media screen and (max-width: 780px) {
   .canvasContainer {
     position: relative;
     top: -45px;
@@ -210,9 +263,9 @@ h1 {
     gap: 5px;
     text-align: center;
   }
-}
+} */
 
-@media screen and (min-width: 781px) {
+/* @media screen and (min-width: 781px) {
   .mobileLeft, .mobileRight {
     position: relative;
     width: 7%;
@@ -226,9 +279,9 @@ h1 {
     bottom: 45px;
     left: 6%;
   }
-}
+} */
 
-@media screen and (min-width: 940px) {
+/* @media screen and (min-width: 940px) {
   .mobileLeft, .mobileRight {
     position: relative;
     width: 7%;
