@@ -57,61 +57,6 @@ function enableMobileMode() {
     // document.getElementById('canvas').requestFullscreen();
 }
 
-function fullscreenMode() {
-    if (!fullscreen && alive) {
-      noFullscreenAlive();
-    } else if (fullscreen && alive) {
-      fullscreenAlive();
-    } else if (fullscreen && !alive) {
-      fullscreenNotAlive();
-    } else if (!fullscreen && !alive) {
-      noFullscreenNotAlive();
-    }
-};
-
-function noFullscreenAlive() {
-    document.getElementById("canvasContainer").style = "width: 70%; height: 60%";
-    document.getElementById("canvas").style =
-      "width: 70%; height: 60%; border-radius: 20px; background-image: url('img/9_intro_outro_screens/start/startscreen_2.png'); background-size: cover; background-position: 100%";
-    fullscreen = true;
-};
-
-/**
- * A function that is called when the player presses the fullscreen button.
- * 
- */
-function fullscreenAlive() {
-    document.getElementById("canvasContainer").style = "";
-    document.getElementById("canvas").style =
-        "background-image: url('img/9_intro_outro_screens/start/startscreen_2.png');";
-    fullscreen = false;
-};
-
-/**
- * A function that is called when the player presses the fullscreen button.
- * 
- */
-function fullscreenNotAlive() {
-    document.getElementById("canvasContainer").style = "";
-    document.getElementById("canvas").style =
-        "background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over!.png')";
-    fullscreen = false;
-    game_over_sound.play();
-};
-
-/**
- * A function that is called when the player presses the fullscreen button.
- * 
- */
-function noFullscreenNotAlive() {
-    document.getElementById("canvasContainer").style =
-        "width: 70%; height: 60%";
-    document.getElementById("canvas").style =
-        "width: 70%; height: 60%; border-radius: 20px; background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
-    fullscreen = true;
-    game_over_sound.play();
-};
-
 function gameWonSound() {
     if (game_status) {
         game_won_sound.play();
@@ -135,19 +80,20 @@ function removeCanvasBackgroundWhilePlaying() {
     document.getElementById('canvas').style = "";
 }
 
-
 function init() {
     document.getElementById("playButton").style = "display: none";
     document.getElementById("mobileButton").style = "display: none";
     canvas = document.getElementById("canvas");
     world = new World(canvas, keyboard);
     enableReplayButton();
+    document.getElementById("instruct").style = "display: none"; // remove the instructions text
 }
 
 function enableReplayButton() {
     document.getElementById("playButton").src = "img/icons/replay.svg";
     document.getElementById("playButton").setAttribute("onclick", "enableReplay()");
     document.getElementById("playButton").style = "";
+    document.getElementById("instruct").style = ""; // remove the instructions text
 }
 
 function enableReplay() {
@@ -197,75 +143,38 @@ function moveRight() {
     keyboard.RIGHT = true;
 };
 
-
-/**
- * A function that is called when the player stops pressing the right arrow key.
- * 
- */
 function moveRightStop() {
     keyboard.RIGHT = false;
 };
 
-/**
- * A function that is called when the player presses the left arrow key.
- * 
- */
 function moveLeft() {
     keyboard.LEFT = true;
 };
-  
-/**
- * A function that is called when the player stops pressing the left arrow key.
- * 
- */
+
 function moveLeftStop() {
     keyboard.LEFT = false;
 };
 
-/**
- * A function that is called when the player presses the B key.
- * 
- */
 function throwBottle() {
     keyboard.B = true;
 };
 
-/**
- * A function that is called when the player stops pressing the B key.
- * 
- */
 function throwBottleStop() {
     keyboard.B = false;
 };
 
-/**
- * A function that is called when the player presses the S key.
- * 
- */
 function throwShuriken() {
     keyboard.S = true;
 };
 
-/**
- * A function that is called when the player stops pressing the S key.
- * 
- */
 function throwShurikenStop() {
     keyboard.S = false;
 }
 
-/**
- * A function that is called when the player presses the spacebar.
- * 
- */
 function jump() {
     keyboard.SPACE = true;
 };
 
-/**
- * A function that is called when the player stops pressing the spacebar.
- * 
- */
 function jumpStop() {
     keyboard.SPACE = false;
 };
