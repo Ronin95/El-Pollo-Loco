@@ -81,19 +81,18 @@ function removeCanvasBackgroundWhilePlaying() {
 }
 
 function init() {
+    document.getElementById("instruct").style = "display: none";
     document.getElementById("playButton").style = "display: none";
     document.getElementById("mobileButton").style = "display: none";
     canvas = document.getElementById("canvas");
     world = new World(canvas, keyboard);
     enableReplayButton();
-    document.getElementById("instruct").style = "display: none"; // remove the instructions text
 }
 
 function enableReplayButton() {
     document.getElementById("playButton").src = "img/icons/replay.svg";
     document.getElementById("playButton").setAttribute("onclick", "enableReplay()");
     document.getElementById("playButton").style = "";
-    document.getElementById("instruct").style = ""; // remove the instructions text
 }
 
 function enableReplay() {
