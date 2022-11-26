@@ -85,14 +85,14 @@
       />
     </div>
     <div>
-      <div>
+      <div> <!-- here or below add the class hideInstructions -->
         <div id="instruct" class="instructions">
           <h2>Run - Arrow Left/Right</h2>
           <h2>Jump - Space</h2>
           <h2>B - Throw Bottle</h2>
         </div>
       </div>
-      <div class="settings">
+      <div class="settingsBasePosition" id="settings">
         <a onclick="playMusic()" class="playMusicClass">
           <img id="playMusic" src="img/icons/volume-off.png" width="30px;">
         </a>
@@ -118,7 +118,7 @@
           />
           <!-- <img
             id="fullscreenIcon"
-            class="fullscreen-icon icon"
+            class="fullscreen-icon"
             style="display: none"
             src="img/icons/fullscreen.svg"
             onclick="fullscreenMode()"

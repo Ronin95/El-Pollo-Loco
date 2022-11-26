@@ -3,6 +3,11 @@
     src: url('../fonts/zabars.ttf') format('truetype');
 }
 
+html {
+  overflow: hidden;
+}
+
+
 body {
     display: flex;
     flex-direction: column;
@@ -40,9 +45,12 @@ h1 {
   position: relative;
   display: flex;
   justify-content: space-around;
+  width: 700px;
+  position: relative;
+  bottom: 50px;
 }
 
-.settings {
+.settingsBasePosition {
   display: flex;
   align-items: flex-start;
   flex-direction: row;
@@ -50,6 +58,17 @@ h1 {
   cursor: pointer;
   position: relative;
   bottom: 500px;
+  left: 610px;
+}
+
+.settingsMobilePosition {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 100px;
+  cursor: pointer;
+  position: relative;
+  bottom: 535px;
   left: 610px;
 }
 
@@ -72,6 +91,10 @@ h1 {
   bottom: 35px;
 }
 
+.mobileIcon {
+  width: 10px;
+}
+
   
 
 .mobileIcon:hover {
@@ -86,6 +109,11 @@ h1 {
   cursor: pointer;
 }
 
+.hideInstructions h2 {
+  border-style: dotted;
+  display: none;
+}
+
 .play {
   height: 60px;
   margin-top: 5px;
@@ -98,16 +126,16 @@ h1 {
   cursor: pointer;
 }
 
-.fullscreen-icon {
-  height: 40px;
-}
+/* .fullscreen-icon {
+  height: 10px;
+} */
 
 .mobileLeft, .mobileRight {
-  width: 10%;
+  width: 5%;
 }
 
 .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
-  width: 10%;
+  width: 5%;
 }
 
 .userWon {

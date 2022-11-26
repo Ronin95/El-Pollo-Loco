@@ -36,25 +36,32 @@ function playMusic() {
 function enableMobileMode() {
     if (!mobileMode) {
         fullscreen = false;
-        // fullscreenMode();
-        document.getElementById("mobileButton").src = "img/icons/mobileoff.svg";
-        document.getElementById("mobileLeft").style = "";
-        document.getElementById("mobileRight").style = "";
-        document.getElementById("mobileJump").style = "";
-        document.getElementById("mobileThrowBottle").style = "";
-        document.getElementById("mobileThrowShuriken").style = "";
+        displayMobileIcons();
         mobileMode = true;
     } else {
-        // fullscreenMode();
-        document.getElementById("mobileButton").src = "img/icons/mobile.svg";
-        document.getElementById("mobileLeft").style = "display: none";
-        document.getElementById("mobileRight").style = "display: none";
-        document.getElementById("mobileJump").style = "display: none";
-        document.getElementById("mobileThrowBottle").style = "display: none";
-        document.getElementById("mobileThrowShuriken").style = "display: none";
+        removeMobileIcons();
         mobileMode = false;
     }
-    // document.getElementById('canvas').requestFullscreen();
+}
+
+function displayMobileIcons() {
+    document.getElementById("mobileButton").src = "img/icons/mobileoff.svg";
+    document.getElementById("mobileLeft").style = "";
+    document.getElementById("mobileRight").style = "";
+    document.getElementById("mobileJump").style = "";
+    document.getElementById("mobileThrowBottle").style = "";
+    document.getElementById("mobileThrowShuriken").style = "";
+    document.getElementById('settings').setAttribute('class', 'settingsMobilePosition');
+}
+
+function removeMobileIcons() {
+    document.getElementById("mobileButton").src = "img/icons/mobile.svg";
+    document.getElementById("mobileLeft").style = "display: none";
+    document.getElementById("mobileRight").style = "display: none";
+    document.getElementById("mobileJump").style = "display: none";
+    document.getElementById("mobileThrowBottle").style = "display: none";
+    document.getElementById("mobileThrowShuriken").style = "display: none";
+    document.getElementById('settings').setAttribute('class', 'settingsBasePosition');
 }
 
 function gameWonSound() {
@@ -78,10 +85,13 @@ function loadCanvasStartScreen() {
 
 function removeCanvasBackgroundWhilePlaying() {
     document.getElementById('canvas').style = "";
+    // document.getElementById('instruct').style.visibility = "none";
+    // document.getElementById('instruct').setAttribute('class', 'hideInstructions');
+
 }
 
 function init() {
-    document.getElementById("instruct").style = "display: none";
+    // document.getElementById("instruct").style = "display: none";
     document.getElementById("playButton").style = "display: none";
     document.getElementById("mobileButton").style = "display: none";
     canvas = document.getElementById("canvas");
