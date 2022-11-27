@@ -56,7 +56,19 @@ h1 {
   left: 610px;
 }
 
+.settingsBasePositionPlay {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 100px;
+  cursor: pointer;
+  position: relative;
+  bottom: 470px;
+  left: 310px;
+}
+
 .settingsMobilePosition {
+  border-style: dotted;
   display: flex;
   align-items: flex-start;
   flex-direction: row;
