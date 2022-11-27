@@ -33,6 +33,14 @@ function playMusic() {
     }
 }
 
+/**
+ * A function that is called when the user enables the phone version.
+ * 
+ * @function
+ * @name enableMobileMode
+ * @kind function
+ * @returns {void}
+ */
 function enableMobileMode() {
     if (!mobileMode) {
         fullscreen = false;
@@ -44,6 +52,14 @@ function enableMobileMode() {
     }
 }
 
+/**
+ * The phone buttons are being displayed
+ * 
+ * @function
+ * @name displayMobileIcons
+ * @kind function
+ * @returns {void}
+ */
 function displayMobileIcons() {
     document.getElementById("mobileButton").src = "img/icons/mobileoff.svg";
     document.getElementById("mobileLeft").style = "";
@@ -54,6 +70,14 @@ function displayMobileIcons() {
     document.getElementById('settings').setAttribute('class', 'settingsMobilePosition');
 }
 
+/**
+ * Hiding the mobile icons.
+ * 
+ * @function
+ * @name removeMobileIcons
+ * @kind function
+ * @returns {void}
+ */
 function removeMobileIcons() {
     document.getElementById("mobileButton").src = "img/icons/mobile.svg";
     document.getElementById("mobileLeft").style = "display: none";
@@ -64,6 +88,14 @@ function removeMobileIcons() {
     document.getElementById('settings').setAttribute('class', 'settingsBasePosition');
 }
 
+/**
+ * Playing the sound when the game is won.
+ * 
+ * @function
+ * @name gameWonSound
+ * @kind function
+ * @returns {void}
+ */
 function gameWonSound() {
     if (game_status) {
         game_won_sound.play();
@@ -71,6 +103,14 @@ function gameWonSound() {
     }
 }
 
+/**
+ * Playing the sound when the game is lost.
+ * 
+ * @function
+ * @name gameLostSound
+ * @kind function
+ * @returns {void}
+ */
 function gameLostSound() {
     if (game_status) {
         game_over_sound.play();
@@ -78,11 +118,27 @@ function gameLostSound() {
     }
 }
 
+/**
+ * Loading the start screen.
+ * 
+ * @function
+ * @name loadCanvasStartScreen
+ * @kind function
+ * @returns {void}
+ */
 function loadCanvasStartScreen() {
     document.getElementById('canvas').style = 
         "background-image: url('img/9_intro_outro_screens/start/startscreen_1.png')";
 }
 
+/**
+ * Removing the background image of the canvas.
+ * 
+ * @function
+ * @name removeCanvasBackgroundWhilePlaying
+ * @kind function
+ * @returns {void}
+ */
 function removeCanvasBackgroundWhilePlaying() {
     document.getElementById('canvas').style = "";
     // document.getElementById('instruct').style.visibility = "none";
@@ -90,6 +146,14 @@ function removeCanvasBackgroundWhilePlaying() {
 
 }
 
+/**
+ * Initializing the game.
+ * 
+ * @function
+ * @name init
+ * @kind function
+ * @returns {void}
+ */
 function init() {
     // document.getElementById("instruct").style = "display: none";
     document.getElementById("playButton").style = "display: none";
@@ -99,12 +163,28 @@ function init() {
     enableReplayButton();
 }
 
+/**
+ * Enabling the replay button.
+ * 
+ * @function
+ * @name enableReplayButton
+ * @kind function
+ * @returns {void}
+ */
 function enableReplayButton() {
     document.getElementById("playButton").src = "img/icons/replay.svg";
     document.getElementById("playButton").setAttribute("onclick", "enableReplay()");
     document.getElementById("playButton").style = "";
 }
 
+/**
+ * Reloading the page.
+ * 
+ * @function
+ * @name enableReplay
+ * @kind function
+ * @returns {void}
+ */
 function enableReplay() {
     // for (let i = 0; i < 1500; i++){
     //     clearInterval(i);
@@ -113,6 +193,14 @@ function enableReplay() {
     window.location.reload();
 };
 
+/**
+ * A function that is called when the player loses the game.
+ * 
+ * @function
+ * @name gameLost
+ * @kind function
+ * @returns {void}
+ */
 function gameLost() {
     if (alive) {
         document.getElementById("canvas").style = 
@@ -122,6 +210,14 @@ function gameLost() {
     }
 }
 
+/**
+ * A function that is called when the player wins the game.
+ * 
+ * @function
+ * @name gameWon
+ * @kind function
+ * @returns {void}
+ */
 function gameWon() {
     if (alive) {
         document.getElementById("canvas").style =
@@ -136,6 +232,14 @@ function gameWon() {
 }
 
 
+/**
+ * Showing the menu.
+ * 
+ * @function
+ * @name showMenu
+ * @kind function
+ * @returns {void}
+ */
 function showMenu() {
     if (!openMenu) {
       document.getElementById("playButton").style = "";
