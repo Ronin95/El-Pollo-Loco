@@ -258,6 +258,54 @@ h1 {
   }
 }
 
+@media screen and (max-height: 300px) and (orientation:landscape) {
+  .settingsBasePosition {
+    position: relative;
+    bottom: 310px;
+    left: 465px;
+  }
+
+  .settingsMobilePosition {
+    position: relative;
+    bottom: 365px;
+    left: 465px;
+  }
+
+  .mobileLeft {
+    width: 7%;
+    position: relative;
+    top: 5px;
+    left: 12%;
+  }
+
+  .mobileRight {
+    width: 7%;
+    position: relative;
+    top: 5px;
+    left: -1%;
+  }
+  
+  .mobileJump {
+    width: 6%;
+    position: relative;
+    top: 2px;
+    left: -14%;
+  }
+  .mobileThrowBottle {
+    width: 6%;
+    position: relative;
+    top: 2px;
+    left: 6%;
+  }
+
+  .mobileThrowShuriken {
+    width: 6%;
+    position: relative;
+    top: 2px;
+    left: -4%;
+  }
+}
+
 
 /* @media screen and (max-width: 630px) {
   .mobileLeft, .mobileRight {
