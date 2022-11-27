@@ -3,11 +3,6 @@
     src: url('../fonts/zabars.ttf') format('truetype');
 }
 
-html {
-  /* overflow: hidden; */
-}
-
-
 body {
     display: flex;
     flex-direction: column;
