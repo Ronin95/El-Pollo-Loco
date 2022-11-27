@@ -4,7 +4,7 @@
 }
 
 html {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 
@@ -144,7 +144,7 @@ h1 {
   color: #ceb303;
 }
 
-@media screen and (max-width: 400px) and (orientation:portrait) {
+@media screen and (min-width: 400px) and (orientation:portrait) {
   canvas {
     position: relative;
     width: 155vw;
@@ -192,7 +192,7 @@ h1 {
   }
 }
 
-@media screen and (max-width: 700px) and (orientation:portrait) {
+@media screen and (min-width: 700px) and (orientation:portrait) {
   canvas {
     width: 100vw;
     position:relative;
@@ -218,6 +218,45 @@ h1 {
   }
 }
 
+@media screen and (max-height: 400px) and (orientation:landscape) {
+  canvas {
+    margin-top: 5px;
+    height: 95vh;
+  }
+
+  .settingsBasePosition {
+    position: relative;
+    left: 530px;
+    bottom: 395px;
+  }
+
+  .settingsMobilePosition {
+    position: relative;
+    left: 530px;
+    bottom: 445px;
+  }
+
+  .mobileLeft {
+    width: 7%;
+    position: relative;
+    top: 5px;
+    left: 4%;
+  }
+
+  .mobileRight {
+    width: 7%;
+    position: relative;
+    top: 5px;
+    left: -1%;
+  }
+  
+  .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
+    width: 6%;
+    position: relative;
+    top: 2px;
+    left: -5%;
+  }
+}
 
 
 /* @media screen and (max-width: 630px) {
