@@ -132,7 +132,8 @@ function loadCanvasStartScreen() {
 }
 
 /**
- * Removing the background image of the canvas.
+ * Removing the background image of the canvas, while setting removing the instructions and
+ * adding a new class instead of the old one.
  * 
  * @function
  * @name removeCanvasBackgroundWhilePlaying
