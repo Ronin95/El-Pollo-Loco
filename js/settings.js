@@ -67,7 +67,7 @@ function displayMobileIcons() {
     document.getElementById("mobileJump").style = "";
     document.getElementById("mobileThrowBottle").style = "";
     document.getElementById("mobileThrowShuriken").style = "";
-    document.getElementById('settings').setAttribute('class', 'settingsMobilePosition');
+    document.getElementById('settings').setAttribute('class', 'menuAndSettingsMobileMode');
 }
 
 /**
@@ -155,7 +155,6 @@ function removeCanvasBackgroundWhilePlaying() {
  * @returns {void}
  */
 function init() {
-    // document.getElementById("instruct").style = "display: none";
     document.getElementById("playButton").style = "display: none";
     document.getElementById("mobileButton").style = "display: none";
     canvas = document.getElementById("canvas");
@@ -205,6 +204,7 @@ function gameLost() {
     if (alive) {
         document.getElementById("canvas").style = 
         "background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
+        document.getElementById('settings').setAttribute('class', 'settingsGameOver');
         gameLostSound();
         enableReplayButton();
     }
@@ -232,24 +232,24 @@ function gameWon() {
 }
 
 
-/**
- * Showing the menu.
- * 
- * @function
- * @name showMenu
- * @kind function
- * @returns {void}
- */
-function showMenu() {
-    if (!openMenu) {
-      document.getElementById("playButton").style = "";
-      document.getElementById("mobileButton").style = "";
-      openMenu = true;
-    } else {
-      document.getElementById("mobileButton").style = "display: none;";
-      openMenu = false;
-    }
-};
+// /**
+//  * Showing the menu.
+//  * 
+//  * @function
+//  * @name showMenu
+//  * @kind function
+//  * @returns {void}
+//  */
+// function showMenu() {
+//     if (!openMenu) {
+//       document.getElementById("playButton").style = "";
+//       document.getElementById("mobileButton").style = "";
+//       openMenu = true;
+//     } else {
+//       document.getElementById("mobileButton").style = "display: none;";
+//       openMenu = false;
+//     }
+// };
 
 
 function moveRight() {

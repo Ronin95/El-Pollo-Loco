@@ -30,72 +30,40 @@ figure {
   padding: 0;
 }
 
-
-h1 {
-  letter-spacing: 10px;
-  font-size: 46px;
-}
-
-.canvasContainer {
-  position: relative;
+.allButtons {
+  position: absolute;
   display: flex;
-  justify-content: space-around;
-  width: 700px;
-  position: relative;
-  bottom: 50px;
+  flex-direction: column;
+  gap: 355px;
 }
 
-.settingsBasePosition {
+.mobileAlignment {
+  width: 720px;
   display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-  width: 100px;
-  cursor: pointer;
-  position: relative;
-  bottom: 500px;
-  left: 610px;
+  justify-content: space-between;
 }
 
-.settingsBasePositionPlay {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-  width: 100px;
-  cursor: pointer;
-  position: relative;
-  bottom: 470px;
-  left: 310px;
-}
-
-.settingsMobilePosition {
-  border-style: dotted;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-  width: 100px;
-  cursor: pointer;
-  position: relative;
-  bottom: 535px;
-  left: 610px;
-}
-
-.menuBar {
+.menuAndSettingsMobileMode {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  align-items: center;
+  flex-direction: row;
+  width: 130px;
+  gap: 10px;
 }
 
+.menuAndSettings {
+  display: flex;
+  justify-content: space-between;
+}
 
 .instructions {
-  z-index: 100;
+  padding-left: 5px;
   height: 30px;
-  display: flex;
   font-size: 20px;
   letter-spacing: 3px;
-  align-items: center;
+  line-height: 15px;
   gap: 40px;
-  position: relative;
-  bottom: 35px;
 }
 
 .mobileIcon {
@@ -115,12 +83,11 @@ h1 {
 }
 
 .hideInstructions h2 {
-  border-style: dotted;
   display: none;
 }
 
 .play {
-  height: 60px;
+  height: 50px;
   margin-top: 5px;
   margin-bottom: 15px;
   cursor: pointer;
@@ -139,254 +106,35 @@ h1 {
   width: 5%;
 }
 
-.userWon {
-  position: absolute;
+.settingsBasePosition {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 150px;
+}
+
+.settingsBasePositionPlay { 
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 20px;
-  font-size: 6rem;
-  letter-spacing: 10px;
-  word-spacing: 10px;
-  color: #ceb303;
+  gap: 10px;
+  width: 100px;
 }
 
-@media screen and (min-width: 400px) and (orientation:portrait) {
-  canvas {
-    position: relative;
-    width: 155vw;
-    top: 20px;
-    left: 115px;
-  }
-
-  .instructions {
-    width: 150vw;
-    position: relative;
-    left: 140px;
-  }
-
-  .settingsBasePosition {
-    position: relative;
-    left: 625px;
-    bottom: 410px;
-  }
-
-  .settingsMobilePosition {
-    position: relative;
-    left: 625px;
-    bottom: 470px;
-  }
-
-  .mobileLeft {
-    width: 8%;
-    position: relative;
-    top: 15px;
-    left: 18%;
-  }
-
-  .mobileRight {
-    width: 8%;
-    position: relative;
-    top: 15px;
-    left: 10%;
-  }
-  
-  .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
-    width: 8%;
-    position: relative;
-    top: 10px;
-    left: 15%;
-  }
+.playMusicClass {
+  cursor: pointer;
 }
 
-@media screen and (min-width: 700px) and (orientation:portrait) {
-  canvas {
-    width: 100vw;
-    position:relative;
-    left: 1px;
-  }
-
-  .settingsBasePosition {
-    position: relative;
-    left: 590px;
-    bottom: 480px;
-  }
-
-  .settingsMobilePosition {
-    position: relative;
-    left: 590px;
-    bottom: 515px;
-  }
-
-  .instructions {
-    position: relative;
-    left: 10px;
-    gap: 20px;
-  }
+.settingsGameOver {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
-@media screen and (max-height: 400px) and (orientation:landscape) {
-  canvas {
-    margin-top: 5px;
-    height: 95vh;
-  }
-
-  .settingsBasePosition {
-    position: relative;
-    left: 530px;
-    bottom: 395px;
-  }
-
-  .settingsMobilePosition {
-    position: relative;
-    left: 530px;
-    bottom: 445px;
-  }
-
-  .mobileLeft {
-    width: 7%;
-    position: relative;
-    top: 5px;
-    left: 4%;
-  }
-
-  .mobileRight {
-    width: 7%;
-    position: relative;
-    top: 5px;
-    left: -1%;
-  }
-  
-  .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
-    width: 6%;
-    position: relative;
-    top: 2px;
-    left: -5%;
-  }
+.menuBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
-
-@media screen and (max-height: 300px) and (orientation:landscape) {
-  .settingsBasePosition {
-    position: relative;
-    bottom: 310px;
-    left: 465px;
-  }
-
-  .settingsMobilePosition {
-    position: relative;
-    bottom: 365px;
-    left: 465px;
-  }
-
-  .mobileLeft {
-    width: 7%;
-    position: relative;
-    top: 5px;
-    left: 12%;
-  }
-
-  .mobileRight {
-    width: 7%;
-    position: relative;
-    top: 5px;
-    left: -1%;
-  }
-  
-  .mobileJump {
-    width: 6%;
-    position: relative;
-    top: 2px;
-    left: -14%;
-  }
-  .mobileThrowBottle {
-    width: 6%;
-    position: relative;
-    top: 2px;
-    left: 6%;
-  }
-
-  .mobileThrowShuriken {
-    width: 6%;
-    position: relative;
-    top: 2px;
-    left: -4%;
-  }
-}
-
-
-/* @media screen and (max-width: 630px) {
-  .mobileLeft, .mobileRight {
-    position: relative;
-    width: 7%;
-    right: 6%;
-  }
-  
-  .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
-    position: relative;
-    width: 7%;
-    left: 6%;
-  }
-} */
-
-
-/* @media screen and (max-width: 780px) {
-  .canvasContainer {
-    position: relative;
-    top: -45px;
-  }
-
-  .mobileLeft, .mobileRight {
-    width: 8%;
-    position: relative;
-    right: 5%;
-  }
-  
-  .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
-    width: 8%;
-    position: relative;
-    left: 5%;
-  }
-
-  canvas {
-    width: 90%;
-  }
-
-  .playInfo {
-    width: 80%;
-    flex-direction: column;
-    gap: 5px;
-    text-align: center;
-  }
-} */
-
-/* @media screen and (min-width: 781px) {
-  .mobileLeft, .mobileRight {
-    position: relative;
-    width: 7%;
-    bottom: 45px;
-    right: 6%;
-  }
-  
-  .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
-    position: relative;
-    width: 7%;
-    bottom: 45px;
-    left: 6%;
-  }
-} */
-
-/* @media screen and (min-width: 940px) {
-  .mobileLeft, .mobileRight {
-    position: relative;
-    width: 7%;
-    bottom: 50px;
-    right: 6%;
-  }
-  
-  .mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
-    position: relative;
-    width: 7%;
-    bottom: 50px;
-    left: 6%;
-  }
-} */
