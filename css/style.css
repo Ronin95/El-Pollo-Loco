@@ -21,8 +21,7 @@ canvas {
   background-size: 125%;
   display: block;
   border-radius: 20px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 
@@ -40,7 +39,7 @@ figure {
 }
 
 .mobileAlignment {
-  width: 720px;
+  width: 550px;
   display: flex;
   justify-content: space-between;
 }

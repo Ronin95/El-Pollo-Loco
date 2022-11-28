@@ -170,15 +170,11 @@ class Character extends MovableObject {
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
                 this.pepeMovingRight();
             }
-
             if (this.world.keyboard.LEFT && this.x > 0) {
                 this.pepeMovingLeft();
             }
-
             this.ifPepeMovingRightOrLeft();
-
             this.ifPepeJumps();
-
             this.world.camera_x = -this.x + 100;
         }, 1000/60);
     }
