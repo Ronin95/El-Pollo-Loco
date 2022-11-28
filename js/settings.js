@@ -232,26 +232,6 @@ function gameWon() {
 }
 
 
-// /**
-//  * Showing the menu.
-//  * 
-//  * @function
-//  * @name showMenu
-//  * @kind function
-//  * @returns {void}
-//  */
-// function showMenu() {
-//     if (!openMenu) {
-//       document.getElementById("playButton").style = "";
-//       document.getElementById("mobileButton").style = "";
-//       openMenu = true;
-//     } else {
-//       document.getElementById("mobileButton").style = "display: none;";
-//       openMenu = false;
-//     }
-// };
-
-
 function moveRight() {
     keyboard.RIGHT = true;
 };
