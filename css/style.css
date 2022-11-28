@@ -34,7 +34,7 @@ figure {
   position: absolute;
   display: flex;
   flex-direction: column;
-  gap: 355px;
+  gap: 305px;
 }
 
 .mobileAlignment {
@@ -137,4 +137,18 @@ figure {
   align-items: center;
   justify-content: center;
   gap: 5px;
+}
+
+/* Smartphones */
+@media only screen and (max-width: 720px) {
+  canvas {
+    width: 100%;
+  }
+}
+
+/* Smartphones */
+@media only screen and (max-height: 480px) {
+  canvas {
+    height: 100vh;
+  }
 }
