@@ -168,29 +168,81 @@ class Character extends MovableObject {
         setInterval(() => {
             this.walking_sound.pause();
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
-                this.moveRight();
-                this.otherDirection = false;
-                this.walking_sound.play();
+                this.pepeMovingRight();
             }
 
             if (this.world.keyboard.LEFT && this.x > 0) {
-                this.moveLeft();
-                this.otherDirection = true;
-                this.walking_sound.play();
+                this.pepeMovingLeft();
             }
 
-            if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-                this.walking_sound.play();
-            } else {
-                this.walking_sound.pause();
-            }
+            this.ifPepeMovingRightOrLeft();
 
-            if (this.world.keyboard.SPACE && !this.isAboveGround()) {
-                this.jump(); // pepe jumps
-            }
+            this.ifPepeJumps();
 
             this.world.camera_x = -this.x + 100;
         }, 1000/60);
+    }
+
+    /**
+     * Moving pepe to the right.
+     * 
+     * @method
+     * @name pepeMovingRight
+     * @kind method
+     * @memberof Character
+     * @returns {void}
+     */
+    pepeMovingRight() {
+        this.moveRight();
+        this.otherDirection = false;
+        this.walking_sound.play();
+    }
+
+    /**
+     * Moving pepe to the left.
+     * 
+     * @method
+     * @name pepeMovingLeft
+     * @kind method
+     * @memberof Character
+     * @returns {void}
+     */
+    pepeMovingLeft() {
+        this.moveLeft();
+        this.otherDirection = true;
+        this.walking_sound.play();
+    }
+
+    /**
+     * Checking if pepe is moving to the right or left.
+     * 
+     * @method
+     * @name ifPepeMovingRightOrLeft
+     * @kind method
+     * @memberof Character
+     * @returns {void}
+     */
+    ifPepeMovingRightOrLeft() {
+        if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
+            this.walking_sound.play();
+        } else {
+            this.walking_sound.pause();
+        }
+    }
+
+    /**
+     * Checking if the space bar is pressed and if pepe is not above the ground. If so, it makes pepe jump.
+     * 
+     * @method
+     * @name ifPepeJumps
+     * @kind method
+     * @memberof Character
+     * @returns {void}
+     */
+    ifPepeJumps() {
+        if (this.world.keyboard.SPACE && !this.isAboveGround()) {
+            this.jump(); // pepe jumps
+        }
     }
 
     /**
