@@ -34,7 +34,8 @@ figure {
   position: absolute;
   display: flex;
   flex-direction: column;
-  gap: 305px;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .mobileAlignment {
