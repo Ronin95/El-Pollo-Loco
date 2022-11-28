@@ -185,10 +185,6 @@ function enableReplayButton() {
  * @returns {void}
  */
 function enableReplay() {
-    // for (let i = 0; i < 1500; i++){
-    //     clearInterval(i);
-    // }
-    // init();
     window.location.reload();
 };
 
