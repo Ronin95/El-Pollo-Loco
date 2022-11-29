@@ -35,29 +35,32 @@
 </head>
 <body onload="loadCanvasStartScreen()">
     <span id="youWon" class="userWon" style="display: none"> YOU WON! </span>
-    <canvas id="canvas" width="720" height="480" style="border-radius: 20px">
-    </canvas>
+    <div class="canvasPositioning">
+      <canvas id="canvas" width="720" height="480" style="border-radius: 20px"></canvas>
+    </div>
     <div class="allButtons">
       <div class="menuAndSettings">
         <div>
           <div id="instruct" class="instructions">
-            <h2>Run - Arrow Left/Right</h2>
+            <h2>Run - ←/→</h2>
             <h2>Jump - Space</h2>
             <h2>B - Throw Bottle</h2>
           </div>
         </div>
         <div class="settingsBasePosition" id="settings">
           <a onclick="playMusic()" class="playMusicClass">
-            <img id="playMusic" src="img/icons/volume-off.png" width="30px;">
+            <img alt="playMusic" id="playMusic" src="img/icons/volume-off.png" width="30px;">
           </a>
           <section class="menuBar">
             <img
+              alt="playButton"
               id="playButton"
               class="play"
               src="img/icons/play.svg"
               onclick="init(); removeCanvasBackgroundWhilePlaying()"
             />
             <img
+              alt="mobileButton"
               id="mobileButton"
               class="mobile"
               src="img/icons/mobile.svg"
