@@ -47,11 +47,11 @@ figure {
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  height: 80%;
+  height: 40%;
 }
 
 .mobileAlignment {
-  width: 550px;
+  width: 80%;
   display: flex;
   justify-content: space-between;
 }
@@ -68,6 +68,7 @@ figure {
 .menuAndSettings {
   display: flex;
   justify-content: space-between;
+  width: 45%;
 }
 
 .instructions {
@@ -170,5 +171,106 @@ figure {
 @media only screen and (max-height: 480px) {
   canvas {
     height: 100vh;
+  }
+}
+
+/* Smartphones 320 width */
+@media only screen and (max-width: 320px) {
+  .menuAndSettings {
+    width: 100%;
+  }
+
+  .mobileAlignment {
+    width: 90%;
+    position: relative;
+    top: 140px;
+  }
+
+  .mobileIcon {
+    width: 30px;
+  }
+
+  .settingsBasePositionPlay {
+    position: relative;
+    top: 25px;
+    left: 90px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .menuAndSettings {
+    width: 100%;
+  }
+  .mobileAlignment {
+    width: 90%;
+    position: relative;
+    top: 155px;
+  }
+
+  .mobileIcon {
+    width: 30px;
+  }
+
+  .settingsBasePositionPlay {
+    position: relative;
+    top: 20px;
+    left: 100px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .menuAndSettings {
+    width: 100%;
+  }
+  .mobileAlignment {
+    width: 90%;
+    position: relative;
+    top: 175px;
+  }
+
+  .mobileIcon {
+    width: 30px;
+  }
+
+  .settingsBasePositionPlay {
+    position: relative;
+    top: 15px;
+    left: 120px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .menuAndSettings {
+    width: 70%;
+  }
+  .mobileAlignment {
+    width: 70%;
+    position: relative;
+    top: 185px;
+  }
+
+  .mobileIcon {
+    width: 30px;
+  }
+
+  .settingsBasePositionPlay {
+    position: relative;
+    top: 25px;
+    left: 120px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .menuAndSettings {
+    width: 50%;
+  }
+  .mobileAlignment {
+    width: 50%;
+    position: relative;
+    top: 190px;
+  }
+
+  .mobileIcon {
+    width: 40px;
   }
 }

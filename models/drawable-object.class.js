@@ -89,10 +89,10 @@ class DrawableObject {
     }
 
     offsetForHead = {
-        top: 0,
+        top: 5,
         bottom: 0,
         left: 10,
-        right: 10
+        right: 0
     }
 
     /**
@@ -113,10 +113,10 @@ class DrawableObject {
     }
 
     offsetForBottle = {
-        top: 80,
-        bottom: 80,
-        left: 80,
-        right: 80
+        top: 40,
+        bottom: 40,
+        left: 40,
+        right: 40
     }
 
     /**
@@ -137,9 +137,9 @@ class DrawableObject {
     }
 
     offsetForCoin = {
-        top: 80,
-        bottom: 80,
-        left: 80,
-        right: 80
+        top: 40,
+        bottom: 40,
+        left: 40,
+        right: 40
     }
 }
