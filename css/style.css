@@ -26,7 +26,25 @@ canvas {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.canvasPositioning {
+.allElements {
+  border-style: dotted;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.settingsBasePosition {
+  border-style: dotted;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+
+
+/* .canvasPositioning {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,8 +64,8 @@ figure {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  height: 40%;
+  width: 100%;
+  height: 100%;
 }
 
 .mobileAlignment {
@@ -273,4 +291,4 @@ figure {
   .mobileIcon {
     width: 40px;
   }
-}
+} */

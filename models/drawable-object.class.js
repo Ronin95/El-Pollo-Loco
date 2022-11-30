@@ -89,9 +89,9 @@ class DrawableObject {
     }
 
     offsetForHead = {
-        top: 5,
+        top: 0,
         bottom: 0,
-        left: 10,
+        left: 0,
         right: 0
     }
 
@@ -106,17 +106,17 @@ class DrawableObject {
      * @returns {boolean}
      */
     collidingBottle(mo) {
-        return  this.x + this.width > mo.x + this.offsetForBottle.left &&
+        return  this.x + this.width > mo.x + this.offsetForBottle.right &&
                 this.y + this.height > mo.y &&
                 this.x < mo.x &&
                 this.y < mo.y + mo.height - 50;
     }
 
     offsetForBottle = {
-        top: 40,
-        bottom: 40,
-        left: 40,
-        right: 40
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0
     }
 
     /**
@@ -137,9 +137,9 @@ class DrawableObject {
     }
 
     offsetForCoin = {
-        top: 40,
-        bottom: 40,
-        left: 40,
-        right: 40
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0
     }
 }

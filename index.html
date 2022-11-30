@@ -34,88 +34,79 @@
     <link rel="icon" type="image/x-icon" href="img/icons/pepe.png">   
 </head>
 <body onload="loadCanvasStartScreen()">
+  <div class="allElements">
     <span id="youWon" class="userWon" style="display: none"> YOU WON! </span>
+    <div class="settingsBasePosition" id="settings">
+      <a onclick="playMusic()" class="playMusicClass">
+        <img alt="playMusic" id="playMusic" src="img/icons/volume-off.png" width="30px;">
+      </a>
+      <section class="menuBar">
+        <img
+          alt="playButton"
+          id="playButton"
+          class="play"
+          src="img/icons/play.svg"
+          onclick="init(); removeCanvasBackgroundWhilePlaying()"
+        />
+        <img
+          alt="mobileButton"
+          id="mobileButton"
+          class="mobile"
+          src="img/icons/mobile.svg"
+          onclick="enableMobileMode()"
+        />
+      </section>
+    </div>
     <div class="canvasPositioning">
       <canvas id="canvas" width="720" height="480" style="border-radius: 20px"></canvas>
     </div>
-    <div class="allButtons">
-      <div class="menuAndSettings">
-        <div>
-          <div id="instruct" class="instructions">
-            <h2>Run - ←/→</h2>
-            <h2>Jump - Space</h2>
-            <h2>B - Throw Bottle</h2>
-          </div>
-        </div>
-        <div class="settingsBasePosition" id="settings">
-          <a onclick="playMusic()" class="playMusicClass">
-            <img alt="playMusic" id="playMusic" src="img/icons/volume-off.png" width="30px;">
-          </a>
-          <section class="menuBar">
-            <img
-              alt="playButton"
-              id="playButton"
-              class="play"
-              src="img/icons/play.svg"
-              onclick="init(); removeCanvasBackgroundWhilePlaying()"
-            />
-            <img
-              alt="mobileButton"
-              id="mobileButton"
-              class="mobile"
-              src="img/icons/mobile.svg"
-              onclick="enableMobileMode()"
-            />
-          </section>
-        </div>
-      </div>
-      <div id="canvasContainer" class="mobileAlignment">
-        <img
-          ontouchstart="moveLeft()"
-          ontouchend="moveLeftStop()"
-          onContextMenu="return false;"
-          id="mobileLeft"
-          class="mobileIcon mobileLeft"
-          src="img/icons/left.svg"
-          style="display: none"
-        />
-        <img
-          ontouchstart="moveRight()"
-          ontouchend="moveRightStop()"
-          onContextMenu="return false;"
-          id="mobileRight"
-          class="mobileIcon mobileRight"
-          src="img/icons/right.svg"
-          style="display: none"
-        />
-        <img
-          ontouchstart="throwBottle()"
-          ontouchend="throwBottleStop()"
-          onContextMenu="return false;"
-          id="mobileThrowBottle"
-          class="mobileIcon mobileThrowBottle"
-          src="img/icons/beer-bottle.svg"
-          style="display: none"
-        />
-        <img
-          ontouchstart="throwShuriken()"
-          ontouchend="throwShurikenStop()"
-          onContextMenu="return false;"
-          id="mobileThrowShuriken"
-          class="mobileIcon mobileThrowShuriken"
-          src="img/icons/shuriken.svg"
-          style="display: none"
-        />
-        <img
-          ontouchstart="jump()"
-          ontouchend="jumpStop()"
-          id="mobileJump"
-          onContextMenu="return false;"
-          class="mobileIcon mobileJump"
-          src="img/icons/jump.svg"
-          style="display: none"
-        />
-      </div>
+    <div class="mobileAlignment">
+      <img
+        ontouchstart="moveLeft()"
+        ontouchend="moveLeftStop()"
+        onContextMenu="return false;"
+        id="mobileLeft"
+        class="mobileIcon mobileLeft"
+        src="img/icons/left.svg"
+        style="display: none"
+      />
+      <img
+        ontouchstart="moveRight()"
+        ontouchend="moveRightStop()"
+        onContextMenu="return false;"
+        id="mobileRight"
+        class="mobileIcon mobileRight"
+        src="img/icons/right.svg"
+        style="display: none"
+      />
+      <img
+        ontouchstart="throwBottle()"
+        ontouchend="throwBottleStop()"
+        onContextMenu="return false;"
+        id="mobileThrowBottle"
+        class="mobileIcon mobileThrowBottle"
+        src="img/icons/beer-bottle.svg"
+        style="display: none"
+      />
+      <img
+        ontouchstart="throwShuriken()"
+        ontouchend="throwShurikenStop()"
+        onContextMenu="return false;"
+        id="mobileThrowShuriken"
+        class="mobileIcon mobileThrowShuriken"
+        src="img/icons/shuriken.svg"
+        style="display: none"
+      />
+      <img
+        ontouchstart="jump()"
+        ontouchend="jumpStop()"
+        id="mobileJump"
+        onContextMenu="return false;"
+        class="mobileIcon mobileJump"
+        src="img/icons/jump.svg"
+        style="display: none"
+      />
     </div>
+  </div>
 </body>
 </html>
