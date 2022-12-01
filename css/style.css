@@ -42,6 +42,10 @@ canvas {
   gap: 20px;
 }
 
+.mobileIcon {
+  width: 25px;
+}
+
 
 
 /* .canvasPositioning {
