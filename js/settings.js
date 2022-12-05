@@ -245,6 +245,7 @@ function moveLeftStop() {
 };
 
 function throwBottle() {
+    debugger;
     keyboard.B = true;
 };
 

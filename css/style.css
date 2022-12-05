@@ -27,160 +27,90 @@ canvas {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.allElements {
-  border-style: dotted;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.settingsBasePosition {
-  border-style: dotted;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.mobileIcon {
-  width: 25px;
-}
-
-
-
-/* .canvasPositioning {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-
-figure {
-  margin: 0;
-  padding: 0;
-}
-
-.allButtons {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-.mobileAlignment {
-  width: 80%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.menuAndSettingsMobileMode {
-  display: flex;
-  align-items: center;
-  align-items: center;
-  flex-direction: row;
-  width: 130px;
-  gap: 10px;
-}
-
-.menuAndSettings {
-  display: flex;
-  justify-content: space-between;
-  width: 45%;
-}
-
-.instructions {
-  padding-left: 5px;
-  height: 30px;
-  font-size: 20px;
-  letter-spacing: 3px;
-  line-height: 20px;
-}
-
-.mobileIcon {
-  width: 10px;
-}
-
-.mobileIcon:hover {
-  transform: scale(1.1);
-  border-radius: 50%;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-  rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
-
-.details {
-  height: 35px;
-  cursor: pointer;
-}
-
-.hideInstructions h2 {
-  display: none;
-}
-
-.play {
-  height: 50px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  cursor: pointer;
-}
-
-.mobile {
-  height: 30px;
-  cursor: pointer;
-}
-
-.mobileLeft, .mobileRight {
-  width: 5%;
-}
-
-.mobileJump, .mobileThrowBottle, .mobileThrowShuriken {
-  width: 5%;
-}
-
-.settingsBasePosition {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 150px;
-}
-
-.settingsBasePositionPlay { 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  width: 100px;
-}
-
-.playMusicClass {
-  cursor: pointer;
-}
-
-.settingsGameOver {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.menuBar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
+.canvasPositioning  {
+  position: relative;
 }
 
 .userWon {
   font-family: 'zabars', Arial, Helvetica, sans-serif;
   font-size: 45px;
   letter-spacing: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   position: absolute;
+  top: 20px;
+}
 
+.allElements {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.settingsBasePosition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  gap: 20px;
+  top: 10px;
+  left: 580px;
+}
+
+.mobileIcon {
+  width: 25px;
+}
+
+.menuBar {
+  display: flex;
+  align-items: center;
+}
+
+
+.pointer {
+  cursor: pointer;
+}
+
+.menuAndSettingsMobileMode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: absolute;
+  gap: 20px;
+  top: 10px;
+  left: 580px;
+}
+
+.mobileAlignment {
+  position: relative;
+  bottom: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.settingsGameOver {
+  border-style: dotted;
+  display: flex;
+}
+
+
+.movingMobileButtons img {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.weaponsJumpButtons img {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.mobileAlignment img {
+  width: 40px;
 }
 
 /* Smartphones */
@@ -194,106 +124,5 @@ figure {
 @media only screen and (max-height: 480px) {
   canvas {
     height: 100vh;
-  }
-}
-
-/* Smartphones 320 width */
-@media only screen and (max-width: 320px) {
-  .menuAndSettings {
-    width: 100%;
-  }
-
-  .mobileAlignment {
-    width: 90%;
-    position: relative;
-    top: 140px;
-  }
-
-  .mobileIcon {
-    width: 30px;
-  }
-
-  .settingsBasePositionPlay {
-    position: relative;
-    top: 25px;
-    left: 90px;
-  }
-}
-
-@media only screen and (max-width: 375px) {
-  .menuAndSettings {
-    width: 100%;
-  }
-  .mobileAlignment {
-    width: 90%;
-    position: relative;
-    top: 155px;
-  }
-
-  .mobileIcon {
-    width: 30px;
-  }
-
-  .settingsBasePositionPlay {
-    position: relative;
-    top: 20px;
-    left: 100px;
-  }
-}
-
-@media only screen and (max-width: 425px) {
-  .menuAndSettings {
-    width: 100%;
-  }
-  .mobileAlignment {
-    width: 90%;
-    position: relative;
-    top: 175px;
-  }
-
-  .mobileIcon {
-    width: 30px;
-  }
-
-  .settingsBasePositionPlay {
-    position: relative;
-    top: 15px;
-    left: 120px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .menuAndSettings {
-    width: 70%;
-  }
-  .mobileAlignment {
-    width: 70%;
-    position: relative;
-    top: 185px;
-  }
-
-  .mobileIcon {
-    width: 30px;
-  }
-
-  .settingsBasePositionPlay {
-    position: relative;
-    top: 25px;
-    left: 120px;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .menuAndSettings {
-    width: 50%;
-  }
-  .mobileAlignment {
-    width: 50%;
-    position: relative;
-    top: 190px;
-  }
-
-  .mobileIcon {
-    width: 40px;
   }
 }
