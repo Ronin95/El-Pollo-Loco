@@ -563,7 +563,13 @@ class World {
         }
         
         mo.draw(this.ctx);
-        // mo.drawFrame(this.ctx); - draws a frame around the character and chickens
+        
+        this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
+        this.ctx.beginPath();
+        this.ctx.lineWidth = '2';
+        this.ctx.strokeStyle = 'blue';
+        this.ctx.rect(mo.x, mo.y, mo.width, mo.height);
+        this.ctx.stroke();
 
         if (mo.otherDirection) {
             this.flipImageBack(mo);

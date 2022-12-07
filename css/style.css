@@ -122,12 +122,53 @@ canvas {
 
 @media only screen and (max-width: 320px) {
   .settingsBasePosition {
-    border-style: dotted;
-    position: relative;
-    left: 100px;
+    position: absolute;
+    top: 0;
+    right: -20px;
   }
-  .menuAndSettingsMobileMode {
-    border-style: dotted;
+  .mobileAlignment img  {
+    width: 30px;
+    position: relative;
+    top: 65px;
+  }
+  .playMusicClass {
+    width: 20px;
+  }
+  .play {
+    width: 35px;
+  }
+  .mobile {
+    width: 20px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .settingsBasePosition {
+    position: absolute;
+    top: 0;
+    right: -20px;
+  }
+  .mobileAlignment img  {
+    width: 30px;
+    position: relative;
+    top: 65px;
+  }
+  .playMusicClass {
+    width: 20px;
+  }
+  .play {
+    width: 35px;
+  }
+  .mobile {
+    width: 20px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .settingsBasePosition {
+    position: absolute;
+    top: 0;
+    right: -10px;
   }
   .mobileAlignment img  {
     width: 30px;
@@ -145,38 +186,19 @@ canvas {
   }
 }
 
-@media only screen and (max-width: 375px) {
-  .settingsBasePosition {
-    width: 100px;
-    position: absolute;
-    left: 255px;
-    top: 5px;
+@media only screen and (min-width: 700px) and (max-width: 768px) {
+  .mobileAlignment img {
+    width: 50px;
+    position: relative;
+    top: 45px;
   }
-  .playMusicClass img {
-    width: 20px;
-  }
-  .play {
+  .playMusicClass {
     width: 35px;
   }
-  .mobile {
-    width: 20px;
-  }
-}
-
-@media only screen and (max-width: 425px) {
-  .settingsBasePosition {
-    width: 100px;
-    position: absolute;
-    left: 305px;
-    top: 5px;
-  }
-  .playMusicClass img {
-    width: 20px;
-  }
   .play {
-    width: 35px;
+    width: 65px;
   }
   .mobile {
-    width: 20px;
+    width: 35px;
   }
 }

@@ -73,7 +73,7 @@ class DrawableObject {
     }
 
     /**
-     * Checking if the character is colliding with the object (chicken) head.
+     * Checking if the character is colliding with the object (enemy) head.
      * 
      * @method
      * @name collidingHead
@@ -85,14 +85,14 @@ class DrawableObject {
     collidingHead(mo) {
         return  this.y + this.height > mo.y - this.offsetForHead.top &&
                 this.x + this.width > mo.x + this.offsetForHead.left &&
-                this.x + this.width < mo.x + mo.width + 10;
+                this.x + this.width < mo.x + mo.width + 50;
     }
 
     offsetForHead = {
         top: 0,
         bottom: 0,
-        left: 0,
-        right: 0
+        left: -30,
+        right: -30
     }
 
     /**
@@ -109,14 +109,14 @@ class DrawableObject {
         return  this.x + this.width > mo.x + this.offsetForBottle.right &&
                 this.y + this.height > mo.y &&
                 this.x < mo.x &&
-                this.y < mo.y + mo.height - 50;
+                this.y < mo.y + mo.height + 10;
     }
 
     offsetForBottle = {
         top: 0,
         bottom: 0,
-        left: 0,
-        right: 0
+        left: -30,
+        right: -30
     }
 
     /**
@@ -133,13 +133,13 @@ class DrawableObject {
         return this.x + this.width > mo.x + this.offsetForCoin.left &&
             this.y + this.height > mo.y + this.offsetForCoin.bottom &&
             this.x < mo.x &&
-            this.y < mo.y + mo.height - 50;
+            this.y < mo.y + mo.height + 10;
     }
 
     offsetForCoin = {
         top: 0,
         bottom: 0,
-        left: 0,
-        right: 0
+        left: -30,
+        right: -30
     }
 }
