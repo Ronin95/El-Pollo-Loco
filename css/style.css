@@ -49,16 +49,6 @@ canvas {
   align-items: center;
 }
 
-.settingsBasePosition {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  gap: 10px;
-  bottom: 470px;
-  left: 290px;
-}
-
 .mobileIcon {
   width: 25px;
 }
@@ -67,14 +57,25 @@ canvas {
   cursor: pointer;
 }
 
+.settingsBasePosition {
+  width: 145px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  gap: 10px;
+  top: 0;
+  right: 0;
+}
+
 .menuAndSettingsMobileMode {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: absolute;
   gap: 10px;
-  bottom: 470px;
-  left: 290px;
+  top: 0;
+  right: 0;
 }
 
 .mobileAlignment {
@@ -121,10 +122,17 @@ canvas {
 
 @media only screen and (max-width: 320px) {
   .settingsBasePosition {
-    width: 100px;
-    position: absolute;
-    left: 200px;
-    top: 5px;
+    border-style: dotted;
+    position: relative;
+    left: 100px;
+  }
+  .menuAndSettingsMobileMode {
+    border-style: dotted;
+  }
+  .mobileAlignment img  {
+    width: 30px;
+    position: relative;
+    top: 65px;
   }
   .playMusicClass img {
     width: 20px;
