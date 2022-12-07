@@ -53,21 +53,15 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  gap: 20px;
-  top: 10px;
-  left: 580px;
+  position: relative;
+  gap: 10px;
+  bottom: 470px;
+  left: 290px;
 }
 
 .mobileIcon {
   width: 25px;
 }
-
-.menuBar {
-  display: flex;
-  align-items: center;
-}
-
 
 .pointer {
   cursor: pointer;
@@ -75,18 +69,17 @@ canvas {
 
 .menuAndSettingsMobileMode {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 20px;
-  position: absolute;
-  gap: 20px;
-  top: 10px;
-  left: 580px;
+  align-items: center;
+  position: relative;
+  gap: 10px;
+  bottom: 470px;
+  left: 290px;
 }
 
 .mobileAlignment {
   position: relative;
-  bottom: 50px;
+  bottom: 100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -123,5 +116,59 @@ canvas {
 @media only screen and (max-height: 480px) {
   canvas {
     height: 100vh;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .settingsBasePosition {
+    width: 100px;
+    position: absolute;
+    left: 200px;
+    top: 5px;
+  }
+  .playMusicClass img {
+    width: 20px;
+  }
+  .play {
+    width: 35px;
+  }
+  .mobile {
+    width: 20px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .settingsBasePosition {
+    width: 100px;
+    position: absolute;
+    left: 255px;
+    top: 5px;
+  }
+  .playMusicClass img {
+    width: 20px;
+  }
+  .play {
+    width: 35px;
+  }
+  .mobile {
+    width: 20px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .settingsBasePosition {
+    width: 100px;
+    position: absolute;
+    left: 305px;
+    top: 5px;
+  }
+  .playMusicClass img {
+    width: 20px;
+  }
+  .play {
+    width: 35px;
+  }
+  .mobile {
+    width: 20px;
   }
 }

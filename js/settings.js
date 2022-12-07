@@ -143,7 +143,6 @@ function loadCanvasStartScreen() {
 function removeCanvasBackgroundWhilePlaying() {
     document.getElementById('canvas').style = "";
     document.getElementById('instruct').style = "display: none";
-    document.getElementById('settings').setAttribute('class', 'settingsBasePositionPlay');
 }
 
 /**
