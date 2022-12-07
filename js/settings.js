@@ -200,7 +200,7 @@ function gameLost() {
     if (alive) {
         document.getElementById("canvas").style = 
         "background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
-        document.getElementById('settings').setAttribute('class', 'settingsGameOver');
+        document.getElementById('settings').setAttribute('class', 'settingsBasePosition');
         document.getElementById('mobileButtonsAlignment').setAttribute('class', 'mobileButtonsAlignmentGameOver');
         gameLostSound();
         enableReplayButton();

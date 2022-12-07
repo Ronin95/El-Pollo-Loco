@@ -93,9 +93,8 @@ canvas {
   width: 100%;
 }
 
-.settingsGameOver {
-  border-style: dotted;
-  display: flex;
+.mobileButtonsAlignmentGameOver {
+  display: none;
 }
 
 
