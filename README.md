@@ -11,6 +11,6 @@ The project has to fulfill these checkpoints:
 - game works
 - touch should work on mobile
 - option to turn music on and off
-- when endboss is killed then game over screen
+- when endboss is killed then game over screen is displayed
 - keyboard usage explained
 - no scrollbar inside the game

@@ -68,8 +68,8 @@ class DrawableObject {
     collidingPepe (mo) {
         return  this.x + this.width > mo.x &&
                 this.y + this.height > mo.y &&
-                this.x < mo.x + mo.width &&
-                this.y < mo.y + mo.height - 30;
+                this.x < mo.x &&
+                this.y < mo.y + mo.height - 50;
     }
 
     /**
@@ -84,15 +84,15 @@ class DrawableObject {
      */
     collidingHead(mo) {
         return  this.y + this.height > mo.y - this.offsetForHead.top &&
-                this.x + this.width > mo.x + this.offsetForHead.left &&
-                this.x + this.width < mo.x + mo.width + 50;
+                this.x + this.width > mo.x + this.offsetForHead.right &&
+                this.x + this.width < mo.x + mo.width;
     }
 
     offsetForHead = {
-        top: 0,
+        top: 10,
         bottom: 0,
-        left: -30,
-        right: -30
+        left: 20,
+        right: 0
     }
 
     /**
@@ -107,16 +107,16 @@ class DrawableObject {
      */
     collidingBottle(mo) {
         return  this.x + this.width > mo.x + this.offsetForBottle.right &&
-                this.y + this.height > mo.y &&
+                this.y + this.height > mo.y + this.offsetForBottle.left &&
                 this.x < mo.x &&
-                this.y < mo.y + mo.height + 10;
+                this.y < mo.y - 150;
     }
 
     offsetForBottle = {
-        top: 0,
-        bottom: 0,
-        left: -30,
-        right: -30
+        top: 50,
+        bottom: 50,
+        left: 50,
+        right: 50
     }
 
     /**
@@ -130,16 +130,16 @@ class DrawableObject {
      * @returns {boolean}
      */
     collidingCoin(mo) {
-        return this.x + this.width > mo.x + this.offsetForCoin.left &&
-            this.y + this.height > mo.y + this.offsetForCoin.bottom &&
-            this.x < mo.x &&
-            this.y < mo.y + mo.height + 10;
+        return  this.x + this.width > mo.x + this.offsetForCoin.left &&
+                this.y + this.height > mo.y + this.offsetForCoin.bottom &&
+                this.x < mo.x + mo.width &&
+                this.y < mo.y + mo.height - 50;
     }
 
     offsetForCoin = {
-        top: 0,
-        bottom: 0,
-        left: -30,
-        right: -30
+        top: 50,
+        bottom: 50,
+        left: 50,
+        right: 50
     }
 }
