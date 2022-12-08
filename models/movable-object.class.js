@@ -5,7 +5,6 @@ class MovableObject extends DrawableObject {
     acceleration = 3;
     energy = 100;
     lastHit = 0;
-
     jump_pepe_sound = new Audio('audio/jump.mp3');
 
     /**
@@ -39,7 +38,7 @@ class MovableObject extends DrawableObject {
      * @returns {boolean}
      */
     isAboveGround() {
-        if (this instanceof ThrowableBottle) { // ThrowableObjects should always fall
+        if (this instanceof ThrowableBottle) { // ThrowableObjects (shuriken, bottles) should always fall
             return true;
         } else if (this instanceof ThrowableShuriken) {
             return true;

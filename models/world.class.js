@@ -283,23 +283,23 @@ class World {
      * @returns {void}
      */
     checkCollisions() {
-        setInterval(() => {
-            this.level.enemies.forEach((enemy, indexEnemy) => {
-              if (this.character.collidingPepe(enemy) && this.character.y + this.character.height < 420) {
-                this.level.enemies[indexEnemy].energy -= 4;
-              }
-            });
-          }, 1000 / 60);
-      
-          setInterval(() => {
-            this.level.enemies.forEach((enemy, indexEnemy) => {
-              if (this.character.collidingPepe(enemy) && this.level.enemies[indexEnemy].energy > 0 && this.runPepe == true) {
-                this.character.hit();
-                this.hurt_pepe_sound.play();
-                this.healthBar.setHealth(this.character.energy);
-              }
-            });
-          }, 200);
+      setInterval(() => {
+          this.level.enemies.forEach((enemy, indexEnemy) => {
+            if (!this.character.isHurt() && this.character.collidingPepe(enemy) && this.character.y + this.character.height < 420) {
+              this.level.enemies[indexEnemy].energy -= 4;
+            }
+          });
+      }, 1000 / 60);
+    
+      setInterval(() => {
+        this.level.enemies.forEach((enemy, indexEnemy) => {
+          if (this.character.collidingPepe(enemy) && this.level.enemies[indexEnemy].energy > 0 && this.runPepe == true) {
+            this.character.hit();
+            this.hurt_pepe_sound.play();
+            this.healthBar.setHealth(this.character.energy);
+          }
+        });
+      }, 200);
     }
 
     /**
@@ -563,13 +563,6 @@ class World {
         }
         
         mo.draw(this.ctx);
-        
-        this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
-        this.ctx.beginPath();
-        this.ctx.lineWidth = '2';
-        this.ctx.strokeStyle = 'blue';
-        this.ctx.rect(mo.x, mo.y, mo.width, mo.height);
-        this.ctx.stroke();
 
         if (mo.otherDirection) {
             this.flipImageBack(mo);

@@ -62,20 +62,6 @@ class DrawableObject {
         bottom: 0
     }
 
-    // offsetForBottle = {
-    //     top: 50,
-    //     bottom: 50,
-    //     left: 50,
-    //     right: 50
-    // }
-
-    // offsetForCoin = {
-    //     top: 50,
-    //     bottom: 50,
-    //     left: 50,
-    //     right: 50
-    // }
-
     /**
      * Checking if the character is colliding with the object.
      * 
@@ -92,29 +78,6 @@ class DrawableObject {
                 this.x + this.offset.left < mo.x + mo.width - mo.offset.right &&
                 this.y + this.offset.top < mo.y + mo.height - mo.offset.bottom
     }
-
-    // /**
-    //  * Checking if the character is colliding with the object (enemy) head.
-    //  * 
-    //  * @method
-    //  * @name collidingHead
-    //  * @kind method
-    //  * @memberof DrawableObject
-    //  * @param {any} mo
-    //  * @returns {boolean}
-    //  */
-    // collidingHead(mo) {
-    //     return  this.y + this.height > mo.y - this.offsetForHead.top &&
-    //             this.x + this.width > mo.x + this.offsetForHead.right &&
-    //             this.x + this.width < mo.x + mo.width;
-    // }
-
-    // offsetForHead = {
-    //     top: 10,
-    //     bottom: 0,
-    //     left: 20,
-    //     right: 0
-    // }
 
     /**
      * Checking if the character is colliding with the bottle.
