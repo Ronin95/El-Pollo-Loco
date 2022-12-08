@@ -68,7 +68,7 @@
       </div>
       <div class="mobileAlignment" id="mobileButtonsAlignment">
         <div class="movingMobileButtons pointer">
-          <img
+          <button
             ontouchstart="moveLeft()"
             ontouchend="moveLeftStop()"
             onContextMenu="return false;"
@@ -76,8 +76,8 @@
             class="mobileIcon mobileLeft"
             src="img/icons/left.svg"
             style="display: none"
-          />
-          <img
+          ></button>
+          <button
             ontouchstart="moveRight()"
             ontouchend="moveRightStop()"
             onContextMenu="return false;"
@@ -85,10 +85,10 @@
             class="mobileIcon mobileRight"
             src="img/icons/right.svg"
             style="display: none"
-          />
+            ></button>
         </div>
         <div class="weaponsJumpButtons pointer">
-          <img
+          <button
             ontouchstart="throwBottle()"
             ontouchend="throwBottleStop()"
             onContextMenu="return false;"
@@ -96,8 +96,8 @@
             class="mobileIcon mobileThrowBottle"
             src="img/icons/beer-bottle.svg"
             style="display: none"
-          />
-          <img
+          ></button>
+          <button
             ontouchstart="jump()"
             ontouchend="jumpStop()"
             id="mobileJump"
@@ -105,8 +105,8 @@
             class="mobileIcon mobileJump"
             src="img/icons/jump.svg"
             style="display: none"
-          />
-          <img
+          ></button>
+          <button
             ontouchstart="throwShuriken()"
             ontouchend="throwShurikenStop()"
             onContextMenu="return false;"
@@ -114,7 +114,7 @@
             class="mobileIcon mobileThrowShuriken"
             src="img/icons/shuriken.svg"
             style="display: none"
-          />
+          ></button>
         </div>
       </div>
     </div>

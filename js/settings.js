@@ -216,7 +216,7 @@ function gameLost() {
 function gameWon() {
     if (alive) {
         document.getElementById("canvas").style =
-        "background-image: url('img/9_intro_outro_screens/start/startscreen_2.png')";
+        "background-image: url('img/9_intro_outro_screens/start/startscreen_1.png')";
         gameWonSound();
         enableReplayButton();
     }
