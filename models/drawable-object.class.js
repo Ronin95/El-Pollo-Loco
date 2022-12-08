@@ -55,6 +55,27 @@ class DrawableObject {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
 
+    offset = {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+    }
+
+    // offsetForBottle = {
+    //     top: 50,
+    //     bottom: 50,
+    //     left: 50,
+    //     right: 50
+    // }
+
+    // offsetForCoin = {
+    //     top: 50,
+    //     bottom: 50,
+    //     left: 50,
+    //     right: 50
+    // }
+
     /**
      * Checking if the character is colliding with the object.
      * 
@@ -66,34 +87,34 @@ class DrawableObject {
      * @returns {boolean}
      */
     collidingPepe (mo) {
-        return  this.x + this.width > mo.x &&
-                this.y + this.height > mo.y &&
-                this.x < mo.x &&
-                this.y < mo.y + mo.height - 50;
+        return  this.x + this.width - this.offset.right > mo.x + mo.offset.left &&
+                this.y + this.height - this.offset.bottom > mo.y + mo.offset.top &&
+                this.x + this.offset.left < mo.x + mo.width - mo.offset.right &&
+                this.y + this.offset.top < mo.y + mo.height - mo.offset.bottom
     }
 
-    /**
-     * Checking if the character is colliding with the object (enemy) head.
-     * 
-     * @method
-     * @name collidingHead
-     * @kind method
-     * @memberof DrawableObject
-     * @param {any} mo
-     * @returns {boolean}
-     */
-    collidingHead(mo) {
-        return  this.y + this.height > mo.y - this.offsetForHead.top &&
-                this.x + this.width > mo.x + this.offsetForHead.right &&
-                this.x + this.width < mo.x + mo.width;
-    }
+    // /**
+    //  * Checking if the character is colliding with the object (enemy) head.
+    //  * 
+    //  * @method
+    //  * @name collidingHead
+    //  * @kind method
+    //  * @memberof DrawableObject
+    //  * @param {any} mo
+    //  * @returns {boolean}
+    //  */
+    // collidingHead(mo) {
+    //     return  this.y + this.height > mo.y - this.offsetForHead.top &&
+    //             this.x + this.width > mo.x + this.offsetForHead.right &&
+    //             this.x + this.width < mo.x + mo.width;
+    // }
 
-    offsetForHead = {
-        top: 10,
-        bottom: 0,
-        left: 20,
-        right: 0
-    }
+    // offsetForHead = {
+    //     top: 10,
+    //     bottom: 0,
+    //     left: 20,
+    //     right: 0
+    // }
 
     /**
      * Checking if the character is colliding with the bottle.
@@ -106,17 +127,10 @@ class DrawableObject {
      * @returns {boolean}
      */
     collidingBottle(mo) {
-        return  this.x + this.width > mo.x + this.offsetForBottle.right &&
-                this.y + this.height > mo.y + this.offsetForBottle.left &&
-                this.x < mo.x &&
-                this.y < mo.y - 150;
-    }
-
-    offsetForBottle = {
-        top: 50,
-        bottom: 50,
-        left: 50,
-        right: 50
+        return  (this.x + 35) + (this.width - 30) > (mo.x + 10) &&
+                (this.y + 105) + (this.height - 115) > (mo.y + 25) &&
+                (this.x + 35) < (mo.x + 30 + mo.width - 40) &&
+                (this.y + 125) < (mo.y + 25) + (mo.height - 10)
     }
 
     /**
@@ -130,16 +144,9 @@ class DrawableObject {
      * @returns {boolean}
      */
     collidingCoin(mo) {
-        return  this.x + this.width > mo.x + this.offsetForCoin.left &&
-                this.y + this.height > mo.y + this.offsetForCoin.bottom &&
-                this.x < mo.x + mo.width &&
-                this.y < mo.y + mo.height - 50;
-    }
-
-    offsetForCoin = {
-        top: 50,
-        bottom: 50,
-        left: 50,
-        right: 50
+        return  (this.x + 35) + (this.width - 30) > (mo.x + 10) &&
+                (this.y + 105) + (this.height - 115) > (mo.y + 25) &&
+                (this.x + 35) < (mo.x + 30 + mo.width - 40) &&
+                (this.y + 125) < (mo.y + 25) + (mo.height - 10)
     }
 }
