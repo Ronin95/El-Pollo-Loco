@@ -6,6 +6,8 @@ let fullscreen = false;
 let openMenu = false;
 let mobileMode = false;
 let game_status = true; 
+let canvasWidth = 720;
+let canvasHeight = 480;
 let game_over_sound = new Audio('audio/game_over.mp3');
 let game_won_sound = new Audio('audio/win.mp3');
 let song = new Audio('audio/music.mp3');
@@ -43,7 +45,6 @@ function playMusic() {
  */
 function enableMobileMode() {
     if (!mobileMode) {
-        fullscreen = false;
         displayMobileIcons();
         mobileMode = true;
     } else {
@@ -154,10 +155,24 @@ function removeCanvasBackgroundWhilePlaying() {
  */
 function init() {
     document.getElementById("playButton").style = "display: none";
-    document.getElementById("mobileButton").style = "display: none";
     canvas = document.getElementById("canvas");
     world = new World(canvas, keyboard);
     enableReplayButton();
+}
+
+function toggleFullScreen() {
+    if (getFullscreenElement()) {
+        document.exitFullscreen();
+    } else {
+        document.documentElement.requestFullscreen();
+    }
+}
+
+function getFullscreenElement() {
+    return  document.fullscreenElement
+            || document.webkitFullscreenElement
+            || document.mozFullscreenElement
+            || document.msFullscreenElement;
 }
 
 /**

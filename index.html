@@ -35,7 +35,7 @@
 </head>
 <body onload="loadCanvasStartScreen()">
   <div class="allElements">
-    <div class="canvasPositioning">
+    <div class="canvasPositioning" id="fullscreen">
       <div class="userWon">
         <span id="youWon" style="display: none"> YOU WON! </span>
       </div>
@@ -48,6 +48,13 @@
           src="img/icons/volume-off.png" 
           width="30px;"
           onclick="playMusic()" 
+        />
+        <img 
+          class="pointer fullscreen"
+          alt="fullscreen"
+          src="img/icons/fullscreen.svg"
+          width="30px"
+          onclick="toggleFullScreen()" 
         />
         <img
           alt="playButton"
