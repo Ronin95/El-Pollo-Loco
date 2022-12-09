@@ -92,14 +92,32 @@ canvas {
 }
 
 
+.movingMobileButtons {
+  display: flex;
+  gap: 20px;
+}
+
 .movingMobileButtons button {
-  padding-left: 10px;
-  padding-right: 10px;
+  background: none;
+  border: none;
+}
+
+.movingMobileButtons img {
+  width: 40px;
+}
+
+.weaponsJumpButtons {
+  display: flex;
+  gap: 20px;
 }
 
 .weaponsJumpButtons button {
-  padding-left: 10px;
-  padding-right: 10px;
+  background: none;
+  border: none;
+}
+
+.weaponsJumpButtons img {
+  width: 40px;
 }
 
 .mobileAlignment button {
