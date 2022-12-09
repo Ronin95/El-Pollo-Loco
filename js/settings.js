@@ -6,8 +6,6 @@ let fullscreen = false;
 let openMenu = false;
 let mobileMode = false;
 let game_status = true; 
-let canvasWidth = 720;
-let canvasHeight = 480;
 let game_over_sound = new Audio('audio/game_over.mp3');
 let game_won_sound = new Audio('audio/win.mp3');
 let song = new Audio('audio/music.mp3');
@@ -160,6 +158,14 @@ function init() {
     enableReplayButton();
 }
 
+/**
+ * Toggle between fullscreen and no fullscreen
+ * 
+ * @function
+ * @name toggleFullScreen
+ * @kind function
+ * @returns {void}
+ */
 function toggleFullScreen() {
     if (getFullscreenElement()) {
         document.exitFullscreen();
@@ -168,6 +174,14 @@ function toggleFullScreen() {
     }
 }
 
+/**
+ * A function that is called when the user presses the fullscreen button.
+ * 
+ * @function
+ * @name getFullscreenElement
+ * @kind function
+ * @returns {any}
+ */
 function getFullscreenElement() {
     return  document.fullscreenElement
             || document.webkitFullscreenElement
