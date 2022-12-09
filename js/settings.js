@@ -127,7 +127,7 @@ function gameLostSound() {
  */
 function loadCanvasStartScreen() {
     document.getElementById('canvas').style = 
-        "background-image: url('img/9_intro_outro_screens/start/startscreen_1.png')";
+        "background-image: url('img/9_intro_outro_screens/startscreen_1.png')";
 }
 
 /**
@@ -226,7 +226,7 @@ function enableReplay() {
 function gameLost() {
     if (alive) {
         document.getElementById("canvas").style = 
-        "background-position: center; background-image: url('img/9_intro_outro_screens/game_over/game_over.png')";
+        "background-position: center; background-image: url('img/9_intro_outro_screens/game_over.png')";
         document.getElementById('settings').setAttribute('class', 'settingsBasePosition');
         document.getElementById('mobileButtonsAlignment').setAttribute('class', 'mobileButtonsAlignmentGameOver');
         gameLostSound();
@@ -245,7 +245,7 @@ function gameLost() {
 function gameWon() {
     if (alive) {
         document.getElementById("canvas").style =
-        "background-image: url('img/9_intro_outro_screens/start/startscreen_1.png')";
+        "background-image: url('img/9_intro_outro_screens/startscreen_1.png')";
         gameWonSound();
         enableReplayButton();
     }
