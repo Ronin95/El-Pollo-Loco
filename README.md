@@ -14,3 +14,4 @@ The project has to fulfill these checkpoints:
 - when endboss is killed then game over screen is displayed
 - keyboard usage explained
 - no scrollbar inside the game
+- reasonable fullscreen mode that doesn't destroy the graphics
